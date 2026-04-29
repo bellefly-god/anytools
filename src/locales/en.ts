@@ -16,6 +16,7 @@ export const en: Locale = {
   // 导航
   home: 'Home',
   github: 'GitHub Trending',
+  all: 'All',
   
   // 首页
   heroTitle: 'Discover the Best Tools',
@@ -54,6 +55,7 @@ export const en: Locale = {
   // 分类页面
   allTools: 'All Tools',
   toolsCount: 'tools',
+  totalCollected: 'Total',
   
   // Footer
   footer: 'AnyTools - Discover the Best Tools',

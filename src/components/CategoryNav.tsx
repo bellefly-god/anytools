@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Star, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import { categories } from '@/data/tools';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface CategoryNavProps {
   activeCategory?: string;
@@ -11,6 +12,8 @@ interface CategoryNavProps {
 }
 
 export function CategoryNav({ activeCategory, onCategoryChange }: CategoryNavProps) {
+  const { lang } = useLanguage();
+
   return (
     <div className="flex flex-wrap gap-2 justify-center">
       <Link href="/">
@@ -23,7 +26,7 @@ export function CategoryNav({ activeCategory, onCategoryChange }: CategoryNavPro
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
           }`}
         >
-          全部
+          {lang === 'zh' ? '全部' : 'All'}
         </motion.button>
       </Link>
       {categories.map((category) => (
@@ -38,7 +41,7 @@ export function CategoryNav({ activeCategory, onCategoryChange }: CategoryNavPro
             }`}
           >
             <span>{category.icon}</span>
-            <span>{category.name}</span>
+            <span>{lang === 'zh' ? category.name : category.nameEn}</span>
           </motion.button>
         </Link>
       ))}
@@ -52,6 +55,8 @@ interface CategoryCardProps {
 }
 
 export function CategoryCard({ category, index = 0 }: CategoryCardProps) {
+  const { lang } = useLanguage();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -62,7 +67,7 @@ export function CategoryCard({ category, index = 0 }: CategoryCardProps) {
         <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer group">
           <div className="text-3xl mb-2">{category.icon}</div>
           <h3 className="font-semibold text-base mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-            {category.name}
+            {lang === 'zh' ? category.name : category.nameEn}
           </h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
             {category.description}

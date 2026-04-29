@@ -14,6 +14,7 @@ export const zh = {
   // 导航
   home: '首页',
   github: 'GitHub 榜单',
+  all: '全部',
   
   // 首页
   heroTitle: '发现最好的工具',
@@ -52,6 +53,7 @@ export const zh = {
   // 分类页面
   allTools: '全部工具',
   toolsCount: '个工具',
+  totalCollected: '共收录',
   
   // Footer
   footer: 'AnyTools - 发现最好的工具',

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Star, TrendingUp, ExternalLink } from 'lucide-react';
 import { githubTrending } from '@/data/tools';
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface GitHubTrendingProps {
   limit?: number;
@@ -11,6 +12,7 @@ interface GitHubTrendingProps {
 }
 
 export function GitHubTrending({ limit = 5, showAll = false }: GitHubTrendingProps) {
+  const { t } = useLanguage();
   const items = showAll 
     ? githubTrending.topByStars 
     : githubTrending.topByStars.slice(0, limit);
@@ -20,10 +22,10 @@ export function GitHubTrending({ limit = 5, showAll = false }: GitHubTrendingPro
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-semibold text-lg flex items-center gap-2">
           <span className="text-2xl">🏆</span>
-          GitHub Stars 榜 Top 10
+          {t.githubTrending}
         </h3>
         <span className="text-xs text-gray-500">
-          更新于 {githubTrending.lastUpdate}
+          {t.updated} {githubTrending.lastUpdate}
         </span>
       </div>
       <div className="space-y-2">
@@ -66,6 +68,7 @@ export function GitHubTrending({ limit = 5, showAll = false }: GitHubTrendingPro
 }
 
 export function GitHubGrowth({ limit = 5, showAll = false }: GitHubTrendingProps) {
+  const { t } = useLanguage();
   const items = showAll 
     ? githubTrending.topByGrowth 
     : githubTrending.topByGrowth.slice(0, limit);
@@ -75,7 +78,7 @@ export function GitHubGrowth({ limit = 5, showAll = false }: GitHubTrendingProps
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-semibold text-lg flex items-center gap-2">
           <span className="text-2xl">🚀</span>
-          本周增长最快 Top 10
+          {t.githubGrowth}
         </h3>
       </div>
       <div className="space-y-2">
@@ -119,6 +122,7 @@ export function GitHubGrowth({ limit = 5, showAll = false }: GitHubTrendingProps
 
 // 精简版 - 用于首页
 export function GitHubTrendingCompact() {
+  const { t, lang } = useLanguage();
   const starsItems = githubTrending.topByStars.slice(0, 5);
   const growthItems = githubTrending.topByGrowth.slice(0, 5);
 
@@ -129,10 +133,10 @@ export function GitHubTrendingCompact() {
         <div className="flex items-center justify-between mb-3">
           <h3 className="font-semibold flex items-center gap-2">
             <span className="text-xl">🏆</span>
-            Stars 榜
+            {t.starsRank}
           </h3>
           <Link href="/github" className="text-xs text-blue-600 hover:text-blue-700">
-            查看全部 →
+            {t.viewAll} →
           </Link>
         </div>
         <div className="space-y-1.5">
@@ -162,10 +166,10 @@ export function GitHubTrendingCompact() {
         <div className="flex items-center justify-between mb-3">
           <h3 className="font-semibold flex items-center gap-2">
             <span className="text-xl">🚀</span>
-            增长榜
+            {t.growthRank}
           </h3>
           <Link href="/github" className="text-xs text-blue-600 hover:text-blue-700">
-            查看全部 →
+            {t.viewAll} →
           </Link>
         </div>
         <div className="space-y-1.5">
