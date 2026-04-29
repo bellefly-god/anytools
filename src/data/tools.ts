@@ -96,7 +96,7 @@ export const tools: Tool[] = [
   {
     id: 'claude',
     name: 'Claude',
-    description: 'Anthropic AI 编程助手',
+    description: '最懂编程的 AI',
     url: 'https://claude.ai',
     category: 'ai-tools',
     subCategory: 'AI 对话',
@@ -110,7 +110,7 @@ export const tools: Tool[] = [
   {
     id: 'chatgpt',
     name: 'ChatGPT',
-    description: 'OpenAI 多模态对话 AI',
+    description: '最智能的对话 AI',
     url: 'https://chat.openai.com',
     category: 'ai-tools',
     subCategory: 'AI 对话',
@@ -124,7 +124,7 @@ export const tools: Tool[] = [
   {
     id: 'gemini',
     name: 'Gemini',
-    description: 'Google 长上下文 AI',
+    description: '100 万 token 上下文',
     url: 'https://gemini.google.com',
     category: 'ai-tools',
     subCategory: 'AI 对话',
@@ -137,7 +137,7 @@ export const tools: Tool[] = [
   {
     id: 'grok',
     name: 'Grok',
-    description: 'xAI 实时对话 AI',
+    description: '实时联网真搜索',
     url: 'https://x.ai',
     category: 'ai-tools',
     subCategory: 'AI 对话',
@@ -151,7 +151,7 @@ export const tools: Tool[] = [
   {
     id: 'perplexity',
     name: 'Perplexity',
-    description: 'AI 搜索引擎',
+    description: 'AI 搜索答案精准',
     url: 'https://perplexity.ai',
     category: 'ai-tools',
     subCategory: 'AI 对话',
@@ -165,7 +165,7 @@ export const tools: Tool[] = [
   {
     id: 'deepseek',
     name: 'DeepSeek',
-    description: '国产高性价比 AI',
+    description: 'DeepSeek 性价比王',
     url: 'https://deepseek.com',
     category: 'ai-tools',
     subCategory: 'AI 对话',
@@ -179,7 +179,7 @@ export const tools: Tool[] = [
   {
     id: 'kimi',
     name: 'Kimi',
-    description: '月之暗面长文本 AI',
+    description: '国产长文本之王',
     url: 'https://kimi.moonshot.cn',
     category: 'ai-tools',
     subCategory: 'AI 对话',
@@ -193,7 +193,7 @@ export const tools: Tool[] = [
   {
     id: 'doubao',
     name: '豆包',
-    description: '字节跳动 AI 助手',
+    description: '抖音同款 AI',
     url: 'https://doubao.com',
     category: 'ai-tools',
     subCategory: 'AI 对话',
@@ -206,7 +206,7 @@ export const tools: Tool[] = [
   {
     id: 'tongyi',
     name: '通义千问',
-    description: '阿里 AI 助手',
+    description: '阿里全家桶 AI',
     url: 'https://tongyi.aliyun.com',
     category: 'ai-tools',
     subCategory: 'AI 对话',
@@ -219,7 +219,7 @@ export const tools: Tool[] = [
   {
     id: 'wenxin',
     name: '文心一言',
-    description: '百度 AI 助手',
+    description: '百度搜索增强',
     url: 'https://yiyan.baidu.com',
     category: 'ai-tools',
     subCategory: 'AI 对话',
@@ -233,7 +233,7 @@ export const tools: Tool[] = [
   {
     id: 'midjourney',
     name: 'Midjourney',
-    description: 'AI 绘图艺术感强',
+    description: '艺术感最强的绘图',
     url: 'https://midjourney.com',
     category: 'ai-tools',
     subCategory: 'AI 绘图',
@@ -247,7 +247,7 @@ export const tools: Tool[] = [
   {
     id: 'dalle',
     name: 'DALL-E 3',
-    description: 'OpenAI 绘图模型',
+    description: 'DALL-E 文字理解强',
     url: 'https://openai.com/dall-e-3',
     category: 'ai-tools',
     subCategory: 'AI 绘图',
@@ -260,7 +260,7 @@ export const tools: Tool[] = [
   {
     id: 'leonardo',
     name: 'Leonardo AI',
-    description: 'AI 游戏素材生成',
+    description: '游戏素材一键生成',
     url: 'https://leonardo.ai',
     category: 'ai-tools',
     subCategory: 'AI 绘图',
@@ -273,7 +273,7 @@ export const tools: Tool[] = [
   {
     id: 'ideogram',
     name: 'Ideogram',
-    description: 'AI 文字渲染最佳',
+    description: '文字渲染最精准',
     url: 'https://ideogram.ai',
     category: 'ai-tools',
     subCategory: 'AI 绘图',
@@ -287,7 +287,7 @@ export const tools: Tool[] = [
   {
     id: 'flux',
     name: 'Flux',
-    description: '开源 AI 写实绘图',
+    description: '写实风格开源免费',
     url: 'https://flux1.ai',
     category: 'ai-tools',
     subCategory: 'AI 绘图',
@@ -301,7 +301,7 @@ export const tools: Tool[] = [
   {
     id: 'cursor',
     name: 'Cursor',
-    description: 'AI 代码编辑器',
+    description: '最聪明的代码编辑器',
     url: 'https://cursor.sh',
     category: 'ai-tools',
     subCategory: 'AI 编程',
@@ -315,7 +315,7 @@ export const tools: Tool[] = [
   {
     id: 'claude-code',
     name: 'Claude Code',
-    description: '终端 AI 编程',
+    description: '命令行 AI 编程',
     url: 'https://claude.ai/code',
     category: 'ai-tools',
     subCategory: 'AI 编程',
@@ -329,7 +329,7 @@ export const tools: Tool[] = [
   {
     id: 'v0',
     name: 'v0.dev',
-    description: 'AI UI 生成器',
+    description: 'Vercel 出品 UI 生成',
     url: 'https://v0.dev',
     category: 'ai-tools',
     subCategory: 'AI 编程',
@@ -342,7 +342,7 @@ export const tools: Tool[] = [
   {
     id: 'bolt',
     name: 'Bolt.new',
-    description: 'AI 全栈生成',
+    description: '一句话生成全栈应用',
     url: 'https://bolt.new',
     category: 'ai-tools',
     subCategory: 'AI 编程',
@@ -356,7 +356,7 @@ export const tools: Tool[] = [
   {
     id: 'lovable',
     name: 'Lovable',
-    description: 'AI 全栈构建',
+    description: '自然语言写应用',
     url: 'https://lovable.dev',
     category: 'ai-tools',
     subCategory: 'AI 编程',
@@ -370,7 +370,7 @@ export const tools: Tool[] = [
   {
     id: 'runway',
     name: 'Runway',
-    description: 'AI 视频生成',
+    description: 'Gen-3 视频生成最强',
     url: 'https://runway.ml',
     category: 'ai-tools',
     subCategory: 'AI 视频',
@@ -397,7 +397,7 @@ export const tools: Tool[] = [
   {
     id: 'heygen',
     name: 'HeyGen',
-    description: 'AI 数字人视频',
+    description: '数字人视频最自然',
     url: 'https://heygen.com',
     category: 'ai-tools',
     subCategory: 'AI 视频',
@@ -410,7 +410,7 @@ export const tools: Tool[] = [
   {
     id: 'sora',
     name: 'Sora',
-    description: 'OpenAI 视频生成',
+    description: 'OpenAI 视频模型',
     url: 'https://openai.com/sora',
     category: 'ai-tools',
     subCategory: 'AI 视频',
@@ -425,7 +425,7 @@ export const tools: Tool[] = [
   {
     id: 'elevenlabs',
     name: 'ElevenLabs',
-    description: 'AI 语音合成',
+    description: '最自然的 AI 语音',
     url: 'https://elevenlabs.io',
     category: 'ai-tools',
     subCategory: 'AI 音频',
@@ -438,7 +438,7 @@ export const tools: Tool[] = [
   {
     id: 'suno',
     name: 'Suno',
-    description: 'AI 音乐生成',
+    description: '写歌神器出圈',
     url: 'https://suno.ai',
     category: 'ai-tools',
     subCategory: 'AI 音频',
@@ -452,7 +452,7 @@ export const tools: Tool[] = [
   {
     id: 'udio',
     name: 'Udio',
-    description: 'AI 专业音乐生成',
+    description: '专业级 AI 音乐',
     url: 'https://udio.com',
     category: 'ai-tools',
     subCategory: 'AI 音频',
@@ -468,7 +468,7 @@ export const tools: Tool[] = [
   {
     id: 'claude-4',
     name: 'Claude 4',
-    description: 'Anthropic 最新模型',
+    description: 'Claude 4 编程最强',
     url: 'https://claude.ai',
     category: 'ai-models',
     subCategory: '大语言模型',
@@ -482,7 +482,7 @@ export const tools: Tool[] = [
   {
     id: 'gpt-4o',
     name: 'GPT-4o',
-    description: 'OpenAI 多模态',
+    description: 'GPT-4o 多模态领先',
     url: 'https://openai.com',
     category: 'ai-models',
     subCategory: '大语言模型',
@@ -495,7 +495,7 @@ export const tools: Tool[] = [
   {
     id: 'gemini-2',
     name: 'Gemini 2.5',
-    description: 'Google 长上下文',
+    description: 'Gemini 200 万 token',
     url: 'https://gemini.google.com',
     category: 'ai-models',
     subCategory: '大语言模型',
@@ -508,7 +508,7 @@ export const tools: Tool[] = [
   {
     id: 'llama-4',
     name: 'Llama 4',
-    description: 'Meta 开源模型',
+    description: 'Llama 开源最强',
     url: 'https://llama.meta.com',
     category: 'ai-models',
     subCategory: '大语言模型',
@@ -521,7 +521,7 @@ export const tools: Tool[] = [
   {
     id: 'mistral-large',
     name: 'Mistral Large',
-    description: '欧洲开源 AI',
+    description: 'Mistral 高效开源',
     url: 'https://mistral.ai',
     category: 'ai-models',
     subCategory: '大语言模型',
@@ -534,7 +534,7 @@ export const tools: Tool[] = [
   {
     id: 'qwen-3',
     name: '通义千问 3',
-    description: '阿里中文大模型',
+    description: '通义中文最强',
     url: 'https://tongyi.aliyun.com',
     category: 'ai-models',
     subCategory: '大语言模型',
@@ -550,7 +550,7 @@ export const tools: Tool[] = [
   {
     id: 'vercel',
     name: 'Vercel',
-    description: 'Next.js 部署平台',
+    description: 'Next.js 官方托管',
     url: 'https://vercel.com',
     category: 'dev-tools',
     subCategory: '部署平台',
@@ -564,7 +564,7 @@ export const tools: Tool[] = [
   {
     id: 'cloudflare-pages',
     name: 'Cloudflare Pages',
-    description: 'CDN 边缘计算',
+    description: 'Cloudflare 全球加速',
     url: 'https://pages.cloudflare.com',
     category: 'dev-tools',
     subCategory: '部署平台',
@@ -577,7 +577,7 @@ export const tools: Tool[] = [
   {
     id: 'netlify',
     name: 'Netlify',
-    description: '静态站点部署',
+    description: '静态网站免费部署',
     url: 'https://netlify.com',
     category: 'dev-tools',
     subCategory: '部署平台',
@@ -590,7 +590,7 @@ export const tools: Tool[] = [
   {
     id: 'railway',
     name: 'Railway',
-    description: '全栈部署平台',
+    description: '数据库一体部署',
     url: 'https://railway.app',
     category: 'dev-tools',
     subCategory: '部署平台',
@@ -604,7 +604,7 @@ export const tools: Tool[] = [
   {
     id: 'fly-io',
     name: 'Fly.io',
-    description: '边缘计算部署',
+    description: '边缘节点全球部署',
     url: 'https://fly.io',
     category: 'dev-tools',
     subCategory: '部署平台',
@@ -618,7 +618,7 @@ export const tools: Tool[] = [
   {
     id: 'supabase',
     name: 'Supabase',
-    description: '开源 Firebase 替代',
+    description: 'PostgreSQL 开源后端',
     url: 'https://supabase.com',
     category: 'dev-tools',
     subCategory: '数据库',
@@ -632,7 +632,7 @@ export const tools: Tool[] = [
   {
     id: 'planetscale',
     name: 'PlanetScale',
-    description: '无服务器 MySQL',
+    description: 'MySQL 分支数据库',
     url: 'https://planetscale.com',
     category: 'dev-tools',
     subCategory: '数据库',
@@ -645,7 +645,7 @@ export const tools: Tool[] = [
   {
     id: 'neon',
     name: 'Neon',
-    description: '无服务器 Postgres',
+    description: 'Postgres 无服务器',
     url: 'https://neon.tech',
     category: 'dev-tools',
     subCategory: '数据库',
@@ -659,7 +659,7 @@ export const tools: Tool[] = [
   {
     id: 'upstash',
     name: 'Upstash',
-    description: '无服务器 Redis',
+    description: 'Redis 按量付费',
     url: 'https://upstash.com',
     category: 'dev-tools',
     subCategory: '数据库',
@@ -672,7 +672,7 @@ export const tools: Tool[] = [
   {
     id: 'turso',
     name: 'Turso',
-    description: '边缘 SQLite',
+    description: 'SQLite 边缘数据库',
     url: 'https://turso.tech',
     category: 'dev-tools',
     subCategory: '数据库',
@@ -686,11 +686,24 @@ export const tools: Tool[] = [
   {
     id: 'stripe',
     name: 'Stripe',
-    description: '全球支付平台',
+    description: '开发者首选支付',
     url: 'https://stripe.com',
     category: 'dev-tools',
     subCategory: '支付',
-    tags: ['支付', '订阅', '全球'],
+    tags: ['支付', '订阅', 'API'],
+    pricing: 'paid',
+    platform: ['web'],
+    featured: true,
+    type: 'tool',
+  },
+  {
+    id: 'paypal',
+    name: 'PayPal',
+    description: '全球最大支付平台',
+    url: 'https://paypal.com',
+    category: 'dev-tools',
+    subCategory: '支付',
+    tags: ['支付', '全球', '跨境'],
     pricing: 'paid',
     platform: ['web'],
     featured: true,
@@ -699,11 +712,11 @@ export const tools: Tool[] = [
   {
     id: 'lemon-squeezy',
     name: 'LemonSqueezy',
-    description: 'SaaS 支付平台',
+    description: '无需公司收款',
     url: 'https://lemonsqueezy.com',
     category: 'dev-tools',
     subCategory: '支付',
-    tags: ['支付', 'SaaS', '全球'],
+    tags: ['支付', 'SaaS', '无需公司'],
     pricing: 'paid',
     platform: ['web'],
     featured: true,
@@ -713,11 +726,38 @@ export const tools: Tool[] = [
   {
     id: 'paddle',
     name: 'Paddle',
-    description: 'SaaS 税务支付',
+    description: 'SaaS 全托管支付',
     url: 'https://paddle.com',
     category: 'dev-tools',
     subCategory: '支付',
     tags: ['支付', 'SaaS', '税务'],
+    pricing: 'paid',
+    platform: ['web'],
+    featured: false,
+    type: 'tool',
+  },
+  {
+    id: 'creem',
+    name: 'Creem',
+    description: 'AI 原生支付',
+    url: 'https://creem.io',
+    category: 'dev-tools',
+    subCategory: '支付',
+    tags: ['支付', 'AI', '加密'],
+    pricing: 'freemium',
+    platform: ['web'],
+    featured: false,
+    hot: true,
+    type: 'tool',
+  },
+  {
+    id: 'gumroad',
+    name: 'Gumroad',
+    description: '创作者收款神器',
+    url: 'https://gumroad.com',
+    category: 'dev-tools',
+    subCategory: '支付',
+    tags: ['支付', '创作者', '数字产品'],
     pricing: 'paid',
     platform: ['web'],
     featured: false,
@@ -784,7 +824,7 @@ export const tools: Tool[] = [
   {
     id: 'hardhat',
     name: 'Hardhat',
-    description: '以太坊开发框架',
+    description: 'Solidity 开发首选',
     url: 'https://hardhat.org',
     category: 'web3-tools',
     subCategory: '开发框架',
@@ -797,7 +837,7 @@ export const tools: Tool[] = [
   {
     id: 'foundry',
     name: 'Foundry',
-    description: 'Rust 开发工具',
+    description: 'Rust 编译最快',
     url: 'https://book.getfoundry.sh',
     category: 'web3-tools',
     subCategory: '开发框架',
@@ -811,7 +851,7 @@ export const tools: Tool[] = [
   {
     id: 'wagmi',
     name: 'Wagmi',
-    description: 'React Web3 库',
+    description: 'React 钱包开发',
     url: 'https://wagmi.sh',
     category: 'web3-tools',
     subCategory: '开发框架',
@@ -825,7 +865,7 @@ export const tools: Tool[] = [
   {
     id: 'alchemy',
     name: 'Alchemy',
-    description: '区块链节点服务',
+    description: 'Alchemy 节点 API',
     url: 'https://alchemy.com',
     category: 'web3-tools',
     subCategory: '节点服务',
@@ -838,7 +878,7 @@ export const tools: Tool[] = [
   {
     id: 'infura',
     name: 'Infura',
-    description: 'ConsenSys 节点',
+    description: 'Infura 以太坊节点',
     url: 'https://infura.io',
     category: 'web3-tools',
     subCategory: '节点服务',
@@ -852,7 +892,7 @@ export const tools: Tool[] = [
   {
     id: 'metamask',
     name: 'MetaMask',
-    description: '以太坊钱包',
+    description: '最流行的以太坊钱包',
     url: 'https://metamask.io',
     category: 'web3-tools',
     subCategory: '钱包',
@@ -865,7 +905,7 @@ export const tools: Tool[] = [
   {
     id: 'phantom',
     name: 'Phantom',
-    description: 'Solana 钱包',
+    description: 'Solana 生态首选',
     url: 'https://phantom.app',
     category: 'web3-tools',
     subCategory: '钱包',
@@ -878,7 +918,7 @@ export const tools: Tool[] = [
   {
     id: 'rainbow',
     name: 'Rainbow',
-    description: '美观以太坊钱包',
+    description: 'Rainbow 设计最美',
     url: 'https://rainbow.me',
     category: 'web3-tools',
     subCategory: '钱包',
@@ -892,7 +932,7 @@ export const tools: Tool[] = [
   {
     id: 'uniswap',
     name: 'Uniswap',
-    description: '去中心化交易所',
+    description: 'Uniswap DEX 龙头',
     url: 'https://uniswap.org',
     category: 'web3-tools',
     subCategory: 'DeFi',
@@ -905,7 +945,7 @@ export const tools: Tool[] = [
   {
     id: 'aave',
     name: 'Aave',
-    description: '去中心化借贷',
+    description: 'Aave 借贷协议',
     url: 'https://aave.com',
     category: 'web3-tools',
     subCategory: 'DeFi',
@@ -919,7 +959,7 @@ export const tools: Tool[] = [
   {
     id: 'opensea',
     name: 'OpenSea',
-    description: 'NFT 交易市场',
+    description: 'OpenSea NFT 交易',
     url: 'https://opensea.io',
     category: 'web3-tools',
     subCategory: 'NFT',
@@ -932,7 +972,7 @@ export const tools: Tool[] = [
   {
     id: 'magic-eden',
     name: 'Magic Eden',
-    description: '多链 NFT 市场',
+    description: 'Magic Eden 多链支持',
     url: 'https://magiceden.io',
     category: 'web3-tools',
     subCategory: 'NFT',
@@ -946,7 +986,7 @@ export const tools: Tool[] = [
   {
     id: 'dune',
     name: 'Dune Analytics',
-    description: '链上数据分析',
+    description: 'Dune SQL 分析链上',
     url: 'https://dune.com',
     category: 'web3-tools',
     subCategory: '数据分析',
@@ -960,7 +1000,7 @@ export const tools: Tool[] = [
   {
     id: 'defillama',
     name: 'DefiLlama',
-    description: 'DeFi 数据聚合',
+    description: 'DeFiLlama 数据聚合',
     url: 'https://defillama.com',
     category: 'web3-tools',
     subCategory: '数据分析',
@@ -975,7 +1015,7 @@ export const tools: Tool[] = [
   {
     id: 'raycast',
     name: 'Raycast',
-    description: 'Mac 效率启动器',
+    description: 'Mac 效率神器',
     url: 'https://raycast.com',
     category: 'productivity',
     subCategory: '启动器',
@@ -989,7 +1029,7 @@ export const tools: Tool[] = [
   {
     id: 'arc',
     name: 'Arc Browser',
-    description: '现代浏览器',
+    description: '空间概念浏览器',
     url: 'https://arc.net',
     category: 'productivity',
     subCategory: '浏览器',
@@ -1003,7 +1043,7 @@ export const tools: Tool[] = [
   {
     id: 'linear',
     name: 'Linear',
-    description: '极简项目管理',
+    description: 'Linear 极简设计',
     url: 'https://linear.app',
     category: 'productivity',
     subCategory: '项目管理',
@@ -1016,7 +1056,7 @@ export const tools: Tool[] = [
   {
     id: 'superhuman',
     name: 'Superhuman',
-    description: '极速邮件客户端',
+    description: 'Superhuman 最快邮件',
     url: 'https://superhuman.com',
     category: 'productivity',
     subCategory: '邮件',
@@ -1029,7 +1069,7 @@ export const tools: Tool[] = [
   {
     id: '1password',
     name: '1Password',
-    description: '密码管理器',
+    description: '1Password 安全可靠',
     url: 'https://1password.com',
     category: 'productivity',
     subCategory: '密码管理',
@@ -1042,7 +1082,7 @@ export const tools: Tool[] = [
   {
     id: 'cleanshot',
     name: 'CleanShot X',
-    description: 'Mac 截图录屏',
+    description: 'CleanShot 截图神器',
     url: 'https://cleanshot.com',
     category: 'productivity',
     subCategory: '截图',
@@ -1057,7 +1097,7 @@ export const tools: Tool[] = [
   {
     id: 'figma',
     name: 'Figma',
-    description: '协作设计工具',
+    description: 'Figma 设计协作标准',
     url: 'https://figma.com',
     category: 'design',
     subCategory: 'UI 设计',
@@ -1070,7 +1110,7 @@ export const tools: Tool[] = [
   {
     id: 'canva',
     name: 'Canva',
-    description: '在线设计平台',
+    description: 'Canva 模板丰富',
     url: 'https://canva.com',
     category: 'design',
     subCategory: '平面设计',
@@ -1083,7 +1123,7 @@ export const tools: Tool[] = [
   {
     id: 'photopea',
     name: 'Photopea',
-    description: '免费在线 PS',
+    description: 'Photopea 在线 PS',
     url: 'https://photopea.com',
     category: 'design',
     subCategory: '图片编辑',
@@ -1096,7 +1136,7 @@ export const tools: Tool[] = [
   {
     id: 'excalidraw',
     name: 'Excalidraw',
-    description: '手绘风格白板',
+    description: 'Excalidraw 手绘风',
     url: 'https://excalidraw.com',
     category: 'design',
     subCategory: '白板',
@@ -1109,7 +1149,7 @@ export const tools: Tool[] = [
   {
     id: 'coolors',
     name: 'Coolors',
-    description: '配色方案生成',
+    description: 'Coolors 配色生成',
     url: 'https://coolors.co',
     category: 'design',
     subCategory: '配色',
@@ -1122,7 +1162,7 @@ export const tools: Tool[] = [
   {
     id: 'iconify',
     name: 'Iconify',
-    description: '统一图标库',
+    description: 'Iconify 10 万图标',
     url: 'https://iconify.design',
     category: 'design',
     subCategory: '图标',
@@ -1137,7 +1177,7 @@ export const tools: Tool[] = [
   {
     id: 'google-analytics',
     name: 'Google Analytics',
-    description: '网站分析工具',
+    description: 'GA 网站分析免费',
     url: 'https://analytics.google.com',
     category: 'marketing',
     subCategory: '分析',
@@ -1150,7 +1190,7 @@ export const tools: Tool[] = [
   {
     id: 'plausible',
     name: 'Plausible',
-    description: '隐私友好分析',
+    description: 'Plausible 隐私优先',
     url: 'https://plausible.io',
     category: 'marketing',
     subCategory: '分析',
@@ -1163,7 +1203,7 @@ export const tools: Tool[] = [
   {
     id: 'buffer',
     name: 'Buffer',
-    description: '社媒管理调度',
+    description: 'Buffer 社媒管理',
     url: 'https://buffer.com',
     category: 'marketing',
     subCategory: '社媒',
@@ -1176,7 +1216,7 @@ export const tools: Tool[] = [
   {
     id: 'mailchimp',
     name: 'Mailchimp',
-    description: '邮件营销平台',
+    description: 'Mailchimp 邮件营销',
     url: 'https://mailchimp.com',
     category: 'marketing',
     subCategory: '邮件营销',
@@ -1189,7 +1229,7 @@ export const tools: Tool[] = [
   {
     id: 'tiny-png',
     name: 'TinyPNG',
-    description: '图片压缩工具',
+    description: 'TinyPNG 图片压缩',
     url: 'https://tinypng.com',
     category: 'marketing',
     subCategory: '图片',
@@ -1204,7 +1244,7 @@ export const tools: Tool[] = [
   {
     id: 'notion',
     name: 'Notion',
-    description: '知识库协作',
+    description: 'Notion 全能协作',
     url: 'https://notion.so',
     category: 'documents',
     subCategory: '知识库',
@@ -1218,7 +1258,7 @@ export const tools: Tool[] = [
   {
     id: 'obsidian',
     name: 'Obsidian',
-    description: '本地知识笔记',
+    description: 'Obsidian 本地优先',
     url: 'https://obsidian.md',
     category: 'documents',
     subCategory: '笔记',
@@ -1231,7 +1271,7 @@ export const tools: Tool[] = [
   {
     id: 'logseq',
     name: 'Logseq',
-    description: '大纲知识管理',
+    description: 'Logseq 大纲笔记',
     url: 'https://logseq.com',
     category: 'documents',
     subCategory: '笔记',
@@ -1244,7 +1284,7 @@ export const tools: Tool[] = [
   {
     id: 'feishu',
     name: '飞书',
-    description: '企业协作平台',
+    description: '飞书企业协作',
     url: 'https://feishu.cn',
     category: 'documents',
     subCategory: '协作',
@@ -1257,7 +1297,7 @@ export const tools: Tool[] = [
   {
     id: 'yuque',
     name: '语雀',
-    description: '阿里文档平台',
+    description: '语雀知识库',
     url: 'https://yuque.com',
     category: 'documents',
     subCategory: '知识库',
@@ -1272,7 +1312,7 @@ export const tools: Tool[] = [
   {
     id: 'remove-bg',
     name: 'Remove.bg',
-    description: 'AI 一键抠图',
+    description: 'Remove.bg 一键抠图',
     url: 'https://remove.bg',
     category: 'life-tools',
     subCategory: '图片',
@@ -1285,7 +1325,7 @@ export const tools: Tool[] = [
   {
     id: 'deep-l',
     name: 'DeepL',
-    description: 'AI 翻译工具',
+    description: 'DeepL 翻译最自然',
     url: 'https://deepl.com',
     category: 'life-tools',
     subCategory: '翻译',
@@ -1298,7 +1338,7 @@ export const tools: Tool[] = [
   {
     id: 'ilovepdf',
     name: 'iLovePDF',
-    description: 'PDF 处理工具',
+    description: 'iLovePDF PDF 工具',
     url: 'https://ilovepdf.com',
     category: 'life-tools',
     subCategory: 'PDF',
@@ -1311,7 +1351,7 @@ export const tools: Tool[] = [
   {
     id: 'qr-code-generator',
     name: 'QR Code Generator',
-    description: '二维码生成',
+    description: 'QR Code 生成器',
     url: 'https://qr-code-generator.com',
     category: 'life-tools',
     subCategory: '二维码',
@@ -1324,7 +1364,7 @@ export const tools: Tool[] = [
   {
     id: 'unsplash',
     name: 'Unsplash',
-    description: '免费图片库',
+    description: 'Unsplash 高清免费',
     url: 'https://unsplash.com',
     category: 'life-tools',
     subCategory: '图片',
@@ -1337,7 +1377,7 @@ export const tools: Tool[] = [
   {
     id: 'flaticon',
     name: 'Flaticon',
-    description: '免费图标素材',
+    description: 'Flaticon 图标素材',
     url: 'https://flaticon.com',
     category: 'life-tools',
     subCategory: '图标',
@@ -1353,7 +1393,7 @@ export const tools: Tool[] = [
   {
     id: 'windsurf',
     name: 'Windsurf',
-    description: 'Codeium AI 编程',
+    description: 'Windsurf 深度集成',
     url: 'https://codeium.com/windsurf',
     category: 'ai-tools',
     subCategory: 'AI 编程',
@@ -1367,7 +1407,7 @@ export const tools: Tool[] = [
   {
     id: 'github-copilot',
     name: 'GitHub Copilot',
-    description: 'GitHub AI 编程助手',
+    description: '最强代码补全',
     url: 'https://github.com/features/copilot',
     category: 'ai-tools',
     subCategory: 'AI 编程',
@@ -1381,7 +1421,7 @@ export const tools: Tool[] = [
   {
     id: 'codeium',
     name: 'Codeium',
-    description: '免费代码加速工具',
+    description: '40 种语言免费补全',
     url: 'https://codeium.com',
     category: 'ai-tools',
     subCategory: 'AI 编程',
@@ -1394,7 +1434,7 @@ export const tools: Tool[] = [
   {
     id: 'tongyi-lingma',
     name: '通义灵码',
-    description: '阿里免费 AI 编程',
+    description: '阿里云免费编程助手',
     url: 'https://tongyi.aliyun.com/lingma',
     category: 'ai-tools',
     subCategory: 'AI 编程',
@@ -1407,7 +1447,7 @@ export const tools: Tool[] = [
   {
     id: 'codegeex',
     name: 'CodeGeeX',
-    description: '智能编程助手',
+    description: '国产免费编程助手',
     url: 'https://codegeex.cn',
     category: 'ai-tools',
     subCategory: 'AI 编程',
@@ -1420,7 +1460,7 @@ export const tools: Tool[] = [
   {
     id: 'trae',
     name: 'TRAE',
-    description: '字节 AI 代码助手',
+    description: '字节出品 AI IDE',
     url: 'https://trae.ai',
     category: 'ai-tools',
     subCategory: 'AI 编程',
@@ -1434,7 +1474,7 @@ export const tools: Tool[] = [
   {
     id: 'devin',
     name: 'Devin',
-    description: '首个全自主 AI 程序员',
+    description: 'AI 自己写代码',
     url: 'https://devin.ai',
     category: 'ai-tools',
     subCategory: 'AI 编程',
@@ -1448,7 +1488,7 @@ export const tools: Tool[] = [
   {
     id: 'uizard',
     name: 'Uizard',
-    description: '设计界 ChatGPT',
+    description: 'Uizard AI 生成 UI',
     url: 'https://uizard.io',
     category: 'design',
     subCategory: 'UI 设计',
@@ -1461,7 +1501,7 @@ export const tools: Tool[] = [
   {
     id: 'creatie-ai',
     name: 'Creatie.ai',
-    description: '一键生成 UI',
+    description: 'Creatie 快速原型',
     url: 'https://creatie.ai',
     category: 'design',
     subCategory: 'UI 设计',
@@ -1474,7 +1514,7 @@ export const tools: Tool[] = [
   {
     id: 'duiyou-ai',
     name: '堆友 AI',
-    description: '设计师 AI 平台',
+    description: '堆友设计师社区',
     url: 'https://d.design',
     category: 'design',
     subCategory: 'AI 设计',
@@ -1488,7 +1528,7 @@ export const tools: Tool[] = [
   {
     id: 'metaso',
     name: '秘塔 AI 搜索',
-    description: '无广告直达结果',
+    description: '无广告搜索直达',
     url: 'https://metaso.cn',
     category: 'ai-tools',
     subCategory: 'AI 搜索',
@@ -1502,7 +1542,7 @@ export const tools: Tool[] = [
   {
     id: 'quark-ai',
     name: '夸克 AI',
-    description: '集搜索网盘文档',
+    description: '阿里全家桶工具',
     url: 'https://quark.cn',
     category: 'ai-tools',
     subCategory: 'AI 搜索',
@@ -1516,7 +1556,7 @@ export const tools: Tool[] = [
   {
     id: 'haimian',
     name: '海绵音乐',
-    description: '字节 AI 音乐',
+    description: '字节免费音乐创作',
     url: 'https://haimian.com',
     category: 'ai-tools',
     subCategory: 'AI 音频',
@@ -1529,7 +1569,7 @@ export const tools: Tool[] = [
   {
     id: 'wangyi-tianyin',
     name: '网易天音',
-    description: '网易 AI 音乐',
+    description: '网易音乐创作工具',
     url: 'https://tianyin.163.com',
     category: 'ai-tools',
     subCategory: 'AI 音频',
@@ -1542,7 +1582,7 @@ export const tools: Tool[] = [
   {
     id: 'xunfei-tingjian',
     name: '讯飞听见',
-    description: '语音转文字',
+    description: '科大讯飞转写',
     url: 'https://tingjian.iflyrec.com',
     category: 'ai-tools',
     subCategory: 'AI 音频',
@@ -1556,7 +1596,7 @@ export const tools: Tool[] = [
   {
     id: 'wawa-xiezuo',
     name: '蛙蛙写作',
-    description: 'AI 写小说工具',
+    description: '小说创作辅助',
     url: 'https://wawa.xin',
     category: 'ai-tools',
     subCategory: 'AI 写作',
@@ -1569,7 +1609,7 @@ export const tools: Tool[] = [
   {
     id: 'biling-ai',
     name: '笔灵 AI',
-    description: 'AI 论文写作',
+    description: '学术论文助手',
     url: 'https://ibiling.cn',
     category: 'ai-tools',
     subCategory: 'AI 写作',
@@ -1582,7 +1622,7 @@ export const tools: Tool[] = [
   {
     id: 'xunfei-wenshu',
     name: '讯飞文书',
-    description: 'AI 公文写作',
+    description: '公文写作提效',
     url: 'https://xw.iflytek.com',
     category: 'ai-tools',
     subCategory: 'AI 写作',
@@ -1596,7 +1636,7 @@ export const tools: Tool[] = [
   {
     id: 'ollama',
     name: 'Ollama',
-    description: '本地 AI 模型运行',
+    description: 'Ollama 本地跑模型',
     url: 'https://ollama.ai',
     category: 'dev-tools',
     subCategory: 'AI 开发',
@@ -1610,7 +1650,7 @@ export const tools: Tool[] = [
   {
     id: 'appwrite',
     name: 'Appwrite',
-    description: '开源后端平台',
+    description: 'Appwrite 开源后端',
     url: 'https://appwrite.io',
     category: 'dev-tools',
     subCategory: '后端',
@@ -1623,7 +1663,7 @@ export const tools: Tool[] = [
   {
     id: 'nocodb',
     name: 'NocoDB',
-    description: '低代码数据库',
+    description: 'NocoDB Airtable 开源',
     url: 'https://nocodb.com',
     category: 'dev-tools',
     subCategory: '数据库',
@@ -1636,7 +1676,7 @@ export const tools: Tool[] = [
   {
     id: 'rustdesk',
     name: 'RustDesk',
-    description: '开源远程桌面',
+    description: 'RustDesk 远程桌面',
     url: 'https://rustdesk.com',
     category: 'dev-tools',
     subCategory: '远程',
@@ -1649,7 +1689,7 @@ export const tools: Tool[] = [
   {
     id: 'zed',
     name: 'Zed',
-    description: '高性能代码编辑器',
+    description: 'Zed Rust 编辑器',
     url: 'https://zed.dev',
     category: 'dev-tools',
     subCategory: '编辑器',
@@ -1663,7 +1703,7 @@ export const tools: Tool[] = [
   {
     id: 'warp',
     name: 'Warp',
-    description: 'AI 终端工具',
+    description: 'Warp AI 终端',
     url: 'https://warp.dev',
     category: 'productivity',
     subCategory: '终端',
@@ -1676,7 +1716,7 @@ export const tools: Tool[] = [
   {
     id: 'zed-editor',
     name: 'Zed Editor',
-    description: '超快代码编辑器',
+    description: 'Zed Rust 极速',
     url: 'https://zed.dev',
     category: 'productivity',
     subCategory: '编辑器',
