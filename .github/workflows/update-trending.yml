@@ -1,0 +1,38 @@
+name: Update GitHub Trending
+
+on:
+  schedule:
+    # 每周一北京时间 8:00 (UTC 0:00)
+    - cron: '0 0 * * 1'
+  workflow_dispatch: # 手动触发
+
+jobs:
+  update-trending:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Fetch GitHub Trending
+        run: node scripts/fetch-github-trending.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit changes
+        run: |
+          git config --set-upstream user.name "github-actions[bot]"
+          git config --set-upstream user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/tools.ts
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: update GitHub trending data"
+          git push
