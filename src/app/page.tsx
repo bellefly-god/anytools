@@ -1,3 +1,5 @@
+'use client';
+
 import { Header } from '@/components/Header';
 import { SearchBar } from '@/components/SearchBar';
 import { CategoryNav, CategoryGrid } from '@/components/CategoryNav';
@@ -6,8 +8,10 @@ import { GitHubTrendingCompact } from '@/components/GitHubTrending';
 import { tools, categories, getFeaturedTools, getToolsByCategory } from '@/data/tools';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function HomePage() {
+  const { t } = useLanguage();
   const featuredTools = getFeaturedTools();
   const aiTools = getToolsByCategory('ai-tools').slice(0, 8);
   const devTools = getToolsByCategory('dev-tools').slice(0, 6);
@@ -21,19 +25,19 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded-full text-sm text-blue-700 dark:text-blue-300 mb-4">
             <Sparkles className="w-4 h-4" />
-            发现优质工具
+            {t.discoverTools}
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent">
-            发现最好的工具
+            {t.heroTitle}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-            精选 AI、开发、设计、效率工具，帮你找到最适合的工具
+            {t.heroSubtitle}
           </p>
           <div className="max-w-2xl mx-auto mb-6">
             <SearchBar />
           </div>
           <p className="text-sm text-gray-500">
-            已收录 <span className="font-semibold text-gray-700 dark:text-gray-300">{tools.length}</span> 个工具 · <span className="font-semibold text-gray-700 dark:text-gray-300">{categories.length}</span> 个分类
+            {t.totalTools} <span className="font-semibold text-gray-700 dark:text-gray-300">{tools.length}</span> {t.tools} · <span className="font-semibold text-gray-700 dark:text-gray-300">{categories.length}</span> {t.categories}
           </p>
         </div>
       </section>
@@ -58,7 +62,7 @@ export default function HomePage() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold flex items-center gap-2">
               <span>✨</span>
-              精选推荐
+              {t.featured}
             </h2>
           </div>
           <ToolGrid tools={featuredTools.slice(0, 8)} />
@@ -71,13 +75,13 @@ export default function HomePage() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold flex items-center gap-2">
               <span>🤖</span>
-              AI 工具
+              {t.aiTools}
             </h2>
             <Link
               href="/category/ai-tools"
               className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1"
             >
-              查看更多
+              {t.viewMore}
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -91,13 +95,13 @@ export default function HomePage() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold flex items-center gap-2">
               <span>👨‍💻</span>
-              开发者工具
+              {t.devTools}
             </h2>
             <Link
               href="/category/dev-tools"
               className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1"
             >
-              查看更多
+              {t.viewMore}
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -111,7 +115,7 @@ export default function HomePage() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold flex items-center gap-2">
               <span>📂</span>
-              全部分类
+              {t.allCategories}
             </h2>
           </div>
           <CategoryGrid />
@@ -122,10 +126,10 @@ export default function HomePage() {
       <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-gray-800">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-600 dark:text-gray-400 font-medium">
-            AnyTools - 发现最好的工具
+            {t.footer}
           </p>
           <p className="text-sm text-gray-500 mt-2">
-            收录 {tools.length} 个工具 · {categories.length} 个分类
+            {t.toolsCollected} {tools.length} {t.tools} · {categories.length} {t.categoriesCount}
           </p>
         </div>
       </footer>

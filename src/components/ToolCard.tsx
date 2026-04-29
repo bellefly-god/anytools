@@ -5,21 +5,7 @@ import { ExternalLink, TrendingUp, Globe, Monitor, Smartphone } from 'lucide-rea
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { categories, type Tool } from '@/data/tools';
-
-// 定价标签颜色
-const pricingColors: Record<string, string> = {
-  free: 'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300',
-  freemium: 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300',
-  paid: 'bg-orange-100 text-orange-700 dark:bg-orange-900/50 dark:text-orange-300',
-  'open-source': 'bg-purple-100 text-purple-700 dark:bg-purple-900/50 dark:text-purple-300',
-};
-
-const pricingLabels: Record<string, string> = {
-  free: '免费',
-  freemium: '免费',
-  paid: '付费',
-  'open-source': '开源',
-};
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // 平台图标
 const platformIcons: Record<string, React.ReactNode> = {
@@ -38,7 +24,30 @@ interface ToolCardProps {
 }
 
 export function ToolCard({ tool, index = 0 }: ToolCardProps) {
+  const { t, lang } = useLanguage();
   const category = categories.find((c) => c.id === tool.category);
+
+  // 定价标签颜色和文字
+  const pricingConfig: Record<string, { color: string; label: string }> = {
+    free: { 
+      color: 'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300', 
+      label: t.free 
+    },
+    freemium: { 
+      color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300', 
+      label: t.freemium 
+    },
+    paid: { 
+      color: 'bg-orange-100 text-orange-700 dark:bg-orange-900/50 dark:text-orange-300', 
+      label: t.paid 
+    },
+    'open-source': { 
+      color: 'bg-purple-100 text-purple-700 dark:bg-purple-900/50 dark:text-purple-300', 
+      label: t.openSource 
+    },
+  };
+
+  const pricing = pricingConfig[tool.pricing];
 
   return (
     <motion.div
@@ -59,7 +68,7 @@ export function ToolCard({ tool, index = 0 }: ToolCardProps) {
               )}
             </div>
             
-            {/* 简短描述 - 截断到 15 字 */}
+            {/* 简短描述 */}
             <p className="text-xs text-gray-500 dark:text-gray-400 mb-2 line-clamp-1">
               {tool.description.length > 15 
                 ? tool.description.slice(0, 15) + '...' 
@@ -81,8 +90,8 @@ export function ToolCard({ tool, index = 0 }: ToolCardProps) {
             
             {/* 底部：定价 + 平台 */}
             <div className="flex items-center justify-between">
-              <span className={`text-xs px-1.5 py-0.5 rounded ${pricingColors[tool.pricing]}`}>
-                {pricingLabels[tool.pricing]}
+              <span className={`text-xs px-1.5 py-0.5 rounded ${pricing.color}`}>
+                {pricing.label}
               </span>
               <div className="flex items-center gap-0.5 text-gray-400">
                 {tool.platform.slice(0, 2).map((p) => (
