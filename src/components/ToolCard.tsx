@@ -69,6 +69,7 @@ export function ToolCard({ tool, index = 0 }: ToolCardProps) {
                     width={32}
                     height={32}
                     className="w-6 h-6 object-contain"
+                    unoptimized
                     onError={(e) => {
                       (e.target as HTMLImageElement).style.display = 'none';
                     }}
