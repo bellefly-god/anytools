@@ -39,6 +39,12 @@ export function Header({ onSearch }: HeaderProps) {
               {t.home}
             </Link>
             <Link 
+              href="/prompts" 
+              className="text-sm text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 transition-colors font-medium"
+            >
+              ✨ {lang === 'zh' ? 'AI 提示词' : 'AI Prompts'}
+            </Link>
+            <Link 
               href="/github" 
               className="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
             >

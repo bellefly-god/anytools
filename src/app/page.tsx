@@ -6,12 +6,13 @@ import { CategoryNav, CategoryGrid } from '@/components/CategoryNav';
 import { ToolGrid } from '@/components/ToolCard';
 import { GitHubTrendingCompact } from '@/components/GitHubTrending';
 import { tools, categories, getFeaturedTools, getToolsByCategory } from '@/data/tools';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { getFeaturedPrompts } from '@/data/prompts';
+import { ArrowRight, Sparkles, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function HomePage() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const featuredTools = getFeaturedTools();
   const aiTools = getToolsByCategory('ai-tools').slice(0, 8);
   const devTools = getToolsByCategory('dev-tools').slice(0, 6);
@@ -46,6 +47,45 @@ export default function HomePage() {
       <section className="py-6 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <CategoryNav />
+        </div>
+      </section>
+
+      {/* AI Prompts Banner */}
+      <section className="py-6 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <Link href="/prompts">
+            <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-6 md:p-8 text-white relative overflow-hidden cursor-pointer hover:shadow-lg transition-shadow">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
+              <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-2">
+                  <MessageSquare className="w-5 h-5" />
+                  <span className="text-sm font-medium opacity-90">{lang === 'zh' ? '新功能上线' : 'New Feature'}</span>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold mb-2">
+                  {lang === 'zh' ? 'AI 提示词库' : 'AI Prompts Library'}
+                </h2>
+                <p className="text-white/80 mb-4 max-w-lg">
+                  {lang === 'zh'
+                    ? '精选高质量提示词，覆盖文本写作、图片生成、视频制作、编程开发等领域'
+                    : 'Curated high-quality prompts for text, image, video, coding and more'}
+                </p>
+                <div className="flex items-center gap-4">
+                  <span className="inline-flex items-center gap-1 text-sm">
+                    ✍️ {lang === 'zh' ? '文本写作' : 'Text'}
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-sm">
+                    🎨 {lang === 'zh' ? '图片生成' : 'Image'}
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-sm">
+                    🎬 {lang === 'zh' ? '视频制作' : 'Video'}
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-sm">
+                    💻 {lang === 'zh' ? '编程开发' : 'Code'}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
       </section>
 

@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { categories, type Tool } from '@/data/tools';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Image from 'next/image';
 
 // 平台图标
 const platformIcons: Record<string, React.ReactNode> = {
@@ -58,27 +59,49 @@ export function ToolCard({ tool, index = 0 }: ToolCardProps) {
       <a href={tool.url} target="_blank" rel="noopener noreferrer">
         <Card className="h-full hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer group border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
           <CardContent className="p-3">
-            {/* 名称和热门标签 */}
-            <div className="flex items-center justify-between gap-1 mb-1.5">
-              <h3 className="font-medium text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
-                {tool.name}
-              </h3>
-              {tool.hot && (
-                <TrendingUp className="w-3.5 h-3.5 text-orange-500 flex-shrink-0" />
+            {/* 图标和名称 */}
+            <div className="flex items-center gap-2 mb-1.5">
+              {tool.icon ? (
+                <div className="w-8 h-8 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800 flex items-center justify-center flex-shrink-0">
+                  <Image
+                    src={tool.icon}
+                    alt={tool.name}
+                    width={32}
+                    height={32}
+                    className="w-6 h-6 object-contain"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                </div>
+              ) : (
+                <div className="w-8 h-8 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center flex-shrink-0">
+                  <span className="text-lg">{category?.icon || '🔧'}</span>
+                </div>
               )}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between gap-1">
+                  <h3 className="font-medium text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
+                    {tool.name}
+                  </h3>
+                  {tool.hot && (
+                    <TrendingUp className="w-3.5 h-3.5 text-orange-500 flex-shrink-0" />
+                  )}
+                </div>
+              </div>
             </div>
             
             {/* 简短描述 */}
-            <p className="text-xs text-gray-500 dark:text-gray-400 mb-2 line-clamp-1">
-              {tool.description.length > 15 
-                ? tool.description.slice(0, 15) + '...' 
+            <p className="text-xs text-gray-500 dark:text-gray-400 mb-2 line-clamp-1 pl-10">
+              {tool.description.length > 20 
+                ? tool.description.slice(0, 20) + '...' 
                 : tool.description}
             </p>
             
             {/* 分类标签 */}
             {tool.subCategory && (
               <span 
-                className="text-xs px-1.5 py-0.5 rounded inline-block mb-2"
+                className="text-xs px-1.5 py-0.5 rounded inline-block mb-2 ml-10"
                 style={{ 
                   backgroundColor: `${category?.color}15`,
                   color: category?.color 
@@ -89,7 +112,7 @@ export function ToolCard({ tool, index = 0 }: ToolCardProps) {
             )}
             
             {/* 底部：定价 + 平台 */}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between pl-10">
               <span className={`text-xs px-1.5 py-0.5 rounded ${pricing.color}`}>
                 {pricing.label}
               </span>
