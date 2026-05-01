@@ -39,12 +39,6 @@ export function Header({ onSearch }: HeaderProps) {
               {t.home}
             </Link>
             <Link 
-              href="/indie-hot" 
-              className="text-sm text-orange-600 hover:text-orange-700 dark:text-orange-400 dark:hover:text-orange-300 transition-colors font-medium"
-            >
-              🔥 {lang === 'zh' ? '小众热门' : 'Indie Hot'}
-            </Link>
-            <Link 
               href="/prompts" 
               className="text-sm text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 transition-colors font-medium"
             >
