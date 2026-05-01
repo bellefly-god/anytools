@@ -2092,3 +2092,77 @@ export function getToolById(id: string) {
 export function getCategoryById(id: string) {
   return categories.find((cat) => cat.id === id);
 }
+
+// 小众热门工具合集
+export const indieHotTools = {
+  // AI 编程神器
+  aiCoding: [
+    { id: 'void-editor', name: 'Void Editor', desc: '开源 AI 编辑器', url: 'https://voideditor.com', icon: 'https://voideditor.com/favicon.ico', tags: ['AI', '编辑器', '开源'] },
+    { id: 'continue-dev', name: 'Continue', desc: 'VS Code AI 插件', url: 'https://continue.dev', icon: 'https://continue.dev/favicon.ico', tags: ['AI', '编程', 'VS Code'] },
+    { id: 'cline', name: 'Cline', desc: '自主编程代理', url: 'https://github.com/cline/cline', icon: 'https://github.com/favicon.ico', tags: ['AI', 'Agent', '编程'] },
+    { id: 'kilo-code', name: 'Kilo Code', desc: '开源 AI 编程代理', url: 'https://kilocode.ai', icon: 'https://kilocode.ai/favicon.ico', tags: ['AI', '编程', '开源'] },
+  ],
+  // 隐藏宝石
+  hiddenGems: [
+    { id: 'whisper-web', name: 'Whisper Web', desc: '免费语音转文字', url: 'https://huggingface.co/spaces/openai/whisper', icon: 'https://huggingface.co/favicon.ico', tags: ['语音', '免费', '开源'] },
+    { id: 'komo-search', name: 'Komo Search', desc: '隐私 AI 搜索', url: 'https://komo.ai', icon: 'https://komo.ai/favicon.ico', tags: ['搜索', '隐私', 'AI'] },
+    { id: 'pseudorite', name: 'Pseudorite', desc: '小说写作 AI', url: 'https://pseudorite.com', icon: 'https://pseudorite.com/favicon.ico', tags: ['写作', 'AI', '小说'] },
+    { id: 'supernormal', name: 'Supernormal', desc: 'AI 会议纪要', url: 'https://supernormal.com', icon: 'https://supernormal.com/favicon.ico', tags: ['会议', 'AI', '效率'] },
+    { id: 'monica-ai', name: 'Monica', desc: '浏览器 AI 助手', url: 'https://monica.im', icon: 'https://monica.im/favicon.ico', tags: ['浏览器', 'AI', '效率'] },
+    { id: 'pdf-ai', name: 'PDF AI', desc: 'PDF 智能阅读', url: 'https://pdf.ai', icon: 'https://pdf.ai/favicon.ico', tags: ['PDF', 'AI', '阅读'] },
+    { id: 'rask-ai', name: 'Rask.ai', desc: '视频翻译配音', url: 'https://rask.ai', icon: 'https://rask.ai/favicon.ico', tags: ['视频', '翻译', 'AI'] },
+    { id: 'lex-page', name: 'Lex', desc: 'AI 写作工具', url: 'https://lex.page', icon: 'https://lex.page/favicon.ico', tags: ['写作', 'AI', '效率'] },
+  ],
+  // 开源 AI
+  openSourceAI: [
+    { id: 'comfyui', name: 'ComfyUI', desc: 'Stable Diffusion GUI', url: 'https://github.com/comfyanonymous/ComfyUI', icon: 'https://github.com/favicon.ico', tags: ['图像', '开源', 'SD'] },
+    { id: 'vllm', name: 'vLLM', desc: '高性能 LLM 推理', url: 'https://github.com/vllm-project/vllm', icon: 'https://github.com/favicon.ico', tags: ['LLM', '推理', '开源'] },
+    { id: 'localai', name: 'LocalAI', desc: 'OpenAI 兼容本地 API', url: 'https://localai.io', icon: 'https://localai.io/favicon.ico', tags: ['本地', 'API', '开源'] },
+    { id: 'private-gpt', name: 'PrivateGPT', desc: '私有文档问答', url: 'https://github.com/zylon-ai/private-gpt', icon: 'https://github.com/favicon.ico', tags: ['文档', 'RAG', '开源'] },
+    { id: 'open-webui', name: 'Open WebUI', desc: 'Ollama Web 界面', url: 'https://openwebui.com', icon: 'https://openwebui.com/favicon.ico', tags: ['Ollama', 'UI', '开源'] },
+  ],
+  // GitHub 热门
+  githubTrending: [
+    { id: 'browser-use', name: 'browser-use', desc: 'AI 网页自动化', url: 'https://github.com/browser-use/browser-use', icon: 'https://github.com/favicon.ico', tags: ['AI', '自动化', '浏览器'] },
+    { id: 'mcp-servers', name: 'MCP Servers', desc: 'Model Context Protocol', url: 'https://github.com/punkpeye/awesome-mcp-servers', icon: 'https://github.com/favicon.ico', tags: ['MCP', 'AI', '协议'] },
+    { id: 'dify-ai', name: 'Dify', desc: 'LLM 应用开发平台', url: 'https://github.com/langgenius/dify', icon: 'https://dify.ai/favicon.ico', tags: ['LLM', '开发平台', '开源'] },
+    { id: 'omniparser', name: 'OmniParser', desc: '屏幕解析 GUI 代理', url: 'https://github.com/microsoft/OmniParser', icon: 'https://github.com/favicon.ico', tags: ['GUI', 'AI', '微软'] },
+    { id: 'aisuite', name: 'AISuite', desc: '吴恩达 LLM 工具', url: 'https://github.com/andrewyng/aisuite', icon: 'https://github.com/favicon.ico', tags: ['LLM', '吴恩达', '工具'] },
+    { id: 'openhands', name: 'OpenHands', desc: 'AI 软件工程师', url: 'https://github.com/All-Hands-AI/OpenHands', icon: 'https://github.com/favicon.ico', tags: ['AI', '工程师', '开源'] },
+  ],
+  // Vibe Coding
+  vibeCoding: [
+    { id: 'replit-ai', name: 'Replit AI', desc: '在线 AI 编程', url: 'https://replit.com', icon: 'https://replit.com/favicon.ico', tags: ['在线', 'AI', '编程'] },
+    { id: 'devin-ai', name: 'Devin', desc: 'AI 软件工程师', url: 'https://devin.ai', icon: 'https://devin.ai/favicon.ico', tags: ['AI', '工程师', 'Agent'] },
+  ],
+  // 2025 效率神器
+  productivity2025: [
+    { id: 'flow-voice', name: 'Flow', desc: 'Mac 语音输入神器', url: 'https://getflow.co', icon: 'https://getflow.co/favicon.ico', tags: ['语音', 'Mac', '效率'] },
+    { id: 'plurai', name: 'Plurai', desc: 'AI 生产力套件', url: 'https://plurai.ai', icon: 'https://plurai.ai/favicon.ico', tags: ['AI', '生产力', '效率'] },
+    { id: 'altar', name: 'ALTAR', desc: 'AI 笔记研究管理', url: 'https://altar.ai', icon: 'https://altar.ai/favicon.ico', tags: ['笔记', 'AI', '研究'] },
+    { id: 'strawberry-ai', name: 'Strawberry', desc: '网页研究自动化', url: 'https://strawberry.ai', icon: 'https://strawberry.ai/favicon.ico', tags: ['研究', 'AI', '自动化'] },
+    { id: 'aikido', name: 'Aikido Security', desc: 'DevSecOps 安全', url: 'https://aikido.dev', icon: 'https://aikido.dev/favicon.ico', tags: ['安全', 'DevSecOps', '开发者'] },
+  ],
+  // 开发者利器
+  devUtilities: [
+    { id: 'mise-dev', name: 'mise', desc: '开发工具版本管理', url: 'https://mise.jdx.dev', icon: 'https://mise.jdx.dev/favicon.ico', tags: ['版本管理', 'Rust', '效率'] },
+    { id: 'uv-python', name: 'uv', desc: 'Python 包管理器', url: 'https://docs.astral.sh/uv', icon: 'https://astral.sh/favicon.ico', tags: ['Python', '包管理', 'Rust'] },
+    { id: 'pg-activity', name: 'pg_activity', desc: 'PostgreSQL 监控', url: 'https://github.com/dalibo/pg_activity', icon: 'https://github.com/favicon.ico', tags: ['PostgreSQL', '监控', 'CLI'] },
+    { id: 'niri', name: 'niri', desc: 'Wayland 平铺窗口', url: 'https://github.com/YaLTeR/niri', icon: 'https://github.com/favicon.ico', tags: ['Linux', '窗口管理', 'Rust'] },
+    { id: 'thesys', name: 'Thesys', desc: 'GenUI API', url: 'https://thesys.dev', icon: 'https://thesys.dev/favicon.ico', tags: ['UI', 'API', 'AI'] },
+    { id: 'layercode', name: 'Layercode', desc: '语音 AI 开发', url: 'https://layercode.com', icon: 'https://layercode.com/favicon.ico', tags: ['语音', 'AI', '开发'] },
+  ],
+  // 创意 AI
+  creativeAI: [
+    { id: 'krea-ai', name: 'Krea AI', desc: 'AI 图像增强', url: 'https://krea.ai', icon: 'https://krea.ai/favicon.ico', tags: ['图像', 'AI', '增强'] },
+    { id: 'civitai-models', name: 'CivitAI', desc: 'AI 模型社区', url: 'https://civitai.com', icon: 'https://civitai.com/favicon.ico', tags: ['模型', '社区', 'AI'] },
+  ],
+  // 独立开发者工具
+  indieDev: [
+    { id: 'lingo-dev', name: 'Lingo.dev', desc: 'AI 本地化引擎', url: 'https://lingo.dev', icon: 'https://lingo.dev/favicon.ico', tags: ['本地化', 'AI', 'YC'] },
+    { id: 'jolt-ai', name: 'Jolt AI', desc: '大型代码库助手', url: 'https://jolt.dev', icon: 'https://jolt.dev/favicon.ico', tags: ['代码', 'AI', '企业'] },
+    { id: 'dimension-ai', name: 'Dimension', desc: '工程团队 AI 助手', url: 'https://dimension.dev', icon: 'https://dimension.dev/favicon.ico', tags: ['工程', 'AI', '团队'] },
+    { id: 'kibo-ui', name: 'Kibo UI', desc: 'shadcn/ui 扩展', url: 'https://kibo-ui.com', icon: 'https://kibo-ui.com/favicon.ico', tags: ['UI', 'React', '开源'] },
+    { id: 'next-forge', name: 'Next Forge', desc: 'Next.js 生产模板', url: 'https://github.com/haydenbleasel/next-forge', icon: 'https://github.com/favicon.ico', tags: ['Next.js', '模板', '开源'] },
+  ],
+};
