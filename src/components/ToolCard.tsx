@@ -28,6 +28,11 @@ export function ToolCard({ tool, index = 0 }: ToolCardProps) {
   const { t, lang } = useLanguage();
   const category = categories.find((c) => c.id === tool.category);
 
+  // 根据语言获取名称和描述
+  const displayName = lang === 'en' && tool.nameEn ? tool.nameEn : tool.name;
+  const displayDesc = lang === 'en' && tool.descriptionEn ? tool.descriptionEn : tool.description;
+  const displaySubCategory = lang === 'en' && tool.subCategoryEn ? tool.subCategoryEn : tool.subCategory;
+
   // 定价标签颜色和文字
   const pricingConfig: Record<string, { color: string; label: string }> = {
     free: { 
@@ -83,7 +88,7 @@ export function ToolCard({ tool, index = 0 }: ToolCardProps) {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between gap-1">
                   <h3 className="font-medium text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate">
-                    {tool.name}
+                    {displayName}
                   </h3>
                   {tool.hot && (
                     <TrendingUp className="w-3.5 h-3.5 text-orange-500 flex-shrink-0" />
@@ -94,13 +99,13 @@ export function ToolCard({ tool, index = 0 }: ToolCardProps) {
             
             {/* 简短描述 */}
             <p className="text-xs text-gray-500 dark:text-gray-400 mb-2 line-clamp-1 pl-10">
-              {tool.description.length > 20 
-                ? tool.description.slice(0, 20) + '...' 
-                : tool.description}
+              {displayDesc.length > 20 
+                ? displayDesc.slice(0, 20) + '...' 
+                : displayDesc}
             </p>
             
             {/* 分类标签 */}
-            {tool.subCategory && (
+            {displaySubCategory && (
               <span 
                 className="text-xs px-1.5 py-0.5 rounded inline-block mb-2 ml-10"
                 style={{ 
@@ -108,7 +113,7 @@ export function ToolCard({ tool, index = 0 }: ToolCardProps) {
                   color: category?.color 
                 }}
               >
-                {tool.subCategory}
+                {displaySubCategory}
               </span>
             )}
             

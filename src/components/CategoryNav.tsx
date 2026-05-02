@@ -70,7 +70,7 @@ export function CategoryCard({ category, index = 0 }: CategoryCardProps) {
             {lang === 'zh' ? category.name : category.nameEn}
           </h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
-            {category.description}
+            {lang === 'zh' ? category.description : (category.descriptionEn || category.description)}
           </p>
         </div>
       </Link>

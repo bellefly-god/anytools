@@ -6,6 +6,7 @@ export const categories = [
     nameEn: 'AI Tools',
     icon: '🤖',
     description: 'AI 对话、绘图、编程、视频、音频工具',
+    descriptionEn: 'AI chat, image generation, coding, video, audio tools',
     color: '#8B5CF6',
   },
   {
@@ -14,6 +15,7 @@ export const categories = [
     nameEn: 'AI Models',
     icon: '🧠',
     description: '大语言模型、绘图模型、视频模型',
+    descriptionEn: 'Large language models, image models, video models',
     color: '#EC4899',
   },
   {
@@ -22,6 +24,7 @@ export const categories = [
     nameEn: 'Dev Tools',
     icon: '👨‍💻',
     description: '部署、数据库、支付、监控工具',
+    descriptionEn: 'Deployment, database, payment, monitoring tools',
     color: '#10B981',
   },
   {
@@ -30,6 +33,7 @@ export const categories = [
     nameEn: 'Web3 Tools',
     icon: '🌐',
     description: '钱包、DeFi、NFT、开发框架',
+    descriptionEn: 'Wallet, DeFi, NFT, development frameworks',
     color: '#F59E0B',
   },
   {
@@ -38,6 +42,7 @@ export const categories = [
     nameEn: 'Productivity',
     icon: '⚡',
     description: '效率启动器、浏览器、任务管理',
+    descriptionEn: 'Launchers, browsers, task management',
     color: '#3B82F6',
   },
   {
@@ -46,6 +51,7 @@ export const categories = [
     nameEn: 'Design',
     icon: '🎨',
     description: 'UI 设计、图标、配色工具',
+    descriptionEn: 'UI design, icons, color tools',
     color: '#EF4444',
   },
   {
@@ -54,6 +60,7 @@ export const categories = [
     nameEn: 'Learning',
     icon: '📚',
     description: '在线课程、编程学习、技能提升',
+    descriptionEn: 'Online courses, coding learning, skill development',
     color: '#0EA5E9',
   },
   {
@@ -62,6 +69,7 @@ export const categories = [
     nameEn: 'Promotion',
     icon: '🚀',
     description: '产品发布、创业社区、营销推广',
+    descriptionEn: 'Product launch, startup community, marketing',
     color: '#D946EF',
   },
   {
@@ -70,6 +78,7 @@ export const categories = [
     nameEn: 'Marketing',
     icon: '📈',
     description: '数据分析、社媒运营、邮件营销',
+    descriptionEn: 'Analytics, social media, email marketing',
     color: '#06B6D4',
   },
   {
@@ -86,6 +95,7 @@ export const categories = [
     nameEn: 'Life Tools',
     icon: '🏠',
     description: '图片处理、翻译、计算器等实用工具',
+    descriptionEn: 'Image processing, translation, calculators and utilities',
     color: '#F97316',
   },
 ];
@@ -94,12 +104,15 @@ export const categories = [
 export interface Tool {
   id: string;
   name: string;
+  nameEn?: string;
   description: string;
+  descriptionEn?: string;
   url: string;
   icon?: string;        // 工具图标 URL
   screenshot?: string;  // 工具截图 URL
   category: string;
   subCategory?: string;
+  subCategoryEn?: string;
   tags: string[];
   pricing: 'free' | 'freemium' | 'paid' | 'open-source';
   platform: ('web' | 'mac' | 'windows' | 'linux' | 'ios' | 'android' | 'api')[];

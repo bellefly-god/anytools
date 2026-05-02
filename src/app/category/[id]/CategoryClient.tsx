@@ -37,7 +37,7 @@ export function CategoryClient({ category, tools, subCategories, activeCategory 
             <div>
               <h1 className="text-3xl font-bold">{lang === 'zh' ? category.name : category.nameEn}</h1>
               <p className="text-gray-600 dark:text-gray-400 mt-1">
-                {category.description}
+                {lang === 'zh' ? category.description : (category.descriptionEn || category.description)}
               </p>
             </div>
           </div>
