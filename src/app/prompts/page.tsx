@@ -20,6 +20,7 @@ function PromptCard({ prompt, index = 0 }: { prompt: Prompt; index?: number }) {
   const { lang } = useLanguage();
   const [copied, setCopied] = useState(false);
   const [expanded, setExpanded] = useState(false);
+  const [showExamples, setShowExamples] = useState(false);
 
   const category = promptCategories.find((c) => c.id === prompt.category);
 
@@ -47,7 +48,10 @@ function PromptCard({ prompt, index = 0 }: { prompt: Prompt; index?: number }) {
                   {lang === 'zh' ? prompt.title : (prompt.titleEn || prompt.title)}
                 </CardTitle>
                 {prompt.hot && (
-                  <TrendingUp className="w-4 h-4 text-orange-500" />
+                  <span className="flex items-center gap-0.5 text-xs text-orange-500">
+                    <TrendingUp className="w-3 h-3" />
+                    热门
+                  </span>
                 )}
               </div>
               <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -79,6 +83,60 @@ function PromptCard({ prompt, index = 0 }: { prompt: Prompt; index?: number }) {
               </span>
             )}
           </div>
+
+          {/* 样例图片展示 */}
+          {prompt.examples && prompt.examples.length > 0 && (
+            <div className="mb-3">
+              <button
+                onClick={() => setShowExamples(!showExamples)}
+                className="flex items-center gap-1 text-xs text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 mb-2"
+              >
+                <Sparkles className="w-3 h-3" />
+                {showExamples ? '收起样例' : '查看生成样例'}
+                <ChevronDown className={`w-3 h-3 transition-transform ${showExamples ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {showExamples && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-3 mb-3"
+                >
+                  {prompt.examples.map((example, idx) => (
+                    <div key={idx} className="space-y-2">
+                      {example.image && (
+                        <div className="relative rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+                          <img
+                            src={example.image}
+                            alt="生成样例"
+                            className="w-full h-auto max-h-48 object-cover"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                            }}
+                          />
+                        </div>
+                      )}
+                      {example.prompt && (
+                        <div className="text-xs">
+                          <span className="text-gray-500 dark:text-gray-400">提示词：</span>
+                          <p className="text-gray-700 dark:text-gray-300 font-mono text-xs bg-white dark:bg-gray-800 rounded p-2 mt-1 border border-gray-200 dark:border-gray-700">
+                            {example.prompt.slice(0, 200)}{example.prompt.length > 200 ? '...' : ''}
+                          </p>
+                        </div>
+                      )}
+                      {example.result && (
+                        <div className="text-xs">
+                          <span className="text-gray-500 dark:text-gray-400">生成效果：</span>
+                          <span className="text-gray-700 dark:text-gray-300 ml-1">{example.result}</span>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </motion.div>
+              )}
+            </div>
+          )}
 
           {/* 提示词预览 */}
           <div

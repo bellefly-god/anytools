@@ -67,6 +67,12 @@ export const promptCategories = [
 ];
 
 // AI 提示词数据
+export interface PromptExample {
+  image?: string;  // 样例图片 URL
+  prompt?: string; // 实际使用的提示词
+  result?: string; // 生成结果描述
+}
+
 export interface Prompt {
   id: string;
   title: string;
@@ -79,6 +85,7 @@ export interface Prompt {
   model?: string;  // 推荐使用的模型
   author?: string;
   source?: string;  // 来源网站
+  examples?: PromptExample[];  // 样例图片和结果
   featured: boolean;
   hot?: boolean;
   createdAt: string;
@@ -235,6 +242,12 @@ A portrait of a young Asian woman with long black hair, wearing a white linen dr
     featured: true,
     hot: true,
     source: 'Midjourney 官方文档',
+    examples: [
+      {
+        prompt: 'A portrait of a young woman with flowing red hair, fashion editorial style, soft golden hour lighting, urban street background, warm and dreamy atmosphere, shot on Canon EOS R5, 85mm f/1.2 lens, --ar 4:5 --v 6 --style raw',
+        result: '专业级时尚人像，黄金时刻光线，城市街道背景'
+      }
+    ],
     createdAt: '2026-04-28',
   },
   {
@@ -289,6 +302,12 @@ Negative: (low quality, worst quality:1.4), blurry, distorted, ugly, bad anatomy
     featured: true,
     hot: true,
     source: 'Civitai 热门提示词',
+    examples: [
+      {
+        prompt: '(masterpiece, best quality, highres:1.2), 1girl, beautiful face, detailed eyes, long flowing silver hair, wearing elegant white dress, standing in moonlit garden, soft moonlight, intricate details, dreamy atmosphere',
+        result: '高质量动漫风格人物，月光下的花园场景'
+      }
+    ],
     createdAt: '2026-04-26',
   },
   {
@@ -368,6 +387,12 @@ Aerial shot slowly descending through morning fog to reveal a traditional Japane
     featured: true,
     hot: true,
     source: 'OpenAI 官方示例',
+    examples: [
+      {
+        prompt: 'Aerial shot slowly descending through morning fog to reveal a traditional Japanese village nestled in mountains, cherry blossoms falling, soft morning light, peaceful atmosphere, cinematic 4K quality',
+        result: '梦幻的日本村庄航拍镜头，樱花飘落，晨雾缭绕'
+      }
+    ],
     createdAt: '2026-04-28',
   },
   {
@@ -914,6 +939,485 @@ TypeScript：[是/否]
     featured: true,
     hot: true,
     createdAt: '2026-04-26',
+  },
+
+  // ===== GPT-4o 图像生成 (热门) =====
+  {
+    id: 'gpt4o-photorealistic',
+    title: 'GPT-4o 超写实人像',
+    titleEn: 'GPT-4o Photorealistic Portrait',
+    description: '生成照片级真实感的人像图像',
+    content: `Professional photograph of a [subject description], [pose and expression], [clothing and style], [lighting conditions], [background environment], shot on [camera model], [lens], [technical details], [color grading]
+
+关键技巧：
+1. 使用具体的光线描述：golden hour, soft diffused light, dramatic side lighting
+2. 指定相机和镜头：Canon EOS R5, 85mm f/1.2, Sony A7IV
+3. 添加技术细节：shallow depth of field, bokeh, HDR, 8K
+4. 描述皮肤质感：natural skin texture, subtle freckles, realistic pores
+
+示例：
+Professional photograph of a young Asian woman with long black hair, natural smile, wearing a cream linen blouse, soft golden hour lighting from window, modern minimalist apartment background, shot on Canon EOS R5, 85mm f/1.2 lens, shallow depth of field with beautiful bokeh, natural skin texture, warm color grading`,
+    category: 'image',
+    tags: ['GPT-4o', '人像', '写实'],
+    model: 'GPT-4o',
+    featured: true,
+    hot: true,
+    source: 'OpenAI 官方示例',
+    examples: [
+      {
+        prompt: 'Professional photograph of a young woman with curly auburn hair, confident expression, wearing a tailored navy blazer, soft studio lighting, neutral gray background, shot on Canon EOS R5, 85mm f/1.4, shallow depth of field',
+        result: '高质量商业人像，适合 LinkedIn 头像或品牌形象'
+      }
+    ],
+    createdAt: '2026-05-02',
+  },
+  {
+    id: 'gpt4o-product-mockup',
+    title: 'GPT-4o 产品展示图',
+    titleEn: 'GPT-4o Product Mockup',
+    description: '生成专业的产品摄影和样机展示',
+    content: `Product photography of [product name/type], [style: minimalist/luxury/lifestyle], [background: clean gradient/lifestyle setting/studio], [lighting: soft studio/natural window/dramatic], [props and styling], [camera angle], [mood and feeling]
+
+电商主图模板：
+Minimalist product shot of [product] on pure white background, soft studio lighting, slight shadow for depth, professional e-commerce style, high detail, 4K quality
+
+生活方式图模板：
+Lifestyle product photography of [product] in [setting], natural lighting, [props arrangement], aspirational mood, shallow depth of field, Instagram-worthy composition
+
+奢华风格模板：
+Luxury product photography of [product] on marble surface, dramatic lighting, gold accents, premium feel, high-end brand aesthetic, 8K detail`,
+    category: 'image',
+    tags: ['GPT-4o', '产品', '电商'],
+    model: 'GPT-4o',
+    featured: true,
+    hot: true,
+    examples: [
+      {
+        prompt: 'Minimalist skincare bottle on soft pink gradient background, clean and modern aesthetic, soft shadows, premium beauty brand style, 4K commercial quality',
+        result: '适合美妆品牌的产品展示图'
+      }
+    ],
+    createdAt: '2026-05-02',
+  },
+  {
+    id: 'gpt4o-typography-poster',
+    title: 'GPT-4o 文字海报设计',
+    titleEn: 'GPT-4o Typography Poster',
+    description: '生成带有准确文字的海报和宣传图',
+    content: `Design a [style] poster featuring the text "[YOUR TEXT]" in [typography style], [color scheme], [background design], [visual elements], [overall mood]
+
+海报类型模板：
+
+音乐会海报：
+Concert poster for [artist name], bold typography with "[EVENT NAME]", [date and venue info], [visual style: retro/vintage/modern/psychedelic], vibrant colors, artistic composition
+
+活动宣传：
+Event poster for [event name], featuring text "[HEADLINE]" and "[DATE]", [design style], eye-catching layout, professional quality
+
+品牌海报：
+Brand poster with text "[TAGLINE]", [brand colors], minimalist design, [product/service imagery], clean and modern aesthetic
+
+技巧：
+- GPT-4o 可以准确渲染文字
+- 使用引号明确标注需要显示的文字
+- 指定字体风格：bold, elegant, handwritten, retro
+- 描述整体布局和视觉层次`,
+    category: 'image',
+    tags: ['GPT-4o', '海报', '设计'],
+    model: 'GPT-4o',
+    featured: true,
+    hot: true,
+    examples: [
+      {
+        prompt: 'Music festival poster with text "COSMIC SOUNDS 2025" in retrofuturistic typography, holographic effects, psychedelic swirling patterns, space theme, vibrant neon colors',
+        result: '带有准确文字的音乐节海报'
+      }
+    ],
+    createdAt: '2026-05-02',
+  },
+  {
+    id: 'gpt4o-illustration',
+    title: 'GPT-4o 插画风格',
+    titleEn: 'GPT-4o Illustration Style',
+    description: '生成各种风格的插画和艺术作品',
+    content: `[Art style] illustration of [subject], [composition], [color palette], [mood and atmosphere], [technique details], [artist reference if applicable]
+
+热门插画风格：
+
+扁平化设计：
+Flat design illustration of [subject], minimal shapes, bold colors, clean lines, modern vector style, no gradients
+
+水彩风格：
+Watercolor illustration of [subject], soft color bleeding, paper texture visible, delicate brushstrokes, artistic and dreamy
+
+赛博朋克：
+Cyberpunk illustration of [subject], neon colors (pink, cyan, purple), dark background, futuristic elements, digital art style
+
+日系动漫：
+Anime style illustration of [subject], cel shading, vibrant colors, detailed background, studio ghibli inspired
+
+儿童绘本：
+Children's book illustration of [subject], whimsical and playful, soft pastel colors, friendly characters, storybook style
+
+概念艺术：
+Concept art of [subject], cinematic composition, dramatic lighting, detailed environment, professional game/film quality`,
+    category: 'image',
+    tags: ['GPT-4o', '插画', '艺术'],
+    model: 'GPT-4o',
+    featured: true,
+    examples: [
+      {
+        prompt: 'Whimsical children\'s book illustration of a friendly dragon reading a book in a cozy library, soft pastel colors, magical atmosphere, detailed and charming',
+        result: '温馨的儿童绘本风格插画'
+      }
+    ],
+    createdAt: '2026-05-02',
+  },
+  {
+    id: 'gpt4o-ui-mockup',
+    title: 'GPT-4o UI 界面设计',
+    titleEn: 'GPT-4o UI Design Mockup',
+    description: '生成应用界面和网站设计稿',
+    content: `UI/UX design mockup of [app type] [screen type], [design style], [color scheme], [key features displayed], [device frame], professional quality
+
+应用类型模板：
+
+移动应用：
+Mobile app UI design for [app purpose], [screen: home/dashboard/profile], [style: minimalist/modern/playful], [primary color], clean layout, iOS/Android style
+
+网站首页：
+Website homepage design for [business type], hero section with [content], [navigation style], [visual elements], modern and professional
+
+仪表盘：
+Dashboard UI design for [analytics/management], dark/light mode, [chart types], [key metrics], clean data visualization, professional SaaS style
+
+登录页面：
+Login screen design for [app name], [background style], [form layout], [brand elements], modern and secure feeling
+
+技巧：
+- 描述关键界面元素
+- 指定设计系统风格
+- 说明配色方案
+- 提及交互元素`,
+    category: 'image',
+    tags: ['GPT-4o', 'UI设计', '界面'],
+    model: 'GPT-4o',
+    featured: true,
+    hot: true,
+    examples: [
+      {
+        prompt: 'Mobile banking app dashboard UI design, dark mode, clean minimalist style, showing account balance, recent transactions, and quick actions, modern fintech aesthetic',
+        result: '专业的金融应用界面设计'
+      }
+    ],
+    createdAt: '2026-05-02',
+  },
+
+  // ===== 视频生成 (热门) =====
+  {
+    id: 'sora-cinematic',
+    title: 'Sora 电影级镜头',
+    titleEn: 'Sora Cinematic Shot',
+    description: '生成电影质感的视频镜头',
+    content: `[Opening scene description], [camera movement: slow pan/zoom/track/dolly], [subject action], [lighting and time of day], [atmosphere and mood], [technical quality]
+
+镜头运动类型：
+- Slow pan: 缓慢平移
+- Zoom in/out: 推拉镜头
+- Tracking shot: 跟踪镜头
+- Dolly shot: 移动镜头
+- Aerial/Drone: 航拍镜头
+- Handheld: 手持晃动效果
+
+示例模板：
+
+自然风光：
+Drone shot slowly descending through morning mist to reveal [landscape], golden hour lighting, peaceful atmosphere, cinematic 4K quality, smooth gimbal movement
+
+城市街景：
+Slow tracking shot following [subject] through [city setting], [time of day] lighting, urban atmosphere, cinematic depth of field, professional quality
+
+人物特写：
+Close-up shot of [subject], subtle camera movement, [lighting setup], emotional expression, shallow depth of field, film grain, cinematic color grading
+
+技巧：
+- 描述清晰的开场画面
+- 指定镜头运动方式
+- 控制时长在 5-15 秒
+- 添加氛围描述`,
+    category: 'video',
+    tags: ['Sora', '电影', '镜头'],
+    model: 'Sora',
+    featured: true,
+    hot: true,
+    source: 'OpenAI 官方示例',
+    examples: [
+      {
+        prompt: 'Drone view of waves crashing against rugged cliffs along Big Sur\'s coast, golden light of setting sun illuminating the rocky shore, lighthouse in distance, dramatic landscape, cinematic quality',
+        result: '震撼的海岸线航拍镜头'
+      }
+    ],
+    createdAt: '2026-05-02',
+  },
+  {
+    id: 'sora-product-video',
+    title: 'Sora 产品展示视频',
+    titleEn: 'Sora Product Showcase',
+    description: '生成产品宣传和展示视频',
+    content: `Product showcase video of [product], [opening shot], [camera movement revealing features], [background setting], [lighting style], [mood: premium/dynamic/friendly], [duration: 5-10 seconds]
+
+产品视频模板：
+
+科技产品：
+Sleek product reveal of [tech product], dramatic lighting, slow rotation, dark premium background, cinematic quality, highlighting [key feature]
+
+时尚配饰：
+Elegant product video of [fashion item], soft studio lighting, smooth camera movement, lifestyle setting hints, luxury brand feeling
+
+食品饮料：
+Appetizing product shot of [food/beverage], natural lighting, steam or freshness visible, inviting atmosphere, commercial quality
+
+运动装备：
+Dynamic product video of [sports gear], action-oriented camera movement, energetic feel, outdoor or gym setting, high contrast lighting
+
+技巧：
+- 产品要清晰可见
+- 光线要突出质感
+- 运动要流畅自然
+- 背景要简洁专业`,
+    category: 'video',
+    tags: ['Sora', '产品', '广告'],
+    model: 'Sora',
+    featured: true,
+    hot: true,
+    examples: [
+      {
+        prompt: 'Elegant perfume bottle on marble surface, soft golden lighting, slow camera rotation, subtle reflections, luxury brand aesthetic, cinematic quality',
+        result: '高端香水产品展示视频'
+      }
+    ],
+    createdAt: '2026-05-02',
+  },
+  {
+    id: 'sora-nature-scene',
+    title: 'Sora 自然风光',
+    titleEn: 'Sora Nature Landscape',
+    description: '生成震撼的自然景观视频',
+    content: `[Time-lapse/Cinematic] shot of [natural scene], [weather and lighting], [camera movement], [atmospheric elements], [season and time], [mood: serene/dramatic/majestic], 4K cinematic quality
+
+自然场景模板：
+
+日出日落：
+Time-lapse of sunrise/sunset over [landscape], clouds moving, colors shifting from [color1] to [color2], peaceful atmosphere, cinematic quality
+
+森林溪流：
+Gentle stream flowing through [forest type], dappled sunlight through leaves, birds singing, peaceful and serene, slow camera movement
+
+海洋波浪：
+Powerful waves crashing against [coastal feature], dramatic lighting, spray and foam visible, majestic and powerful, aerial or close-up perspective
+
+山脉云海：
+Majestic mountain peaks emerging from sea of clouds, golden hour light, dramatic shadows, awe-inspiring atmosphere, drone footage style
+
+雨后彩虹：
+Rainbow appearing after rain over [landscape], sun breaking through clouds, fresh and renewed feeling, natural beauty, cinematic composition`,
+    category: 'video',
+    tags: ['Sora', '自然', '风景'],
+    model: 'Sora',
+    featured: true,
+    examples: [
+      {
+        prompt: 'Aerial shot of mountain peaks emerging from morning mist, golden sunrise light, dramatic shadows, peaceful and majestic atmosphere, cinematic 4K quality',
+        result: '壮丽的山脉日出景观'
+      }
+    ],
+    createdAt: '2026-05-02',
+  },
+  {
+    id: 'runway-motion',
+    title: 'Runway 动态效果',
+    titleEn: 'Runway Motion Effects',
+    description: 'Runway Gen-3 动态视频创作',
+    content: `[Starting scene], [transformation/movement description], [ending scene], [style and aesthetic], [technical quality]
+
+Runway Gen-3 擅长：
+
+人物动作：
+[Subject] performing [action], [camera angle], [lighting], natural movement, smooth transition
+
+物体变形：
+[Object A] slowly transforming into [Object B], [visual effect style], seamless morphing, artistic interpretation
+
+场景转换：
+[Scene A] transitioning to [Scene B], [transition style: dissolve/morph/wipe], creative visual storytelling
+
+特效镜头：
+[Subject] with [special effect], particle effects, light trails, cinematic quality, professional VFX
+
+技巧：
+- 描述清晰的起始和结束状态
+- 运动幅度不要太大避免失真
+- 使用具体的动作描述
+- 控制时长在 5-10 秒`,
+    category: 'video',
+    tags: ['Runway', '特效', '动态'],
+    model: 'Runway Gen-3',
+    featured: true,
+    hot: true,
+    examples: [
+      {
+        prompt: 'Young woman with flowing red hair in a wheat field at sunset, wind gently moving her hair and dress, golden hour lighting, slowly transforms into particles of light, dreamlike atmosphere',
+        result: '梦幻的人物粒子消散效果'
+      }
+    ],
+    createdAt: '2026-05-02',
+  },
+  {
+    id: 'kling-video',
+    title: '可灵 AI 视频生成',
+    titleEn: 'Kling AI Video Generation',
+    description: '国产 AI 视频生成工具提示词',
+    content: `[场景描述], [主体动作], [镜头运动], [光线氛围], [风格特征], [画质要求]
+
+可灵 AI 特点：
+- 支持中文提示词
+- 擅长人物动作和表情
+- 适合短视频创作
+- 支持图生视频
+
+人物视频模板：
+[人物描述], [动作: 行走/转身/微笑/说话], [服装造型], [场景背景], [光线], [镜头: 特写/中景/远景], 自然流畅的动作
+
+场景视频模板：
+[场景类型: 城市/自然/室内], [时间: 日/夜/黄昏], [天气氛围], [镜头运动], [动态元素: 车流/人流/云朵], 电影质感
+
+创意视频模板：
+[创意概念], [视觉风格], [特效描述], [转场方式], 艺术感和创意性
+
+技巧：
+- 用中文描述更准确
+- 动作要具体明确
+- 时长控制在 5 秒内效果最佳
+- 可以上传参考图`,
+    category: 'video',
+    tags: ['可灵', '视频', '国产AI'],
+    model: 'Kling',
+    featured: true,
+    hot: true,
+    examples: [
+      {
+        prompt: '一位穿着白色连衣裙的年轻女性在海边漫步，夕阳余晖，微风吹动裙摆，镜头缓慢跟随，浪漫唯美的氛围',
+        result: '浪漫的海边漫步视频'
+      }
+    ],
+    createdAt: '2026-05-02',
+  },
+
+  // ===== Midjourney V6 热门 =====
+  {
+    id: 'mj-v6-portrait',
+    title: 'Midjourney V6 人像大师',
+    titleEn: 'Midjourney V6 Portrait Master',
+    description: 'V6 版本人像摄影提示词',
+    content: `[Subject description], [pose and expression], [clothing and accessories], [setting/background], [lighting], [camera and lens], [film style], --ar [ratio] --v 6.1 --style raw --s [stylize]
+
+V6 人像技巧：
+1. 更自然的皮肤质感
+2. 更好的手部细节
+3. 更准确的光线理解
+4. 支持更长的提示词
+
+电影感人像：
+Cinematic portrait of [subject], dramatic lighting, shallow depth of field, shot on [camera], [lens], film grain, color grading, --ar 2:3 --v 6.1 --style raw --s 200
+
+时尚摄影：
+Fashion editorial portrait of [subject], [styling], studio lighting, clean background, high-end magazine quality, --ar 3:4 --v 6.1 --s 150
+
+自然光人像：
+Natural light portrait of [subject], golden hour, outdoor setting, authentic expression, lifestyle photography, --ar 2:3 --v 6.1 --style raw
+
+复古胶片：
+Vintage film portrait of [subject], 1970s aesthetic, warm tones, film grain, soft focus, nostalgic mood, --ar 3:4 --v 6.1 --s 250`,
+    category: 'image',
+    tags: ['Midjourney', '人像', 'V6'],
+    model: 'Midjourney V6',
+    featured: true,
+    hot: true,
+    examples: [
+      {
+        prompt: 'Cinematic portrait, woman with flowing red hair in wind, golden hour sidelight, depth of field, freckles, green eyes, wearing a linen shirt, emotional expression, film grain, shot on Hasselblad --ar 2:3 --v 6.1 --s 200',
+        result: '电影质感的自然光人像'
+      }
+    ],
+    createdAt: '2026-05-02',
+  },
+  {
+    id: 'mj-v6-product',
+    title: 'Midjourney V6 产品摄影',
+    titleEn: 'Midjourney V6 Product Photography',
+    description: '专业级产品摄影提示词',
+    content: `Product photography of [product], [style: minimalist/luxury/lifestyle], [background], [lighting], [props], [camera angle], [mood], --ar [ratio] --v 6.1 --style raw
+
+产品摄影模板：
+
+简约电商：
+Product shot of [product] on pure white background, soft studio lighting, clean and professional, e-commerce ready, --ar 1:1 --v 6.1 --s 100
+
+奢华质感：
+Luxury product photography of [product] on [marble/velvet/gold] surface, dramatic lighting, premium feel, high-end brand aesthetic, --ar 4:5 --v 6.1 --s 200
+
+生活方式：
+Lifestyle product shot of [product] in [setting], natural lighting, aspirational mood, shallow depth of field, Instagram-worthy, --ar 4:5 --v 6.1 --style raw
+
+创意概念：
+Conceptual product photography of [product], [creative elements], artistic composition, unique perspective, award-winning advertising, --ar 16:9 --v 6.1 --s 300`,
+    category: 'image',
+    tags: ['Midjourney', '产品', '电商'],
+    model: 'Midjourney V6',
+    featured: true,
+    examples: [
+      {
+        prompt: 'Minimalist skincare bottle on soft pink gradient background, clean modern aesthetic, soft shadows, premium beauty brand style --ar 4:5 --v 6.1 --s 150',
+        result: '高端美妆产品展示图'
+      }
+    ],
+    createdAt: '2026-05-02',
+  },
+  {
+    id: 'mj-logo-design',
+    title: 'Midjourney Logo 设计',
+    titleEn: 'Midjourney Logo Design',
+    description: '品牌 Logo 和图标设计',
+    content: `[Logo type] logo design for [brand/company], [style], [symbol/icon description], [colors], clean lines, vector style, white background, --ar 1:1 --v 6.1
+
+Logo 类型模板：
+
+极简图标：
+Minimalist logo icon of [symbol], geometric shapes, clean lines, [color], flat design, modern tech aesthetic, white background, --ar 1:1 --v 6.1 --s 50
+
+文字标识：
+Wordmark logo for "[BRAND NAME]", [typography style], [color scheme], clean and memorable, professional brand identity, white background, --ar 3:1 --v 6.1
+
+徽章标志：
+Badge logo for [brand], [industry], [elements], vintage/modern style, [colors], emblem design, white background, --ar 1:1 --v 6.1 --s 150
+
+吉祥物：
+Mascot logo for [brand], [character description], friendly and approachable, [colors], cartoon style, white background, --ar 1:1 --v 6.1
+
+渐变图标：
+Gradient logo icon of [symbol], [color1] to [color2] gradient, modern app icon style, glossy finish, white background, --ar 1:1 --v 6.1`,
+    category: 'image',
+    tags: ['Midjourney', 'Logo', '设计'],
+    model: 'Midjourney V6',
+    featured: true,
+    hot: true,
+    examples: [
+      {
+        prompt: 'Minimalist logo design, geometric fox head, clean angular lines, gradient orange to amber, flat vector style, white background, modern tech aesthetic --ar 1:1 --v 6.1 --s 50',
+        result: '现代感的几何狐狸 Logo'
+      }
+    ],
+    createdAt: '2026-05-02',
   },
 ];
 
