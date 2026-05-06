@@ -80,6 +80,7 @@ export interface Prompt {
   description: string;
   descriptionEn?: string;
   content: string;
+  contentEn?: string;
   category: string;
   tags: string[];
   model?: string;  // 推荐使用的模型
@@ -115,6 +116,23 @@ export const prompts: Prompt[] = [
 - 语言流畅，逻辑清晰
 - 适当使用比喻和故事增强可读性
 - 段落简短，便于阅读`,
+    contentEn: `You are a professional article writing expert. Please help me write an article based on the following requirements:
+
+Topic: [Article topic]
+Target readers: [Reader group]
+Article style: [Formal/Casual/Technical/Story]
+Word count: [About X words]
+
+Please write according to the following structure:
+1. An engaging opening that introduces the topic
+2. 2-3 core points, each with examples or data
+3. Natural paragraph transitions
+4. A concluding summary that elevates the content
+
+Requirements:
+- Fluent language, clear logic
+- Use metaphors and stories to enhance readability
+- Short paragraphs for easy reading`,
     category: 'text',
     tags: ['写作', '文章', '内容创作'],
     model: 'Claude',
@@ -150,6 +168,29 @@ export const prompts: Prompt[] = [
 - 适当使用emoji（每段1-2个）
 - 加入真实感受和细节
 - 标题要有悬念或反转`,
+    contentEn: `You are a Xiaohongshu viral copywriting expert. Please help me write a product recommendation post:
+
+Product/Service: [Product name]
+Core selling points: [Main advantages]
+Target audience: [User profile]
+
+Please output in the following format:
+
+【Title】(15-20 characters, with emoji, eye-catching)
+
+【Body】
+- Opening: Scene-setting (2-3 lines)
+- Middle: 3 pain points + solutions
+- Ending: Call to action + engagement
+
+【Tags】#Related hashtags
+
+Requirements:
+- Use conversational language
+- Line break every 1-2 sentences
+- Use emojis appropriately (1-2 per paragraph)
+- Add real feelings and details
+- Title should have suspense or twist`,
     category: 'text',
     tags: ['小红书', '文案', '种草'],
     model: 'GPT-4',
@@ -182,6 +223,25 @@ export const prompts: Prompt[] = [
 - 重点突出
 - 语气得体
 - 控制在300字以内`,
+    contentEn: `You are a business communication expert. Please help me write a business email:
+
+Email purpose: [Request/Reply/Notification/Apology/Thanks]
+Recipient: [Client/Superior/Colleague/Partner]
+Main content: [Core message to convey]
+Tone style: [Formal/Friendly/Urgent]
+
+Email structure:
+1. Salutation (choose appropriate greeting based on relationship)
+2. Opening (briefly state the purpose)
+3. Body (list points clearly)
+4. Closing (clarify next steps or expect reply)
+5. Sign-off
+
+Requirements:
+- Concise and professional language
+- Highlight key points
+- Appropriate tone
+- Keep within 300 words`,
     category: 'text',
     tags: ['邮件', '商务', '沟通'],
     featured: false,
@@ -210,6 +270,24 @@ export const prompts: Prompt[] = [
 - 对话推动情节发展
 - 节奏张弛有度
 - 留白让读者思考`,
+    contentEn: `You are a senior story creator. Please help me create a story:
+
+Story type: [Mystery/Romance/Sci-Fi/Fantasy/Inspirational/Humor]
+Core theme: [What the story wants to express]
+Target audience: [Children/Teenagers/Adults]
+Length: [Short/Medium/Long outline]
+
+Please include the following elements:
+1. Distinct protagonist (with desires and flaws)
+2. Conflict and twists (at least 3 reversals)
+3. Unexpected ending
+4. Lingering aftertaste
+
+Writing style:
+- Use sensory descriptions to enhance immersion
+- Dialogue drives plot development
+- Balanced pacing
+- Leave room for reader reflection`,
     category: 'text',
     tags: ['故事', '创作', '小说'],
     model: 'Claude',
@@ -235,6 +313,19 @@ export const prompts: Prompt[] = [
 A portrait of [subject], [style], [lighting], [background], [mood], shot on [camera], [lens], [technical details], --ar [aspect ratio] --v 6
 
 示例：
+A portrait of a young Asian woman with long black hair, wearing a white linen dress, fashion editorial style, soft golden hour lighting, urban street background with bokeh, warm and dreamy atmosphere, shot on Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, professional color grading, --ar 4:5 --v 6 --style raw`,
+    contentEn: `You are a Midjourney prompt expert. Please generate prompts for the following portrait photography needs:
+
+Subject characteristics: [Gender/Age/Ethnicity/Hairstyle/Clothing]
+Shooting style: [Fashion/Vintage/Natural/Artistic/Cinematic]
+Lighting effects: [Natural light/Studio light/Golden hour/Neon]
+Background environment: [Indoor/Outdoor/Solid color/Urban]
+Mood atmosphere: [Warm/Cool/Mysterious/Energetic]
+
+Please generate English prompts in the following format:
+A portrait of [subject], [style], [lighting], [background], [mood], shot on [camera], [lens], [technical details], --ar [aspect ratio] --v 6
+
+Example:
 A portrait of a young Asian woman with long black hair, wearing a white linen dress, fashion editorial style, soft golden hour lighting, urban street background with bokeh, warm and dreamy atmosphere, shot on Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, professional color grading, --ar 4:5 --v 6 --style raw`,
     category: 'image',
     tags: ['Midjourney', '人像', '摄影'],
@@ -268,6 +359,19 @@ A portrait of a young Asian woman with long black hair, wearing a white linen dr
 
 示例：
 Breathtaking mountain landscape with snow-capped peaks, dramatic golden hour light breaking through clouds, atmospheric mist in the valley, cinematic wide-angle composition, shot on Sony A7R IV, 16-35mm lens, HDR processing, 8K ultra detailed, --ar 16:9 --v 6 --style raw`,
+    contentEn: `You are a Midjourney prompt expert. Please generate landscape photography prompts:
+
+Scene type: [Mountains/Ocean/Forest/Urban/Desert]
+Time/lighting: [Sunrise/Sunset/Night sky/Golden hour/Blue hour]
+Weather atmosphere: [Clear/Cloudy/Foggy/After rain/Snowy]
+Artistic style: [Realistic/Impressionist/Cyberpunk/Fantasy]
+Composition focus: [Wide view/Close-up/Reflection/Silhouette]
+
+Prompt template:
+[Scene description], [time of day], [weather/atmosphere], [artistic style], [composition], [camera settings], [technical quality], --ar [ratio] --v 6
+
+Example:
+Breathtaking mountain landscape with snow-capped peaks, dramatic golden hour light breaking through clouds, atmospheric mist in the valley, cinematic wide-angle composition, shot on Sony A7R IV, 16-35mm lens, HDR processing, 8K ultra detailed, --ar 16:9 --v 6 --style raw`,
     category: 'image',
     tags: ['Midjourney', '风景', '摄影'],
     model: 'Midjourney',
@@ -293,6 +397,23 @@ Stable Diffusion 提示词结构：
 5. 负面提示词（Negative）
 
 示例：
+Positive: (masterpiece, best quality, highres:1.2), 1girl, beautiful face, detailed eyes, long flowing hair, wearing elegant dress, standing in flower garden, soft sunlight, intricate details, dreamy atmosphere, art by Greg Rutkowski and Alphonse Mucha
+
+Negative: (low quality, worst quality:1.4), blurry, distorted, ugly, bad anatomy, bad hands, text, watermark, signature`,
+    contentEn: `You are a Stable Diffusion prompt expert. Please generate prompts based on the following requirements:
+
+Image type: [Portrait/Landscape/Product/Concept art/UI design]
+Style: [Realistic/Anime/Oil painting/Watercolor/3D render]
+Quality requirements: [Resolution/Detail level/Artistic feel]
+
+Stable Diffusion prompt structure:
+1. Subject description
+2. Style tags
+3. Artist reference
+4. Technical parameters
+5. Negative prompts
+
+Example:
 Positive: (masterpiece, best quality, highres:1.2), 1girl, beautiful face, detailed eyes, long flowing hair, wearing elegant dress, standing in flower garden, soft sunlight, intricate details, dreamy atmosphere, art by Greg Rutkowski and Alphonse Mucha
 
 Negative: (low quality, worst quality:1.4), blurry, distorted, ugly, bad anatomy, bad hands, text, watermark, signature`,
@@ -328,6 +449,19 @@ Professional product photography of [product], [style description], [background]
 
 示例：
 Professional product photography of a sleek wireless earbuds case in matte white, minimalist style, floating on clean pastel blue gradient background, soft studio lighting with subtle shadows, premium and modern feel, 4K commercial quality, shallow depth of field`,
+    contentEn: `You are a DALL-E product photography expert. Please generate product image prompts:
+
+Product type: [Electronics/Cosmetics/Food/Jewelry/Accessories]
+Shooting style: [Minimalist/Lifestyle/Studio/Creative]
+Background: [Pure white/Gradient/Scene/Texture]
+Lighting: [Soft light/Hard light/Natural light/Colored light]
+Props: [None/Simple/Related items]
+
+Prompt template:
+[Product name] product photography, [style], [background], [lighting], [props], [camera angle], [quality], professional commercial photography
+
+Example:
+Premium wireless earbuds product photography, minimalist style, clean white background with subtle gradient, soft diffused lighting, shot from 45-degree angle, ultra sharp focus, studio quality, commercial advertising style, 4K resolution`,
     category: 'image',
     tags: ['DALL-E', '产品', '电商'],
     model: 'DALL-E 3',
@@ -354,6 +488,25 @@ Minimalist logo design for [brand], [industry], [style], [symbol/icon], [colors]
 Minimalist logo design for a tech startup called "Nexus", innovative AI company, geometric abstract symbol representing connection and intelligence, gradient blue to purple, clean modern lines, vector style, white background, professional and memorable
 
 推荐使用：Midjourney, DALL-E 3, Ideogram`,
+    contentEn: `You are an AI logo design expert. Please help create logo design concepts:
+
+Brand name: [Brand name]
+Industry: [Tech/Food/Fashion/Education/Finance]
+Style preference: [Minimalist/Vintage/Modern/Playful/Professional]
+Color preference: [Specific colors or color scheme]
+Symbol elements: [Abstract/Lettermark/Icon/Combination]
+
+Design requirements:
+1. Simple and memorable
+2. Works in black and white
+3. Scalable (from favicon to billboard)
+4. Reflects brand personality
+
+Please provide:
+- 3 design concepts with descriptions
+- Color palette suggestions
+- Typography recommendations
+- Usage examples`,
     category: 'image',
     tags: ['Logo', '设计', '品牌'],
     featured: true,
@@ -381,6 +534,20 @@ Sora 提示词结构：
 Aerial shot slowly descending through morning fog to reveal a traditional Japanese village nestled in mountains, camera continues moving forward through narrow streets, cherry blossoms falling, soft morning light, peaceful and serene atmosphere, cinematic 4K quality, smooth gimbal movement
 
 建议时长：5-15秒效果最佳`,
+    contentEn: `You are a Sora video generation expert. Please create video prompts:
+
+Video type: [Narrative/Commercial/Music video/Documentary]
+Duration: [5-15 seconds]
+Subject: [Person/Animal/Object/Scene]
+Camera movement: [Static/Pan/Tilt/Zoom/Tracking]
+Lighting: [Natural/Studio/Dramatic/Neon]
+Style: [Realistic/Cinematic/Anime/3D]
+
+Prompt template:
+[Subject description], [action], [environment], [camera movement], [lighting], [style], [technical specs]
+
+Example:
+A young woman walking through a bustling Tokyo street at night, neon lights reflecting on wet pavement, slow cinematic tracking shot, shallow depth of field, shot on ARRI Alexa, anamorphic lens, 4K HDR, dreamy atmosphere`,
     category: 'video',
     tags: ['Sora', '视频', 'AI生成'],
     model: 'Sora',
@@ -418,6 +585,19 @@ A young woman with flowing red hair standing in a field of wheat at sunset, wind
 - 描述清晰的开头和结尾
 - 使用具体的动作描述
 - 控制运动幅度避免失真`,
+    contentEn: `You are a Runway Gen-3 video creation expert. Please generate video prompts:
+
+Content type: [Character animation/Scene transition/Visual effect]
+Subject: [Description of main subject]
+Motion: [Subtle/Dynamic/Complex]
+Style: [Realistic/Stylized/Artistic]
+Duration: [4-10 seconds]
+
+Prompt structure:
+[Subject] + [Action/Motion] + [Environment] + [Style] + [Quality]
+
+Example:
+A majestic eagle soaring through misty mountain peaks, slow motion wing beats, golden sunrise light breaking through clouds, cinematic aerial shot, photorealistic, 8K quality, atmospheric depth`,
     category: 'video',
     tags: ['Runway', '视频', 'AI生成'],
     model: 'Runway Gen-3',
@@ -454,6 +634,25 @@ A young woman with flowing red hair standing in a field of wheat at sunset, wind
 - 开头3秒抓住注意力
 - 节奏紧凑，无废话
 - 结尾有记忆点或引导互动`,
+    contentEn: `You are a short video script expert. Please create engaging video scripts:
+
+Video type: [Educational/Entertainment/Product showcase/Vlog]
+Duration: [15s/30s/60s]
+Platform: [TikTok/Instagram Reels/YouTube Shorts]
+Target audience: [Age group/Interest group]
+Topic: [Main subject]
+
+Script structure:
+1. Hook (first 3 seconds - grab attention)
+2. Problem/Interest point
+3. Solution/Content delivery
+4. Call to action
+
+Requirements:
+- Conversational tone
+- Visual cues included
+- Timing markers
+- Engagement hooks every 5-7 seconds`,
     category: 'video',
     tags: ['短视频', '脚本', '抖音'],
     featured: true,
@@ -498,6 +697,20 @@ Lyrics:
 - 明确音乐风格标签
 - 歌词押韵更自然
 - 添加结构标记 [Verse] [Chorus] [Bridge]`,
+    contentEn: `You are a Suno AI music generation expert. Please create music prompts:
+
+Genre: [Pop/Rock/Jazz/Electronic/Hip-hop/Classical]
+Mood: [Happy/Sad/Energetic/Calm/Romantic]
+Tempo: [Slow/Medium/Fast]
+Instruments: [Piano/Guitar/Drums/Synthesizer/Strings]
+Vocals: [Male/Female/Duet/Instrumental]
+Theme: [Love/Adventure/Nostalgia/Empowerment]
+
+Prompt format:
+[Genre] song about [theme], [mood] mood, [tempo] tempo, featuring [instruments], [vocal style] vocals
+
+Example:
+Upbeat pop song about summer adventures, energetic mood, medium-fast tempo, featuring acoustic guitar and light synthesizer, female vocals with harmonies, catchy chorus`,
     category: 'audio',
     tags: ['Suno', '音乐', 'AI生成'],
     model: 'Suno',
@@ -536,6 +749,23 @@ Lyrics:
 - 避免过长的句子
 - 适当分段
 - 根据内容调整语气`,
+    contentEn: `You are an ElevenLabs voice synthesis expert. Please help create voiceover scripts:
+
+Content type: [Narration/Commercial/Podcast/Audiobook]
+Tone: [Professional/Warm/Energetic/Calm]
+Duration: [Target length]
+Target audience: [Demographic]
+
+Script requirements:
+- Natural sentence flow
+- Pause markers [PAUSE]
+- Emphasis markers *word*
+- Pronunciation notes [pronunciation]
+
+Voice settings recommendations:
+- Stability: [0-100]
+- Clarity: [0-100]
+- Style: [Style name]`,
     category: 'audio',
     tags: ['ElevenLabs', '语音', 'TTS'],
     model: 'ElevenLabs',
@@ -690,6 +920,26 @@ TypeScript：[是/否]
 - 适用场景
 - 预期效果
 - A/B 测试建议`,
+    contentEn: `You are a SQL optimization expert. Please analyze and optimize the query:
+
+Database type: [MySQL/PostgreSQL/SQL Server/Oracle]
+Table size: [Number of rows]
+Current query: [SQL query]
+Performance issue: [Slow execution time/High resource usage]
+
+Please provide:
+1. Query analysis
+2. Execution plan insights
+3. Optimization recommendations
+4. Index suggestions
+5. Rewritten query
+6. Expected performance improvement
+
+Consider:
+- JOIN optimization
+- Index usage
+- Subquery vs JOIN
+- WHERE clause efficiency`,
     category: 'marketing',
     tags: ['广告', '文案', '转化'],
     featured: true,
@@ -880,6 +1130,25 @@ TypeScript：[是/否]
 
 ## 六、教学反思
 [预期效果和改进方向]`,
+    contentEn: `You are an education expert. Please create lesson plans:
+
+Subject: [Topic]
+Grade level: [Audience]
+Duration: [Lesson length]
+Learning objectives: [What students will learn]
+
+Lesson plan structure:
+1. Warm-up activity (5-10 min)
+2. Direct instruction (15-20 min)
+3. Guided practice (15-20 min)
+4. Independent practice (10-15 min)
+5. Assessment/exit ticket
+6. Homework/extension
+
+Materials needed:
+- Resources
+- Technology
+- Handouts`,
     category: 'education',
     tags: ['教学', '教案', '教育'],
     featured: true,

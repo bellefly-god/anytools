@@ -23,9 +23,12 @@ function PromptCard({ prompt, index = 0 }: { prompt: Prompt; index?: number }) {
   const [showExamples, setShowExamples] = useState(false);
 
   const category = promptCategories.find((c) => c.id === prompt.category);
+  
+  // 根据语言选择内容
+  const displayContent = lang === 'en' && prompt.contentEn ? prompt.contentEn : prompt.content;
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(prompt.content);
+    await navigator.clipboard.writeText(displayContent);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -145,7 +148,7 @@ function PromptCard({ prompt, index = 0 }: { prompt: Prompt; index?: number }) {
             }`}
             onClick={() => setExpanded(!expanded)}
           >
-            {expanded ? prompt.content : prompt.content.slice(0, 150) + '...'}
+            {expanded ? displayContent : displayContent.slice(0, 150) + '...'}
           </div>
 
           {/* 操作按钮 */}
