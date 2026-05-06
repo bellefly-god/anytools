@@ -17,7 +17,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 // 提示词卡片组件
 function PromptCard({ prompt, index = 0 }: { prompt: Prompt; index?: number }) {
-  const { lang } = useLanguage();
+  const { lang, t } = useLanguage();
   const [copied, setCopied] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [showExamples, setShowExamples] = useState(false);
@@ -50,7 +50,7 @@ function PromptCard({ prompt, index = 0 }: { prompt: Prompt; index?: number }) {
                 {prompt.hot && (
                   <span className="flex items-center gap-0.5 text-xs text-orange-500">
                     <TrendingUp className="w-3 h-3" />
-                    热门
+                    {t.promptHot}
                   </span>
                 )}
               </div>
@@ -92,7 +92,7 @@ function PromptCard({ prompt, index = 0 }: { prompt: Prompt; index?: number }) {
                 className="flex items-center gap-1 text-xs text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 mb-2"
               >
                 <Sparkles className="w-3 h-3" />
-                {showExamples ? '收起样例' : '查看生成样例'}
+                {showExamples ? t.promptHideExamples : t.promptViewExamples}
                 <ChevronDown className={`w-3 h-3 transition-transform ${showExamples ? 'rotate-180' : ''}`} />
               </button>
               
@@ -109,7 +109,7 @@ function PromptCard({ prompt, index = 0 }: { prompt: Prompt; index?: number }) {
                         <div className="relative rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
                           <img
                             src={example.image}
-                            alt="生成样例"
+                            alt={lang === 'zh' ? '生成样例' : 'Generated Example'}
                             className="w-full h-auto max-h-48 object-cover"
                             onError={(e) => {
                               e.currentTarget.style.display = 'none';
@@ -119,7 +119,7 @@ function PromptCard({ prompt, index = 0 }: { prompt: Prompt; index?: number }) {
                       )}
                       {example.prompt && (
                         <div className="text-xs">
-                          <span className="text-gray-500 dark:text-gray-400">提示词：</span>
+                          <span className="text-gray-500 dark:text-gray-400">{t.promptExamplePrompt}</span>
                           <p className="text-gray-700 dark:text-gray-300 font-mono text-xs bg-white dark:bg-gray-800 rounded p-2 mt-1 border border-gray-200 dark:border-gray-700">
                             {example.prompt.slice(0, 200)}{example.prompt.length > 200 ? '...' : ''}
                           </p>
@@ -127,7 +127,7 @@ function PromptCard({ prompt, index = 0 }: { prompt: Prompt; index?: number }) {
                       )}
                       {example.result && (
                         <div className="text-xs">
-                          <span className="text-gray-500 dark:text-gray-400">生成效果：</span>
+                          <span className="text-gray-500 dark:text-gray-400">{t.promptExampleResult}</span>
                           <span className="text-gray-700 dark:text-gray-300 ml-1">{example.result}</span>
                         </div>
                       )}
@@ -154,7 +154,7 @@ function PromptCard({ prompt, index = 0 }: { prompt: Prompt; index?: number }) {
               onClick={() => setExpanded(!expanded)}
               className="text-xs text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 flex items-center gap-1"
             >
-              {expanded ? '收起' : '展开'}
+              {expanded ? t.promptCollapse : t.promptExpand}
               <ChevronDown className={`w-3 h-3 transition-transform ${expanded ? 'rotate-180' : ''}`} />
             </button>
             <button
@@ -164,12 +164,12 @@ function PromptCard({ prompt, index = 0 }: { prompt: Prompt; index?: number }) {
               {copied ? (
                 <>
                   <Check className="w-4 h-4" />
-                  已复制
+                  {t.promptCopied}
                 </>
               ) : (
                 <>
                   <Copy className="w-4 h-4" />
-                  复制提示词
+                  {t.promptCopy}
                 </>
               )}
             </button>
@@ -200,15 +200,13 @@ export default function PromptsPage() {
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-purple-100 dark:bg-purple-900 rounded-full text-sm text-purple-700 dark:text-purple-300 mb-4">
             <Sparkles className="w-4 h-4" />
-            AI 提示词库
+            {t.promptsTitle}
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent">
-            {lang === 'zh' ? '优质 AI 提示词集合' : 'Quality AI Prompts Collection'}
+            {t.promptsHeroTitle}
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
-            {lang === 'zh'
-              ? '精选高质量提示词，覆盖文本、图片、视频、编程等多个领域，助你更好地使用 AI'
-              : 'Curated high-quality prompts covering text, image, video, coding and more to help you use AI better'}
+            {t.promptsHeroSubtitle}
           </p>
 
           {/* 搜索框 */}
@@ -216,7 +214,7 @@ export default function PromptsPage() {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
             <input
               type="text"
-              placeholder={lang === 'zh' ? '搜索提示词...' : 'Search prompts...'}
+              placeholder={t.promptsSearchPlaceholder}
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
@@ -243,7 +241,7 @@ export default function PromptsPage() {
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
               }`}
             >
-              {lang === 'zh' ? '全部' : 'All'} ({prompts.length})
+              {t.all} ({prompts.length})
             </button>
             {promptCategories.map((category) => {
               const count = getPromptsByCategory(category.id).length;
@@ -275,7 +273,7 @@ export default function PromptsPage() {
         <div className="max-w-7xl mx-auto">
           {/* 结果统计 */}
           <div className="mb-4 text-sm text-gray-500">
-            {lang === 'zh' ? '找到' : 'Found'} {filteredPrompts.length} {lang === 'zh' ? '个提示词' : 'prompts'}
+            {t.promptsFound} {filteredPrompts.length} {t.promptsCount}
           </div>
 
           {/* 提示词网格 */}
@@ -287,7 +285,7 @@ export default function PromptsPage() {
 
           {filteredPrompts.length === 0 && (
             <div className="text-center py-12 text-gray-500">
-              {lang === 'zh' ? '没有找到相关提示词' : 'No prompts found'}
+              {t.promptsNoResults}
             </div>
           )}
         </div>
@@ -298,12 +296,10 @@ export default function PromptsPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
             <span>📚</span>
-            {lang === 'zh' ? '提示词来源' : 'Prompt Sources'}
+            {t.promptsSourcesTitle}
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-            {lang === 'zh'
-              ? '本提示词库整理自以下优质资源，持续更新中：'
-              : 'This prompt collection is curated from the following quality resources, continuously updated:'}
+            {t.promptsSourcesDesc}
           </p>
           <div className="flex flex-wrap gap-2">
             <span className="px-3 py-1 bg-white dark:bg-gray-800 rounded-lg text-sm border border-gray-200 dark:border-gray-700">
@@ -316,13 +312,13 @@ export default function PromptsPage() {
               Civitai
             </span>
             <span className="px-3 py-1 bg-white dark:bg-gray-800 rounded-lg text-sm border border-gray-200 dark:border-gray-700">
-              OpenAI 官方示例
+              {lang === 'zh' ? 'OpenAI 官方示例' : 'OpenAI Official Examples'}
             </span>
             <span className="px-3 py-1 bg-white dark:bg-gray-800 rounded-lg text-sm border border-gray-200 dark:border-gray-700">
-              Midjourney 官方文档
+              {lang === 'zh' ? 'Midjourney 官方文档' : 'Midjourney Official Docs'}
             </span>
             <span className="px-3 py-1 bg-white dark:bg-gray-800 rounded-lg text-sm border border-gray-200 dark:border-gray-700">
-              GitHub 热门项目
+              {lang === 'zh' ? 'GitHub 热门项目' : 'GitHub Trending Projects'}
             </span>
           </div>
         </div>

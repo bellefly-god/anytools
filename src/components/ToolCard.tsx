@@ -1,12 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ExternalLink, TrendingUp, Globe, Monitor, Smartphone } from 'lucide-react';
+import { ExternalLink, TrendingUp, Globe, Monitor, Smartphone, Heart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { categories, type Tool } from '@/data/tools';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useFavorites } from '@/hooks/useFavorites';
+import { useHistory } from '@/hooks/useHistory';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 // 平台图标
 const platformIcons: Record<string, React.ReactNode> = {
@@ -22,11 +25,19 @@ const platformIcons: Record<string, React.ReactNode> = {
 interface ToolCardProps {
   tool: Tool;
   index?: number;
+  showFavorite?: boolean;
 }
 
-export function ToolCard({ tool, index = 0 }: ToolCardProps) {
+export function ToolCard({ tool, index = 0, showFavorite = true }: ToolCardProps) {
   const { t, lang } = useLanguage();
   const category = categories.find((c) => c.id === tool.category);
+  const { isFavorite, toggleFavorite } = useFavorites();
+  const { addHistory } = useHistory();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // 根据语言获取名称和描述
   const displayName = lang === 'en' && tool.nameEn ? tool.nameEn : tool.name;
@@ -54,6 +65,17 @@ export function ToolCard({ tool, index = 0 }: ToolCardProps) {
   };
 
   const pricing = pricingConfig[tool.pricing];
+  const isFav = mounted && isFavorite(tool.id);
+
+  const handleClick = () => {
+    addHistory(tool.id);
+  };
+
+  const handleFavoriteClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleFavorite(tool.id);
+  };
 
   return (
     <motion.div
@@ -61,8 +83,23 @@ export function ToolCard({ tool, index = 0 }: ToolCardProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2, delay: index * 0.02 }}
     >
-      <a href={tool.url} target="_blank" rel="noopener noreferrer">
-        <Card className="h-full hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer group border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+      <a href={tool.url} target="_blank" rel="noopener noreferrer" onClick={handleClick}>
+        <Card className="h-full hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer group border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 relative">
+          {/* 收藏按钮 */}
+          {showFavorite && (
+            <button
+              onClick={handleFavoriteClick}
+              className={`absolute top-2 right-2 z-10 p-1.5 rounded-full transition-all ${
+                isFav 
+                  ? 'bg-pink-100 text-pink-600 dark:bg-pink-900/50 dark:text-pink-400' 
+                  : 'bg-gray-100/80 text-gray-400 hover:text-pink-500 dark:bg-gray-800/80 dark:hover:text-pink-400'
+              } opacity-0 group-hover:opacity-100`}
+              title={isFav ? t.removeFromFavorites : t.addToFavorites}
+            >
+              <Heart className={`w-3.5 h-3.5 ${isFav ? 'fill-current' : ''}`} />
+            </button>
+          )}
+          
           <CardContent className="p-3">
             {/* 图标和名称 */}
             <div className="flex items-center gap-2 mb-1.5">
@@ -139,13 +176,14 @@ export function ToolCard({ tool, index = 0 }: ToolCardProps) {
 
 interface ToolGridProps {
   tools: Tool[];
+  showFavorite?: boolean;
 }
 
-export function ToolGrid({ tools }: ToolGridProps) {
+export function ToolGrid({ tools, showFavorite = true }: ToolGridProps) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
       {tools.map((tool, index) => (
-        <ToolCard key={tool.id} tool={tool} index={index} />
+        <ToolCard key={tool.id} tool={tool} index={index} showFavorite={showFavorite} />
       ))}
     </div>
   );

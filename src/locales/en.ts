@@ -34,8 +34,27 @@ export const en: Locale = {
   documents: 'Documents',
   lifeTools: 'Life Tools',
   
+  // 收藏和历史
+  favorites: 'My Favorites',
+  favoritesEmpty: 'No favorites yet',
+  history: 'Recently Used',
+  historyEmpty: 'No history yet',
+  clearHistory: 'Clear History',
+  addToFavorites: 'Add to Favorites',
+  removeFromFavorites: 'Remove from Favorites',
+  
+  // 分类筛选
+  filterAll: 'All',
+  filterCategory: 'Filter by Category',
+  filterPricing: 'Filter by Pricing',
+  filterFree: 'Free',
+  filterFreemium: 'Free',
+  filterPaid: 'Paid',
+  
   // 首页区块
   featured: 'Featured',
+  recentlyUsed: 'Recently Used',
+  myFavorites: 'My Favorites',
   githubTrending: 'GitHub Stars Top 10',
   githubGrowth: 'Fastest Growing Top 10',
   starsRank: 'Stars',
@@ -65,4 +84,35 @@ export const en: Locale = {
   // GitHub 页面
   githubTitle: 'GitHub Weekly',
   backHome: 'Back to Home',
+  
+  // Prompts 页面
+  promptsTitle: 'AI Prompt Library',
+  promptsHeroTitle: 'Quality AI Prompts Collection',
+  promptsHeroSubtitle: 'Curated high-quality prompts covering text, image, video, coding and more to help you use AI better',
+  promptsSearchPlaceholder: 'Search prompts...',
+  promptsFound: 'Found',
+  promptsCount: 'prompts',
+  promptsNoResults: 'No prompts found',
+  promptsSourcesTitle: 'Prompt Sources',
+  promptsSourcesDesc: 'This prompt collection is curated from the following quality resources, continuously updated:',
+  
+  // Prompt 卡片
+  promptHot: 'Hot',
+  promptViewExamples: 'View Examples',
+  promptHideExamples: 'Hide Examples',
+  promptExpand: 'Expand',
+  promptCollapse: 'Collapse',
+  promptCopy: 'Copy Prompt',
+  promptCopied: 'Copied',
+  promptExamplePrompt: 'Prompt: ',
+  promptExampleResult: 'Result: ',
+  
+  // 首页 Banner
+  newFeature: 'New Feature',
+  promptsBannerTitle: 'AI Prompts Library',
+  promptsBannerDesc: 'Curated high-quality prompts for text, image, video, coding and more',
+  promptsBannerText: 'Text',
+  promptsBannerImage: 'Image',
+  promptsBannerVideo: 'Video',
+  promptsBannerCode: 'Code',
 };

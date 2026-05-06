@@ -32,8 +32,27 @@ export const zh = {
   documents: '文档处理',
   lifeTools: '生活小工具',
   
+  // 收藏和历史
+  favorites: '我的收藏',
+  favoritesEmpty: '暂无收藏',
+  history: '最近使用',
+  historyEmpty: '暂无访问记录',
+  clearHistory: '清空历史',
+  addToFavorites: '添加收藏',
+  removeFromFavorites: '取消收藏',
+  
+  // 分类筛选
+  filterAll: '全部',
+  filterCategory: '按分类筛选',
+  filterPricing: '按价格筛选',
+  filterFree: '免费',
+  filterFreemium: '免费',
+  filterPaid: '付费',
+  
   // 首页区块
   featured: '精选推荐',
+  recentlyUsed: '最近使用',
+  myFavorites: '我的收藏',
   githubTrending: 'GitHub Stars 榜 Top 10',
   githubGrowth: '本周增长最快 Top 10',
   starsRank: 'Stars 榜',
@@ -63,6 +82,37 @@ export const zh = {
   // GitHub 页面
   githubTitle: 'GitHub 周榜',
   backHome: '返回首页',
+  
+  // Prompts 页面
+  promptsTitle: 'AI 提示词库',
+  promptsHeroTitle: '优质 AI 提示词集合',
+  promptsHeroSubtitle: '精选高质量提示词，覆盖文本、图片、视频、编程等多个领域，助你更好地使用 AI',
+  promptsSearchPlaceholder: '搜索提示词...',
+  promptsFound: '找到',
+  promptsCount: '个提示词',
+  promptsNoResults: '没有找到相关提示词',
+  promptsSourcesTitle: '提示词来源',
+  promptsSourcesDesc: '本提示词库整理自以下优质资源，持续更新中：',
+  
+  // Prompt 卡片
+  promptHot: '热门',
+  promptViewExamples: '查看生成样例',
+  promptHideExamples: '收起样例',
+  promptExpand: '展开',
+  promptCollapse: '收起',
+  promptCopy: '复制提示词',
+  promptCopied: '已复制',
+  promptExamplePrompt: '提示词：',
+  promptExampleResult: '生成效果：',
+  
+  // 首页 Banner
+  newFeature: '新功能上线',
+  promptsBannerTitle: 'AI 提示词库',
+  promptsBannerDesc: '精选高质量提示词，覆盖文本写作、图片生成、视频制作、编程开发等领域',
+  promptsBannerText: '文本写作',
+  promptsBannerImage: '图片生成',
+  promptsBannerVideo: '视频制作',
+  promptsBannerCode: '编程开发',
 };
 
 export type Locale = typeof zh;

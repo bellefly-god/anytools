@@ -6,16 +6,36 @@ import { CategoryNav, CategoryGrid } from '@/components/CategoryNav';
 import { ToolGrid } from '@/components/ToolCard';
 import { GitHubTrendingCompact } from '@/components/GitHubTrending';
 import { tools, categories, getFeaturedTools, getToolsByCategory } from '@/data/tools';
-import { getFeaturedPrompts } from '@/data/prompts';
-import { ArrowRight, Sparkles, MessageSquare } from 'lucide-react';
+import { ArrowRight, Sparkles, MessageSquare, Heart, Clock, Trash2 } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useFavorites } from '@/hooks/useFavorites';
+import { useHistory } from '@/hooks/useHistory';
+import { useState, useEffect } from 'react';
 
 export default function HomePage() {
   const { t, lang } = useLanguage();
+  const { favorites } = useFavorites();
+  const { history, historyToolIds, clearHistory } = useHistory();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const featuredTools = getFeaturedTools();
   const aiTools = getToolsByCategory('ai-tools').slice(0, 8);
   const devTools = getToolsByCategory('dev-tools').slice(0, 6);
+
+  // 获取收藏的工具
+  const favoriteTools = mounted 
+    ? favorites.map(id => tools.find(t => t.id === id)).filter(Boolean) as typeof tools
+    : [];
+
+  // 获取最近使用的工具
+  const recentTools = mounted
+    ? historyToolIds.map(id => tools.find(t => t.id === id)).filter(Boolean) as typeof tools
+    : [];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900">
@@ -50,6 +70,46 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Recently Used - 最近使用 */}
+      {mounted && recentTools.length > 0 && (
+        <section className="py-6 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-bold flex items-center gap-2">
+                <Clock className="w-5 h-5 text-gray-500" />
+                {t.recentlyUsed}
+              </h2>
+              <button
+                onClick={clearHistory}
+                className="text-sm text-gray-500 hover:text-red-500 flex items-center gap-1 transition-colors"
+              >
+                <Trash2 className="w-4 h-4" />
+                {t.clearHistory}
+              </button>
+            </div>
+            <ToolGrid tools={recentTools.slice(0, 6)} />
+          </div>
+        </section>
+      )}
+
+      {/* My Favorites - 我的收藏 */}
+      {mounted && favoriteTools.length > 0 && (
+        <section className="py-6 px-4 sm:px-6 lg:px-8 bg-pink-50/30 dark:bg-pink-950/10">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-bold flex items-center gap-2">
+                <Heart className="w-5 h-5 text-pink-500" />
+                {t.myFavorites}
+              </h2>
+              <span className="text-sm text-gray-500">
+                {favoriteTools.length} {t.tools}
+              </span>
+            </div>
+            <ToolGrid tools={favoriteTools} />
+          </div>
+        </section>
+      )}
+
       {/* AI Prompts Banner */}
       <section className="py-6 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -59,28 +119,26 @@ export default function HomePage() {
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-2">
                   <MessageSquare className="w-5 h-5" />
-                  <span className="text-sm font-medium opacity-90">{lang === 'zh' ? '新功能上线' : 'New Feature'}</span>
+                  <span className="text-sm font-medium opacity-90">{t.newFeature}</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold mb-2">
-                  {lang === 'zh' ? 'AI 提示词库' : 'AI Prompts Library'}
+                  {t.promptsBannerTitle}
                 </h2>
                 <p className="text-white/80 mb-4 max-w-lg">
-                  {lang === 'zh'
-                    ? '精选高质量提示词，覆盖文本写作、图片生成、视频制作、编程开发等领域'
-                    : 'Curated high-quality prompts for text, image, video, coding and more'}
+                  {t.promptsBannerDesc}
                 </p>
                 <div className="flex items-center gap-4">
                   <span className="inline-flex items-center gap-1 text-sm">
-                    ✍️ {lang === 'zh' ? '文本写作' : 'Text'}
+                    ✍️ {t.promptsBannerText}
                   </span>
                   <span className="inline-flex items-center gap-1 text-sm">
-                    🎨 {lang === 'zh' ? '图片生成' : 'Image'}
+                    🎨 {t.promptsBannerImage}
                   </span>
                   <span className="inline-flex items-center gap-1 text-sm">
-                    🎬 {lang === 'zh' ? '视频制作' : 'Video'}
+                    🎬 {t.promptsBannerVideo}
                   </span>
                   <span className="inline-flex items-center gap-1 text-sm">
-                    💻 {lang === 'zh' ? '编程开发' : 'Code'}
+                    💻 {t.promptsBannerCode}
                   </span>
                 </div>
               </div>

@@ -60,11 +60,17 @@ export function CategoryClient({ category, tools, subCategories, activeCategory 
           {subCategories.length > 1 ? (
             <div className="space-y-8">
               {subCategories.map((subCat) => {
-                const subTools = tools.filter((t) => t.subCategory === subCat);
+                const subTools = tools.filter((t) => 
+                  lang === 'zh' ? t.subCategory === subCat : (t.subCategoryEn || t.subCategory) === subCat
+                );
+                // 获取英文子分类名
+                const displaySubCat = lang === 'en' 
+                  ? tools.find(t => t.subCategory === subCat)?.subCategoryEn || subCat 
+                  : subCat;
                 return (
                   <div key={subCat}>
                     <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                      {subCat}
+                      {displaySubCat}
                       <span className="text-sm font-normal text-gray-500">
                         ({subTools.length})
                       </span>
