@@ -1,7 +1,6 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { Search, Sparkles, TrendingUp } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { PromptCard } from '@/components/PromptCard';
@@ -20,15 +19,15 @@ const mediaFilters = [
   { id: 'video', labelZh: '视频提示词', labelEn: 'Video Prompts' },
 ];
 
-export function PromptsPageClient() {
+interface PromptsPageClientProps {
+  initialMediaType?: 'all' | 'image' | 'video';
+}
+
+export function PromptsPageClient({ initialMediaType = 'all' }: PromptsPageClientProps) {
   const { t, lang } = useLanguage();
-  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const initialMediaType = searchParams.get('media');
-  const [mediaType, setMediaType] = useState<string>(
-    initialMediaType === 'image' || initialMediaType === 'video' ? initialMediaType : 'all'
-  );
+  const [mediaType, setMediaType] = useState<string>(initialMediaType);
 
   const featuredShowcases = getFeaturedPromptShowcases(4);
 

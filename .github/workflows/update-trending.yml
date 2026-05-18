@@ -31,8 +31,8 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config --set-upstream user.name "github-actions[bot]"
-          git config --set-upstream user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/data/tools.ts
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: update GitHub trending data"
           git push

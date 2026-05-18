@@ -2,6 +2,10 @@ import type { Metadata } from 'next';
 import { PromptsPageClient } from './PromptsPageClient';
 import { absoluteUrl } from '@/lib/site';
 
+type PromptsPageProps = {
+  searchParams: Promise<{ media?: string }>;
+};
+
 export const metadata: Metadata = {
   title: 'AI 提示词库 | 图片提示词、视频提示词与案例拆解',
   description:
@@ -18,6 +22,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PromptsPage() {
-  return <PromptsPageClient />;
+export default async function PromptsPage({ searchParams }: PromptsPageProps) {
+  const { media } = await searchParams;
+  const initialMediaType =
+    media === 'image' || media === 'video' ? media : 'all';
+
+  return <PromptsPageClient initialMediaType={initialMediaType} />;
 }

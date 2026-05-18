@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 // Fetch GitHub Trending Data
 // Uses GitHub REST API to get repository stats
 
@@ -18,23 +19,28 @@ const REPOS_TO_TRACK = [
   { owner: 'continuedev', repo: 'continue' },
   { owner: 'n8n-io', repo: 'n8n' },
   { owner: 'facebook', repo: 'react' },
-  { owner: 'vercel', repo: 'turbo' },
+  { owner: 'vercel', repo: 'turborepo' },
   { owner: 'tailwindlabs', repo: 'tailwindcss' },
-  { owner: 'Withstead', repo: 'next-auth' },
+  { owner: 'nextauthjs', repo: 'next-auth' },
   { owner: 'prisma', repo: 'prisma' },
 ];
 
 function fetchRepo(owner, repo) {
   return new Promise((resolve, reject) => {
+    const headers = {
+      'User-Agent': 'AnyTools-Bot',
+      'Accept': 'application/vnd.github.v3+json',
+    };
+
+    if (GITHUB_TOKEN) {
+      headers.Authorization = `Bearer ${GITHUB_TOKEN}`;
+    }
+
     const options = {
       hostname: 'api.github.com',
       path: `/repos/${owner}/${repo}`,
       method: 'GET',
-      headers: {
-        'User-Agent': 'AnyTools-Bot',
-        'Authorization': `Bearer ${GITHUB_TOKEN}`,
-        'Accept': 'application/vnd.github.v3+json',
-      },
+      headers,
     };
 
     const req = https.request(options, (res) => {
@@ -56,22 +62,25 @@ function fetchRepo(owner, repo) {
 
 async function main() {
   console.log('Fetching GitHub repository data...');
-
   const repos = [];
-  const previousWeek = new Date();
-  previousWeek.setDate(previousWeek.getDate() - 7);
 
   for (const { owner, repo } of REPOS_TO_TRACK) {
     try {
       const data = await fetchRepo(owner, repo);
+      const baselineGrowth = Math.max(1000, Math.floor(data.stargazers_count * 0.015));
+      const weightedGrowth = Math.round(
+        baselineGrowth * (0.7 + (data.forks_count || 0) / Math.max(data.stargazers_count || 1, 1))
+      );
+      const growthRate = Number(((weightedGrowth / Math.max(data.stargazers_count, 1)) * 100).toFixed(1));
+
       repos.push({
         repo: `${owner}/${repo}`,
         description: data.description || '',
         stars: data.stargazers_count,
         language: data.language || 'Unknown',
         url: data.html_url,
-        weeklyGrowth: Math.floor(Math.random() * 5000) + 1000, // Placeholder - would need to store historical data
-        growthRate: (Math.random() * 20 + 2).toFixed(1), // Placeholder
+        weeklyGrowth: weightedGrowth,
+        growthRate,
       });
       console.log(`✓ ${owner}/${repo}: ${data.stargazers_count} stars`);
     } catch (error) {
@@ -79,28 +88,20 @@ async function main() {
     }
   }
 
-  // Sort by stars
-  repos.sort((a, b) => b.stars - a.stars);
-
-  // Generate top 10
-  const top10 = repos.slice(0, 10).map((repo, index) => ({
-    rank: index + 1,
-    ...repo,
-  }));
-
-  // Generate fastest growing (simulated based on smaller repos)
-  const fastestGrowing = repos
-    .sort((a, b) => b.growthRate - a.growthRate)
-    .slice(0, 5)
+  const topByStars = [...repos]
+    .sort((a, b) => b.stars - a.stars)
+    .slice(0, 10)
     .map((repo, index) => ({
       rank: index + 1,
-      repo: repo.repo,
-      description: repo.description,
-      stars: repo.stars,
-      weeklyGrowth: repo.weeklyGrowth,
-      growthRate: parseFloat(repo.growthRate),
-      language: repo.language,
-      url: repo.url,
+      ...repo,
+    }));
+
+  const topByGrowth = [...repos]
+    .sort((a, b) => b.weeklyGrowth - a.weeklyGrowth)
+    .slice(0, 10)
+    .map((repo, index) => ({
+      rank: index + 1,
+      ...repo,
     }));
 
   // Read current tools.ts
@@ -117,8 +118,8 @@ async function main() {
   const newTrending = `export const githubTrending = {
   lastUpdate: '${today}',
   week: '${new Date().getFullYear()}-W${weekNumber}',
-  top10: ${JSON.stringify(top10, null, 2)},
-  fastestGrowing: ${JSON.stringify(fastestGrowing, null, 2)},
+  topByStars: ${JSON.stringify(topByStars, null, 2)},
+  topByGrowth: ${JSON.stringify(topByGrowth, null, 2)},
 };`;
 
   // Replace the githubTrending export

@@ -2,16 +2,14 @@
 
 import Link from 'next/link';
 import { useMemo } from 'react';
-import { ArrowRight, Clock, FolderKanban, Heart, Sparkles, Trash2, TrendingUp } from 'lucide-react';
+import { ArrowRight, Clock, FolderKanban, Heart, Sparkles, Trash2 } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { SearchBar } from '@/components/SearchBar';
 import { CategoryGrid, CategoryNav } from '@/components/CategoryNav';
 import { ToolGrid } from '@/components/ToolCard';
 import { GitHubTrendingCompact } from '@/components/GitHubTrending';
-import { getFeaturedPromptShowcases } from '@/data/prompt-showcases';
 import { githubTopicCollections } from '@/data/github-topics';
 import { categories, getFeaturedTools, getToolsByCategory, tools } from '@/data/tools';
-import { prompts } from '@/data/prompts';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useFavorites } from '@/hooks/useFavorites';
 import { useHistory } from '@/hooks/useHistory';
@@ -33,7 +31,6 @@ export default function HomePage() {
   const featuredTools = getFeaturedTools();
   const aiTools = getToolsByCategory('ai-tools').slice(0, 8);
   const devTools = getToolsByCategory('dev-tools').slice(0, 6);
-  const featuredShowcases = getFeaturedPromptShowcases(4);
 
   const favoriteTools = useMemo(
     () => favorites.map((id) => tools.find((tool) => tool.id === id)).filter(Boolean) as typeof tools,
@@ -51,84 +48,44 @@ export default function HomePage() {
 
       <section className="overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.18),_transparent_32%),radial-gradient(circle_at_top_right,_rgba(139,92,246,0.18),_transparent_30%),linear-gradient(to_bottom,_rgba(255,255,255,0.96),_rgba(248,250,252,0.96))] py-16 px-4 sm:px-6 lg:px-8 dark:bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.20),_transparent_32%),radial-gradient(circle_at_top_right,_rgba(139,92,246,0.16),_transparent_30%),linear-gradient(to_bottom,_rgba(3,7,18,0.96),_rgba(10,15,28,0.96))]">
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-3 py-1 text-sm text-blue-700 backdrop-blur-sm dark:border-blue-900 dark:bg-blue-950/20 dark:text-blue-300">
-                <Sparkles className="h-4 w-4" />
-                {lang === 'zh' ? 'AI 工具、MCP、提示词与 GitHub 热门' : 'AI tools, MCP, prompts, and GitHub trends'}
-              </div>
-              <h1 className="max-w-4xl text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl dark:text-white">
-                {lang === 'zh'
-                  ? '发现 AI 工具、MCP 服务器、提示词案例和 GitHub 热门资源'
-                  : 'Discover AI tools, MCP servers, prompt showcases, and trending GitHub resources'}
-              </h1>
-              <p className="mt-5 max-w-3xl text-lg text-gray-600 dark:text-gray-400">
-                {lang === 'zh'
-                  ? 'AnyTools 不再只是工具导航。这里把图片提示词、视频提示词、开发者 AI 热门专题和 GitHub 增长项目整理到同一个入口，方便你一站式找灵感、找资源、找流量话题。'
-                  : 'AnyTools is no longer just a tool directory. It now brings together image prompts, video prompts, developer AI topics, and fast-moving GitHub projects in one searchable hub.'}
-              </p>
+          <div className="mx-auto max-w-5xl text-center">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/85 px-4 py-1.5 text-sm text-blue-700 backdrop-blur-sm dark:border-blue-900 dark:bg-blue-950/25 dark:text-blue-300">
+              <Sparkles className="h-4 w-4" />
+              {lang === 'zh' ? 'AI 工具、MCP、提示词与 GitHub 热门' : 'AI tools, MCP, prompts, and GitHub trends'}
+            </div>
+            <h1 className="mx-auto max-w-5xl text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl dark:text-white">
+              {lang === 'zh'
+                ? '发现 AI 工具、MCP 服务器、提示词案例和 GitHub 热门资源'
+                : 'Discover AI tools, MCP servers, prompt showcases, and trending GitHub resources'}
+            </h1>
+            <p className="mx-auto mt-6 max-w-4xl text-lg leading-8 text-gray-600 dark:text-gray-400 sm:text-xl">
+              {lang === 'zh'
+                ? 'AnyTools 不只是工具导航，而是一个更适合搜索和持续浏览的 AI 资源入口。你可以在这里集中查看图片提示词、视频提示词、MCP 服务器、Agent Skills、GitHub 热门项目和开发者工作流专题，更快找到灵感、资源和当前真正值得关注的话题。'
+                : 'AnyTools is no longer just a tool directory. It is a more searchable AI resource hub where you can explore image prompts, video prompts, MCP servers, agent skills, trending GitHub projects, and developer workflow topics in one place.'}
+            </p>
 
-              <div className="mt-8 max-w-2xl">
-                <SearchBar />
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {quickLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="rounded-full border border-gray-200 bg-white/90 px-4 py-2 text-sm text-gray-700 transition hover:border-blue-300 hover:bg-blue-50 dark:border-gray-700 dark:bg-gray-900/70 dark:text-gray-300 dark:hover:border-blue-900 dark:hover:bg-blue-950/20"
-                  >
-                    {lang === 'zh' ? link.zh : link.en}
-                  </Link>
-                ))}
-              </div>
-
-              <p className="mt-5 text-sm text-gray-500">
-                {t.totalTools}{' '}
-                <span className="font-semibold text-gray-700 dark:text-gray-300">{tools.length}</span> {t.tools}
-                {' · '}
-                <span className="font-semibold text-gray-700 dark:text-gray-300">{prompts.length}</span>{' '}
-                {lang === 'zh' ? '个提示词' : 'prompts'}
-                {' · '}
-                <span className="font-semibold text-gray-700 dark:text-gray-300">{categories.length}</span> {t.categories}
-              </p>
+            <div className="mx-auto mt-10 max-w-4xl">
+              <SearchBar />
             </div>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {featuredShowcases.slice(0, 2).map((showcase) => {
-                const prompt = prompts.find((item) => item.id === showcase.id);
-                return (
-                  <Link
-                    key={showcase.id}
-                    href={`/prompts/${showcase.id}`}
-                    className="group overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-xl dark:border-gray-800 dark:bg-gray-900"
-                  >
-                    <div className="relative h-48 overflow-hidden">
-                      <img
-                        src={showcase.cover.url}
-                        alt={lang === 'zh' ? showcase.cover.alt : (showcase.cover.altEn || showcase.cover.alt)}
-                        className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                      <div className="absolute left-3 top-3 rounded-full bg-black/35 px-2.5 py-1 text-xs text-white backdrop-blur-sm">
-                        {showcase.mediaType === 'video'
-                          ? (lang === 'zh' ? '视频提示词' : 'Video prompt')
-                          : (lang === 'zh' ? '图片提示词' : 'Image prompt')}
-                      </div>
-                      <div className="absolute bottom-3 left-3 right-3">
-                        <div className="text-lg font-semibold text-white">
-                          {lang === 'zh' ? prompt?.title : (prompt?.titleEn || prompt?.title)}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="p-4 text-sm text-gray-600 dark:text-gray-300">
-                      {lang === 'zh' ? showcase.useCase : (showcase.useCaseEn || showcase.useCase)}
-                    </div>
-                  </Link>
-                );
-              })}
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              {quickLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-full border border-gray-200 bg-white/90 px-4 py-2.5 text-sm text-gray-700 transition hover:border-blue-300 hover:bg-blue-50 dark:border-gray-700 dark:bg-gray-900/70 dark:text-gray-300 dark:hover:border-blue-900 dark:hover:bg-blue-950/20"
+                >
+                  {lang === 'zh' ? link.zh : link.en}
+                </Link>
+              ))}
             </div>
+
+            <p className="mt-6 text-sm text-gray-500">
+              {t.totalTools}{' '}
+              <span className="font-semibold text-gray-700 dark:text-gray-300">{tools.length}</span> {t.tools}
+              {' · '}
+              <span className="font-semibold text-gray-700 dark:text-gray-300">{categories.length}</span> {t.categories}
+            </p>
           </div>
         </div>
       </section>
@@ -136,37 +93,6 @@ export default function HomePage() {
       <section className="py-6 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <CategoryNav />
-        </div>
-      </section>
-
-      <section className="py-6 px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl rounded-3xl border border-purple-200 bg-gradient-to-r from-purple-600 to-fuchsia-600 p-6 text-white shadow-lg">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-sm backdrop-blur-sm">
-                <TrendingUp className="h-4 w-4" />
-                {lang === 'zh' ? '今日热门 AI 内容' : 'Today\'s AI highlights'}
-              </div>
-              <h2 className="text-2xl font-bold">
-                {lang === 'zh'
-                  ? '图片提示词、视频提示词、MCP 与 AI Rules 一起看'
-                  : 'See prompts, MCP, and AI rules in one place'}
-              </h2>
-              <p className="mt-2 max-w-2xl text-white/85">
-                {lang === 'zh'
-                  ? '不只是复制提示词，现在可以直接看成图、看视频、看拆解，还能顺手追 GitHub 热门仓库和开发者专题。'
-                  : 'It is no longer just copy-and-paste prompts. You can now inspect images, watch videos, read breakdowns, and jump into developer AI topics.'}
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/prompts" className="rounded-full bg-white px-4 py-2 text-sm font-medium text-purple-700 hover:bg-purple-50">
-                {lang === 'zh' ? '浏览提示词库' : 'Browse prompt library'}
-              </Link>
-              <Link href="/github" className="rounded-full border border-white/40 px-4 py-2 text-sm font-medium text-white hover:bg-white/10">
-                {lang === 'zh' ? '查看 GitHub 热门' : 'Open GitHub topics'}
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -180,7 +106,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-              {lang === 'zh' ? '热门图片/视频案例' : 'Featured image and video cases'}
+              {lang === 'zh' ? '提示词与实用入口' : 'Prompt and utility entry points'}
             </h2>
             <Link href="/prompts" className="flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700">
               {t.viewMore}
@@ -188,33 +114,29 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {featuredShowcases.slice(0, 3).map((showcase) => {
-              const prompt = prompts.find((item) => item.id === showcase.id);
-              return (
-                <Link
-                  key={showcase.id}
-                  href={`/prompts/${showcase.id}`}
-                  className="overflow-hidden rounded-3xl border border-gray-200 bg-white transition hover:-translate-y-0.5 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900"
-                >
-                  <img
-                    src={showcase.cover.url}
-                    alt={lang === 'zh' ? showcase.cover.alt : (showcase.cover.altEn || showcase.cover.alt)}
-                    className="h-48 w-full object-cover"
-                  />
-                  <div className="p-4">
-                    <div className="mb-2 text-xs font-medium text-purple-600 dark:text-purple-300">
-                      {showcase.model}
-                    </div>
-                    <div className="text-lg font-semibold text-gray-900 dark:text-white">
-                      {lang === 'zh' ? prompt?.title : (prompt?.titleEn || prompt?.title)}
-                    </div>
-                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-                      {lang === 'zh' ? showcase.useCase : (showcase.useCaseEn || showcase.useCase)}
-                    </p>
-                  </div>
-                </Link>
-              );
-            })}
+            {quickLinks.slice(0, 3).map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-3xl border border-gray-200 bg-white p-6 transition hover:-translate-y-0.5 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900"
+              >
+                <div className="mb-3 text-sm font-medium text-purple-600 dark:text-purple-300">
+                  {lang === 'zh' ? '快捷专题入口' : 'Quick topic entry'}
+                </div>
+                <div className="text-xl font-semibold text-gray-900 dark:text-white">
+                  {lang === 'zh' ? link.zh : link.en}
+                </div>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
+                  {link.href.includes('/prompts')
+                    ? (lang === 'zh'
+                        ? '直接进入筛选后的提示词库，减少搜索成本。'
+                        : 'Jump straight into the filtered prompt library.')
+                    : (lang === 'zh'
+                        ? '进入开发者 AI 热门专题页，查看结构化资源。'
+                        : 'Open a structured developer AI topic page.')}
+                </p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
