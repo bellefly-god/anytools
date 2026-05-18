@@ -90,6 +90,7 @@ export interface Prompt {
   featured: boolean;
   hot?: boolean;
   createdAt: string;
+  updatedAt?: string;
 }
 
 export const prompts: Prompt[] = [
@@ -1687,6 +1688,309 @@ Gradient logo icon of [symbol], [color1] to [color2] gradient, modern app icon s
       }
     ],
     createdAt: '2026-05-02',
+  },
+  {
+    id: 'gpt-image-editorial',
+    title: 'GPT Image 杂志感人物图',
+    titleEn: 'GPT Image Editorial Portrait',
+    description: '适合个人品牌和杂志封面的高质感人物图提示词',
+    content: `你是一位 AI 杂志视觉导演。请根据以下需求创建人物图提示词：
+
+人物身份：[创业者/设计师/博主/产品经理]
+视觉调性：[高级/克制/先锋/科技]
+场景背景：[影棚/办公室/纯色/城市]
+光线要求：[侧光/柔光/逆光/硬光]
+排版需求：[是否预留标题空间]
+
+请输出：
+1. 一条完整英文提示词
+2. 3 个可替换风格关键词
+3. 推荐构图和比例
+4. 如果用于杂志或 Landing Page，说明留白区如何安排`,
+    contentEn: `You are an AI editorial art director. Create a portrait prompt for:
+
+Subject role: [Founder/Designer/Creator/Product manager]
+Visual tone: [Premium/Minimal/Avant-garde/Tech]
+Scene: [Studio/Office/Solid backdrop/Urban]
+Lighting: [Side light/Soft light/Backlight/Hard light]
+Layout needs: [Need safe space for headline or not]
+
+Please output:
+1. One complete English prompt
+2. Three optional style keyword swaps
+3. Recommended composition and aspect ratio
+4. Notes for magazine or landing page typography-safe layout`,
+    category: 'image',
+    tags: ['GPT Image', '人物', '杂志'],
+    model: 'GPT Image',
+    source: 'OpenAI Image Prompting',
+    featured: true,
+    hot: true,
+    createdAt: '2026-05-18',
+    updatedAt: '2026-05-18',
+  },
+  {
+    id: 'flux-product-scene',
+    title: 'Flux 产品场景图',
+    titleEn: 'Flux Product Scene',
+    description: '适合电商和品牌视觉的高端产品场景提示词',
+    content: `你是一位商业产品摄影提示词专家。请为以下产品生成场景图提示词：
+
+产品类型：[护肤/数码/家居/食品]
+材质重点：[玻璃/金属/布料/磨砂]
+场景氛围：[清晨/疗愈/高级/极简]
+背景材质：[石材/木材/渐变背景/布景]
+镜头语言：[特写/45 度/平视/俯拍]
+
+请输出：
+1. 完整英文 prompt
+2. 关键材质词
+3. 推荐光线
+4. 适合商品首图还是广告 KV 的说明`,
+    contentEn: `You are a commercial product prompt expert. Generate a product scene prompt for:
+
+Product type: [Skincare/Tech/Home/Food]
+Material focus: [Glass/Metal/Fabric/Matte]
+Mood: [Morning/Calming/Premium/Minimal]
+Background material: [Stone/Wood/Gradient/Set design]
+Camera angle: [Close-up/45-degree/Eye-level/Top-down]
+
+Please output:
+1. A complete English prompt
+2. Material keywords
+3. Recommended lighting
+4. Whether the scene fits ecommerce hero images or ad key visuals`,
+    category: 'image',
+    tags: ['Flux', '产品图', '电商'],
+    model: 'Flux',
+    featured: true,
+    hot: true,
+    createdAt: '2026-05-18',
+    updatedAt: '2026-05-18',
+  },
+  {
+    id: 'ideogram-logo',
+    title: 'Ideogram 字标 Logo',
+    titleEn: 'Ideogram Wordmark Logo',
+    description: '面向 SaaS 和开发者产品的字标 Logo 提示词',
+    content: `你是一位品牌设计顾问。请帮我生成字标 Logo 的 AI 提示词：
+
+品牌名称：[品牌名]
+所属行业：[AI/SaaS/开发工具/教育]
+品牌关键词：[可靠/速度/理性/未来感]
+字标风格：[几何/无衬线/极简/实验性]
+需要的变体：[字标/图标/monogram]
+
+请输出：
+1. 完整英文 prompt
+2. 颜色建议
+3. 适合 favicon 的简化方向
+4. 如何避免生成过度装饰图形`,
+    contentEn: `You are a branding consultant. Create an AI prompt for a wordmark logo:
+
+Brand name: [Name]
+Industry: [AI/SaaS/Devtools/Education]
+Brand traits: [Reliable/Fast/Rational/Futuristic]
+Wordmark style: [Geometric/Sans-serif/Minimal/Experimental]
+Variants needed: [Wordmark/Icon/Monogram]
+
+Please output:
+1. One complete English prompt
+2. Color direction suggestions
+3. A favicon-friendly simplification path
+4. Guidance to avoid over-decorated shapes`,
+    category: 'image',
+    tags: ['Ideogram', 'Logo', '品牌'],
+    model: 'Ideogram',
+    featured: true,
+    createdAt: '2026-05-18',
+    updatedAt: '2026-05-18',
+  },
+  {
+    id: 'flux-environment',
+    title: 'Flux 环境概念图',
+    titleEn: 'Flux Environment Concept',
+    description: '适合做自然场景和概念设定的环境类提示词',
+    content: `你是一位环境概念设计师。请创建场景类图片提示词：
+
+世界观：[未来城市/自然秘境/废土/童话]
+时间：[清晨/黄昏/夜晚/暴雨后]
+构图重点：[全景/前景物体/深度层次]
+气氛关键词：[神秘/宁静/压迫/恢弘]
+画风方向：[电影感/概念艺术/写实]
+
+请输出完整英文提示词，并说明：
+- 主体层次
+- 光线安排
+- 可替换的风格词`,
+    contentEn: `You are an environment concept artist. Create a scene prompt for:
+
+World type: [Future city/Hidden nature/Wasteland/Fairy tale]
+Time: [Morning/Sunset/Night/After rain]
+Composition focus: [Panorama/Foreground object/Depth layers]
+Mood: [Mysterious/Calm/Intense/Grand]
+Visual style: [Cinematic/Concept art/Realistic]
+
+Please output a full English prompt and explain:
+- scene layering
+- lighting setup
+- swappable style keywords`,
+    category: 'image',
+    tags: ['Flux', '场景', '概念图'],
+    model: 'Flux',
+    featured: false,
+    createdAt: '2026-05-18',
+    updatedAt: '2026-05-18',
+  },
+  {
+    id: 'kling-cinematic-ad',
+    title: 'Kling 广告感视频',
+    titleEn: 'Kling Cinematic Ad',
+    description: '广告感强、镜头语言明确的视频提示词模板',
+    content: `你是一位广告导演。请为以下产品或主题生成 Kling 视频提示词：
+
+主体：[汽车/手机/耳机/人物]
+场景：[夜景城市/影棚/自然道路/抽象空间]
+镜头语言：[低机位跟拍/特写/推拉/剪切]
+情绪：[速度感/未来感/高端/神秘]
+时长：[6-10 秒]
+
+请输出：
+1. 完整视频 prompt
+2. 三段式镜头拆解
+3. 节奏建议
+4. 适合广告片还是产品预告片`,
+    contentEn: `You are a commercial film director. Generate a Kling video prompt for:
+
+Subject: [Car/Phone/Earbuds/Character]
+Scene: [Night city/Studio/Open road/Abstract set]
+Camera language: [Low-angle tracking/Close-up/Push-pull/Cut-ins]
+Emotion: [Speed/Futuristic/Premium/Mysterious]
+Duration: [6-10 seconds]
+
+Please output:
+1. A full video prompt
+2. A 3-part shot breakdown
+3. Pacing guidance
+4. Whether it fits an ad film or teaser`,
+    category: 'video',
+    tags: ['Kling', '视频', '广告'],
+    model: 'Kling',
+    featured: true,
+    hot: true,
+    createdAt: '2026-05-18',
+    updatedAt: '2026-05-18',
+  },
+  {
+    id: 'cinematic-broll-generator',
+    title: '电影感 B-roll 生成',
+    titleEn: 'Cinematic B-roll Generator',
+    description: '适合官网品牌片和人物故事片的 B-roll 提示词',
+    content: `你是一位品牌短片导演。请生成电影感 B-roll 提示词：
+
+内容主题：[创始人办公/产品制作/旅行叙事/生活方式]
+镜头风格：[慢推/近景/手部特写/环境切镜]
+视觉氛围：[安静/高级/治愈/克制]
+场景元素：[桌面/咖啡/键盘/路灯/窗光]
+用途：[品牌片/采访片/官网首屏视频]
+
+请输出：
+1. 主 prompt
+2. 3 组可替换镜头
+3. 建议的音乐情绪和剪辑节奏`,
+    contentEn: `You are a branded film director. Generate a cinematic B-roll prompt:
+
+Theme: [Founder desk/Product making/Travel narrative/Lifestyle]
+Shot style: [Slow push-in/Close-up/Hand detail/Environmental cuts]
+Mood: [Quiet/Premium/Healing/Restrained]
+Scene elements: [Desk/Coffee/Keyboard/Streetlight/Window light]
+Use case: [Brand film/Interview/Open-site hero video]
+
+Please output:
+1. One main prompt
+2. Three swappable shot groups
+3. Suggested music mood and edit pacing`,
+    category: 'video',
+    tags: ['B-roll', '品牌片', '视频'],
+    model: 'Sora',
+    featured: true,
+    createdAt: '2026-05-18',
+    updatedAt: '2026-05-18',
+  },
+  {
+    id: 'product-teaser-video',
+    title: '产品预告短片',
+    titleEn: 'Product Teaser Video',
+    description: '适合 AI 工具和 SaaS 新品发布的 teaser prompt',
+    content: `你是一位产品营销导演。请为新品发布生成短视频提示词：
+
+产品类型：[AI 工具/SaaS/硬件]
+核心亮点：[速度/自动化/设计感/协作]
+展示方式：[UI 动效/实物特写/人物使用]
+节奏：[克制/高能/未来感]
+时长：[6-8 秒]
+
+请输出：
+1. 完整 prompt
+2. 3 段式镜头结构
+3. 适合 Product Hunt / X / 官网首屏 的版本建议`,
+    contentEn: `You are a product launch director. Generate a teaser video prompt for:
+
+Product type: [AI tool/SaaS/Hardware]
+Core moment: [Speed/Automation/Design/Collaboration]
+Demo style: [UI motion/Physical close-ups/User interaction]
+Pacing: [Controlled/Punchy/Futuristic]
+Duration: [6-8 seconds]
+
+Please output:
+1. A complete prompt
+2. A 3-part shot structure
+3. Version suggestions for Product Hunt, X, or website hero use`,
+    category: 'video',
+    tags: ['产品发布', 'Teaser', 'SaaS'],
+    model: 'Runway',
+    featured: true,
+    hot: true,
+    createdAt: '2026-05-18',
+    updatedAt: '2026-05-18',
+  },
+  {
+    id: 'ugc-ad-video',
+    title: 'UGC 广告视频脚本',
+    titleEn: 'UGC Ad Video Prompt',
+    description: '适合短视频投放和种草内容的广告脚本 prompt',
+    content: `你是一位短视频投放编导。请生成 UGC 风格广告脚本：
+
+产品：[产品名称]
+受众：[学生/上班族/妈妈/开发者]
+卖点：[省时/省钱/好看/好用]
+平台：[抖音/小红书/Reels/TikTok]
+时长：[15-30 秒]
+
+请输出：
+1. 开场钩子
+2. 分镜脚本
+3. 字幕口播
+4. 互动 CTA`,
+    contentEn: `You are a paid social video creator. Generate a UGC-style ad script:
+
+Product: [Name]
+Audience: [Students/Workers/Moms/Developers]
+Selling point: [Save time/Save money/Looks good/Works better]
+Platform: [TikTok/Reels/Xiaohongshu]
+Duration: [15-30 seconds]
+
+Please output:
+1. Opening hook
+2. Shot-by-shot script
+3. Caption or voiceover
+4. Engagement CTA`,
+    category: 'video',
+    tags: ['UGC', '广告', '短视频'],
+    featured: false,
+    hot: true,
+    createdAt: '2026-05-18',
+    updatedAt: '2026-05-18',
   },
 ];
 

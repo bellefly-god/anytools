@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
 const HISTORY_KEY = 'anytools_history';
 const MAX_HISTORY = 20;
@@ -11,20 +11,19 @@ interface HistoryItem {
 }
 
 export function useHistory() {
-  const [history, setHistory] = useState<HistoryItem[]>([]);
+  const [history, setHistory] = useState<HistoryItem[]>(() => {
+    if (typeof window === 'undefined') {
+      return [];
+    }
 
-  // 初始化时从 localStorage 加载
-  useEffect(() => {
     try {
       const stored = localStorage.getItem(HISTORY_KEY);
-      if (stored) {
-        setHistory(JSON.parse(stored));
-      }
+      return stored ? JSON.parse(stored) : [];
     } catch (e) {
       console.error('Failed to load history:', e);
-      setHistory([]);
+      return [];
     }
-  }, []);
+  });
 
   // 添加历史记录
   const addHistory = useCallback((toolId: string) => {

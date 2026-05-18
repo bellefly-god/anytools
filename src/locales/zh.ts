@@ -1,7 +1,7 @@
 export const zh = {
   // 通用
   siteName: 'AnyTools',
-  siteDescription: '发现最好的工具',
+  siteDescription: '发现 AI 工具、提示词案例、MCP 和 GitHub 热门资源',
   search: '搜索工具...',
   searchPlaceholder: '搜索工具名称、描述或标签...',
   viewAll: '查看全部',
@@ -13,13 +13,13 @@ export const zh = {
   
   // 导航
   home: '首页',
-  github: 'GitHub 榜单',
+  github: 'GitHub 热门',
   all: '全部',
   
   // 首页
-  heroTitle: '发现最好的工具',
-  heroSubtitle: '精选 AI、开发、设计、效率工具，帮你找到最适合的工具',
-  discoverTools: '发现优质工具',
+  heroTitle: '发现 AI 工具、MCP、提示词与 GitHub 热门',
+  heroSubtitle: '从图片提示词、视频提示词到开发者 AI 热门专题，一站式找到灵感与资源',
+  discoverTools: '发现热门 AI 资源',
   
   // 分类
   aiTools: 'AI 工具',
@@ -75,18 +75,18 @@ export const zh = {
   totalCollected: '共收录',
   
   // Footer
-  footer: 'AnyTools - 发现最好的工具',
+  footer: 'AnyTools - 发现 AI 工具、提示词案例与开发者热门资源',
   toolsCollected: '收录',
   categoriesCount: '个分类',
   
   // GitHub 页面
-  githubTitle: 'GitHub 周榜',
+  githubTitle: 'GitHub 热门与 AI 专题',
   backHome: '返回首页',
   
   // Prompts 页面
   promptsTitle: 'AI 提示词库',
-  promptsHeroTitle: '优质 AI 提示词集合',
-  promptsHeroSubtitle: '精选高质量提示词，覆盖文本、图片、视频、编程等多个领域，助你更好地使用 AI',
+  promptsHeroTitle: '图片提示词、视频提示词与 AI 创作案例',
+  promptsHeroSubtitle: '精选带展示图、视频、完整 prompt 和拆解说明的 AI 提示词，覆盖图片生成、视频制作、脚本和开发场景',
   promptsSearchPlaceholder: '搜索提示词...',
   promptsFound: '找到',
   promptsCount: '个提示词',
@@ -107,8 +107,8 @@ export const zh = {
   
   // 首页 Banner
   newFeature: '新功能上线',
-  promptsBannerTitle: 'AI 提示词库',
-  promptsBannerDesc: '精选高质量提示词，覆盖文本写作、图片生成、视频制作、编程开发等领域',
+  promptsBannerTitle: '今日热门 AI 内容',
+  promptsBannerDesc: '查看图片提示词、视频提示词、MCP、Agent Skills 和 GitHub 热门专题',
   promptsBannerText: '文本写作',
   promptsBannerImage: '图片生成',
   promptsBannerVideo: '视频制作',

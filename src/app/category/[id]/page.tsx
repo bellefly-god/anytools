@@ -1,10 +1,5 @@
-import { Header } from '@/components/Header';
-import { CategoryNav } from '@/components/CategoryNav';
-import { ToolGrid } from '@/components/ToolCard';
 import { getToolsByCategory, getCategoryById, categories } from '@/data/tools';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
 import { CategoryClient } from './CategoryClient';
 
 interface CategoryPageProps {

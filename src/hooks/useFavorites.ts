@@ -1,25 +1,24 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
 const FAVORITES_KEY = 'anytools_favorites';
 const MAX_FAVORITES = 50;
 
 export function useFavorites() {
-  const [favorites, setFavorites] = useState<string[]>([]);
+  const [favorites, setFavorites] = useState<string[]>(() => {
+    if (typeof window === 'undefined') {
+      return [];
+    }
 
-  // 初始化时从 localStorage 加载
-  useEffect(() => {
     try {
       const stored = localStorage.getItem(FAVORITES_KEY);
-      if (stored) {
-        setFavorites(JSON.parse(stored));
-      }
+      return stored ? JSON.parse(stored) : [];
     } catch (e) {
       console.error('Failed to load favorites:', e);
-      setFavorites([]);
+      return [];
     }
-  }, []);
+  });
 
   // 添加收藏
   const addFavorite = useCallback((toolId: string) => {

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, Filter } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -18,11 +18,6 @@ export function SearchBar({ onResults }: SearchBarProps) {
   const [results, setResults] = useState<Tool[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const handleSearch = (value: string) => {
     setQuery(value);

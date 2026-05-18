@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
 import { categories, tools } from "@/data/tools";
-
-const SITE_URL = "https://anytools.pagecleans.com";
+import { prompts } from "@/data/prompts";
+import { githubTopicCollections } from "@/data/github-topics";
+import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const urls: MetadataRoute.Sitemap = [
@@ -25,6 +26,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  githubTopicCollections.forEach((topic) => {
+    urls.push({
+      url: `${SITE_URL}/github/${topic.id}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.75,
+    });
+  });
+
+  prompts.forEach((prompt) => {
+    urls.push({
+      url: `${SITE_URL}/prompts/${prompt.id}`,
+      lastModified: new Date(prompt.updatedAt || prompt.createdAt || new Date()),
+      changeFrequency: "monthly",
+      priority: prompt.hot ? 0.8 : 0.65,
+    });
+  });
+
+  tools.slice(0, 150).forEach((tool) => {
+    urls.push({
+      url: `${SITE_URL}/tool/${tool.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: tool.featured ? 0.72 : 0.58,
+    });
+  });
+
   // Category pages
   categories.forEach((category) => {
     urls.push({
@@ -32,16 +60,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
-    });
-  });
-
-  // Tool detail pages (featured tools get higher priority)
-  tools.slice(0, 100).forEach((tool) => {
-    urls.push({
-      url: `${SITE_URL}/tool/${tool.id}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: tool.featured ? 0.7 : 0.5,
     });
   });
 

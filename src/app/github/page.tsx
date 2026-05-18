@@ -1,54 +1,23 @@
-'use client';
+import type { Metadata } from 'next';
+import { GitHubPageClient } from './GitHubPageClient';
+import { absoluteUrl } from '@/lib/site';
 
-import { Header } from '@/components/Header';
-import { GitHubTrending, GitHubGrowth } from '@/components/GitHubTrending';
-import { githubTrending } from '@/data/tools';
-import { ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
-import { useLanguage } from '@/contexts/LanguageContext';
+export const metadata: Metadata = {
+  title: 'GitHub 热门仓库、MCP、Skills 与 AI Rules',
+  description:
+    '查看 GitHub Stars 榜、增长榜，以及 MCP Servers、Agent Skills、Prompt Engineering / AI Rules 等开发者 AI 热门专题。',
+  alternates: {
+    canonical: absoluteUrl('/github'),
+  },
+  openGraph: {
+    title: 'GitHub 热门仓库、MCP、Skills 与 AI Rules',
+    description:
+      '不只看排行榜，也整理开发者现在最关注的 MCP、AI skills、prompt engineering 和规则型资源。',
+    url: absoluteUrl('/github'),
+    type: 'website',
+  },
+};
 
 export default function GitHubPage() {
-  const { t } = useLanguage();
-
-  return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
-      <Header />
-
-      {/* Hero */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white mb-4"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            {t.backHome}
-          </Link>
-          <h1 className="text-3xl font-bold mb-2">📊 {t.githubTitle}</h1>
-          <p className="text-gray-600 dark:text-gray-400">
-            {t.updated} {githubTrending.lastUpdate} · {t.week} {githubTrending.week.split('-W')[1]}
-          </p>
-        </div>
-      </section>
-
-      {/* Charts */}
-      <section className="py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <GitHubTrending showAll />
-            <GitHubGrowth showAll />
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-gray-600 dark:text-gray-400">
-            {t.footer}
-          </p>
-        </div>
-      </footer>
-    </div>
-  );
+  return <GitHubPageClient />;
 }

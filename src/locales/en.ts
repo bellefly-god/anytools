@@ -3,7 +3,7 @@ import { Locale } from './zh';
 export const en: Locale = {
   // 通用
   siteName: 'AnyTools',
-  siteDescription: 'Discover the Best Tools',
+  siteDescription: 'Discover AI tools, prompt showcases, MCP servers, and trending GitHub resources',
   search: 'Search tools...',
   searchPlaceholder: 'Search tool name, description or tags...',
   viewAll: 'View All',
@@ -19,9 +19,9 @@ export const en: Locale = {
   all: 'All',
   
   // 首页
-  heroTitle: 'Discover the Best Tools',
-  heroSubtitle: 'Curated AI, Development, Design & Productivity Tools',
-  discoverTools: 'Discover Quality Tools',
+  heroTitle: 'Discover AI tools, MCP, prompts, and GitHub trends',
+  heroSubtitle: 'Find image prompts, video prompts, developer AI topics, and curated resources in one place',
+  discoverTools: 'Discover AI resources',
   
   // 分类
   aiTools: 'AI Tools',
@@ -77,18 +77,18 @@ export const en: Locale = {
   totalCollected: 'Total',
   
   // Footer
-  footer: 'AnyTools - Discover the Best Tools',
+  footer: 'AnyTools - Discover AI tools, prompt showcases, and developer trend resources',
   toolsCollected: 'Collected',
   categoriesCount: 'categories',
   
   // GitHub 页面
-  githubTitle: 'GitHub Weekly',
+  githubTitle: 'GitHub Trends and AI Topics',
   backHome: 'Back to Home',
   
   // Prompts 页面
   promptsTitle: 'AI Prompt Library',
-  promptsHeroTitle: 'Quality AI Prompts Collection',
-  promptsHeroSubtitle: 'Curated high-quality prompts covering text, image, video, coding and more to help you use AI better',
+  promptsHeroTitle: 'AI image prompts, video prompts, and showcase cases',
+  promptsHeroSubtitle: 'Curated prompts with images, videos, full prompts, and breakdowns for image generation, video creation, scripts, and developer workflows',
   promptsSearchPlaceholder: 'Search prompts...',
   promptsFound: 'Found',
   promptsCount: 'prompts',
@@ -109,8 +109,8 @@ export const en: Locale = {
   
   // 首页 Banner
   newFeature: 'New Feature',
-  promptsBannerTitle: 'AI Prompts Library',
-  promptsBannerDesc: 'Curated high-quality prompts for text, image, video, coding and more',
+  promptsBannerTitle: 'Trending AI Content',
+  promptsBannerDesc: 'Browse image prompts, video prompts, MCP topics, agent skills, and GitHub AI resources',
   promptsBannerText: 'Text',
   promptsBannerImage: 'Image',
   promptsBannerVideo: 'Video',

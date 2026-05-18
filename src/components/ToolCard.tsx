@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ExternalLink, TrendingUp, Globe, Monitor, Smartphone, Heart } from 'lucide-react';
+import { TrendingUp, Globe, Monitor, Smartphone, Heart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { categories, type Tool } from '@/data/tools';
@@ -9,7 +9,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { useFavorites } from '@/hooks/useFavorites';
 import { useHistory } from '@/hooks/useHistory';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 // 平台图标
 const platformIcons: Record<string, React.ReactNode> = {
@@ -33,12 +33,6 @@ export function ToolCard({ tool, index = 0, showFavorite = true }: ToolCardProps
   const category = categories.find((c) => c.id === tool.category);
   const { isFavorite, toggleFavorite } = useFavorites();
   const { addHistory } = useHistory();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   // 根据语言获取名称和描述
   const displayName = lang === 'en' && tool.nameEn ? tool.nameEn : tool.name;
   const displayDesc = lang === 'en' && tool.descriptionEn ? tool.descriptionEn : tool.description;
@@ -65,7 +59,7 @@ export function ToolCard({ tool, index = 0, showFavorite = true }: ToolCardProps
   };
 
   const pricing = pricingConfig[tool.pricing];
-  const isFav = mounted && isFavorite(tool.id);
+  const isFav = isFavorite(tool.id);
 
   const handleClick = () => {
     addHistory(tool.id);
@@ -83,7 +77,7 @@ export function ToolCard({ tool, index = 0, showFavorite = true }: ToolCardProps
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2, delay: index * 0.02 }}
     >
-      <a href={tool.url} target="_blank" rel="noopener noreferrer" onClick={handleClick}>
+      <Link href={`/tool/${tool.id}`} onClick={handleClick}>
         <Card className="h-full hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer group border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 relative">
           {/* 收藏按钮 */}
           {showFavorite && (
@@ -169,7 +163,7 @@ export function ToolCard({ tool, index = 0, showFavorite = true }: ToolCardProps
             </div>
           </CardContent>
         </Card>
-      </a>
+      </Link>
     </motion.div>
   );
 }

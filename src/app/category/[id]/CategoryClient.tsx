@@ -6,11 +6,11 @@ import { ToolGrid } from '@/components/ToolCard';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { categories } from '@/data/tools';
+import { categories, type Tool } from '@/data/tools';
 
 interface CategoryClientProps {
   category: typeof categories[0];
-  tools: any[];
+  tools: Tool[];
   subCategories: string[];
   activeCategory: string;
 }

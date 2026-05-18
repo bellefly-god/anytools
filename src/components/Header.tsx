@@ -42,7 +42,7 @@ export function Header({ onSearch }: HeaderProps) {
               href="/prompts" 
               className="text-sm text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 transition-colors font-medium"
             >
-              ✨ {lang === 'zh' ? 'AI 提示词' : 'AI Prompts'}
+              ✨ {lang === 'zh' ? '提示词案例' : 'Prompt Cases'}
             </Link>
             <Link 
               href="/github" 

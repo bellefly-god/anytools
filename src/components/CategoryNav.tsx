@@ -1,17 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import { categories } from '@/data/tools';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface CategoryNavProps {
   activeCategory?: string;
-  onCategoryChange?: (categoryId: string) => void;
 }
 
-export function CategoryNav({ activeCategory, onCategoryChange }: CategoryNavProps) {
+export function CategoryNav({ activeCategory }: CategoryNavProps) {
   const { lang } = useLanguage();
 
   return (
