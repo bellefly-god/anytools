@@ -58,7 +58,7 @@ const imagePosterA =
 const imagePosterB =
   "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80";
 const imagePosterC =
-  "https://images.unsplash.com/photo-1516239329098-61ec7f7f6d75?auto=format&fit=crop&w=1200&q=80";
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80";
 const imagePosterD =
   "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80";
 const imagePosterE =
@@ -98,21 +98,18 @@ const basePromptShowcases: PromptShowcase[] = [
     },
     gallery: [
       { type: "image", url: imagePosterA, alt: "黄金时刻人像", altEn: "Golden hour portrait" },
-      { type: "image", url: imagePosterC, alt: "城市街头人像", altEn: "Urban portrait" },
-    ],
+      { type: "image", url: imagePosterC, alt: "城市街头人像", altEn: "Urban portrait" }],
     promptFull:
       "A portrait of a young woman with flowing red hair, fashion editorial styling, soft golden hour light, urban street background with subtle bokeh, warm cinematic mood, Canon EOS R5, 85mm f/1.2 lens, shallow depth of field, skin texture preserved, professional color grading, --ar 4:5 --v 6 --style raw",
     promptBreakdown: [
       { label: "主体", labelEn: "Subject", value: "年轻女性、长发、时尚 editorial 造型", valueEn: "Young woman, flowing hair, editorial styling" },
       { label: "风格", labelEn: "Style", value: "时尚摄影、电影感、真实皮肤质感", valueEn: "Fashion photography, cinematic, realistic skin texture" },
       { label: "光线", labelEn: "Lighting", value: "黄金时刻柔光 + 轻微高光轮廓", valueEn: "Golden-hour soft light with subtle rim light" },
-      { label: "背景", labelEn: "Background", value: "城市街景 + bokeh 虚化", valueEn: "Urban street with soft bokeh" },
-    ],
+      { label: "背景", labelEn: "Background", value: "城市街景 + bokeh 虚化", valueEn: "Urban street with soft bokeh" }],
     parameters: [
       { label: "镜头", labelEn: "Lens", value: "85mm f/1.2" },
       { label: "比例", labelEn: "Aspect Ratio", value: "4:5" },
-      { label: "模型", labelEn: "Model", value: "Midjourney v6 / style raw" },
-    ],
+      { label: "模型", labelEn: "Model", value: "Midjourney v6 / style raw" }],
     useCase: "适合做小红书封面、摄影工作室案例图、时尚品牌社媒图。",
     useCaseEn: "Best for editorial covers, studio portfolios, and fashion social posts.",
     sourceName: "Midjourney Prompting Guide",
@@ -123,7 +120,7 @@ const basePromptShowcases: PromptShowcase[] = [
     featuredOnHome: true,
     referenceNote: "案例图用于展示 prompt 结构与视觉方向，实际生成结果会受模型版本和 seed 影响。",
     referenceNoteEn: "This showcase demonstrates prompt structure and visual direction. Actual outputs vary by model version and seed.",
-    similarPromptIds: ["midjourney-landscape", "gpt-image-editorial", "stable-diffusion-guide"],
+    similarPromptIds: ["midjourney-landscape", "gpt-image-editorial"],
     seoDescription: "Midjourney 人像摄影提示词案例，包含成图展示、细节关键词、镜头参数和可直接复制的完整 prompt。",
     seoDescriptionEn: "Midjourney portrait prompt example with preview image, prompt breakdown, lens settings, and a copy-ready full prompt.",
   },
@@ -133,21 +130,18 @@ const basePromptShowcases: PromptShowcase[] = [
     cover: { type: "image", url: imagePosterB, alt: "山地风景摄影样例", altEn: "Landscape photography example" },
     gallery: [
       { type: "image", url: imagePosterB, alt: "高山和薄雾", altEn: "Mountains and mist" },
-      { type: "image", url: imagePosterG, alt: "森林与湖泊", altEn: "Forest and lake" },
-    ],
+      { type: "image", url: imagePosterG, alt: "森林与湖泊", altEn: "Forest and lake" }],
     promptFull:
       "Breathtaking mountain landscape with snow-capped peaks, dramatic golden hour light breaking through clouds, atmospheric mist in the valley, cinematic wide-angle composition, Sony A7R IV, 16-35mm lens, HDR processing, 8K ultra detailed, --ar 16:9 --v 6 --style raw",
     promptBreakdown: [
       { label: "场景", labelEn: "Scene", value: "雪山、云层穿透光、山谷雾气", valueEn: "Snow peaks, breakthrough light, valley mist" },
       { label: "风格", labelEn: "Style", value: "电影感写实风景摄影", valueEn: "Cinematic realistic landscape photography" },
       { label: "构图", labelEn: "Composition", value: "广角全景 + 纵深层次", valueEn: "Wide panoramic framing with depth" },
-      { label: "画质", labelEn: "Quality", value: "HDR、8K、细节强化", valueEn: "HDR, 8K, enhanced detail" },
-    ],
+      { label: "画质", labelEn: "Quality", value: "HDR、8K、细节强化", valueEn: "HDR, 8K, enhanced detail" }],
     parameters: [
       { label: "镜头", labelEn: "Lens", value: "16-35mm 广角镜头", valueEn: "16-35mm wide-angle lens" },
       { label: "比例", labelEn: "Aspect Ratio", value: "16:9" },
-      { label: "风格参数", labelEn: "Style Params", value: "--style raw --v 6" },
-    ],
+      { label: "风格参数", labelEn: "Style Params", value: "--style raw --v 6" }],
     useCase: "适合旅游封面图、桌面壁纸、城市/自然专题页头图。",
     useCaseEn: "Ideal for travel covers, wallpapers, and editorial hero images.",
     sourceName: "Midjourney Prompting Guide",
@@ -155,36 +149,9 @@ const basePromptShowcases: PromptShowcase[] = [
     model: "Midjourney",
     platform: ["Midjourney"],
     difficulty: "beginner",
-    similarPromptIds: ["flux-environment", "stable-diffusion-guide", "runway-gen3"],
+    similarPromptIds: ["runway-gen3"],
     seoDescription: "风景摄影类图片提示词示例，适合做自然风景、旅游页面和电影感壁纸。",
     seoDescriptionEn: "Landscape prompt example for scenic visuals, travel pages, and cinematic wallpapers.",
-  },
-  {
-    id: "stable-diffusion-guide",
-    mediaType: "image",
-    cover: { type: "image", url: imagePosterC, alt: "Stable Diffusion 动漫人像样例", altEn: "Stable Diffusion anime portrait example" },
-    promptFull:
-      "Positive: (masterpiece, best quality, highres:1.2), 1girl, silver hair, elegant white dress, standing in moonlit garden, detailed eyes, soft moonlight, dreamy atmosphere, art nouveau details. Negative: (low quality, worst quality:1.4), blurry, distorted hands, text, watermark, signature",
-    promptBreakdown: [
-      { label: "正向词", labelEn: "Positive Prompt", value: "画质强化 + 主体 + 场景 + 氛围 + 艺术风格", valueEn: "Quality boost + subject + scene + atmosphere + art style" },
-      { label: "负面词", labelEn: "Negative Prompt", value: "低质量、手部畸形、文字、水印", valueEn: "Low quality, bad hands, text, watermark" },
-      { label: "风格", labelEn: "Style", value: "新艺术风格 + 梦幻月光", valueEn: "Art nouveau with dreamy moonlight" },
-    ],
-    parameters: [
-      { label: "适配平台", labelEn: "Best Platforms", value: "AUTOMATIC1111、ComfyUI、Civitai 模型" },
-      { label: "推荐补充", labelEn: "Helpful Add-ons", value: "LoRA、ControlNet、Hires fix" },
-    ],
-    useCase: "适合动漫角色海报、设定图、视觉小说封面和同人作品。",
-    useCaseEn: "Useful for anime posters, character sheets, VN covers, and fan art.",
-    sourceName: "Civitai",
-    sourceUrl: "https://civitai.com/",
-    model: "Stable Diffusion",
-    platform: ["AUTOMATIC1111", "ComfyUI", "Civitai"],
-    difficulty: "intermediate",
-    featuredOnHome: true,
-    similarPromptIds: ["flux-product-scene", "ideogram-logo", "midjourney-portrait"],
-    seoDescription: "Stable Diffusion 提示词指南，包含正向词、负面词、风格标签与实战建议。",
-    seoDescriptionEn: "Stable Diffusion prompt guide with positive prompts, negative prompts, style tags, and practical setup notes.",
   },
   {
     id: "dalle-product",
@@ -195,12 +162,10 @@ const basePromptShowcases: PromptShowcase[] = [
     promptBreakdown: [
       { label: "产品主体", labelEn: "Product", value: "无线耳机 + 哑光白外壳", valueEn: "Wireless earbuds with matte white finish" },
       { label: "布光", labelEn: "Lighting", value: "棚拍柔光 + 接触阴影", valueEn: "Soft studio light with contact shadow" },
-      { label: "商业感", labelEn: "Commercial Feel", value: "高级科技品牌、边缘清晰、背景简洁", valueEn: "Premium tech brand feel with clean backdrop" },
-    ],
+      { label: "商业感", labelEn: "Commercial Feel", value: "高级科技品牌、边缘清晰、背景简洁", valueEn: "Premium tech brand feel with clean backdrop" }],
     parameters: [
       { label: "适用模型", labelEn: "Best Models", value: "GPT Image / DALL-E 3" },
-      { label: "比例建议", labelEn: "Aspect Ratio", value: "1:1、4:5、16:9" },
-    ],
+      { label: "比例建议", labelEn: "Aspect Ratio", value: "1:1、4:5、16:9" }],
     useCase: "适合电商首图、广告 KV、App Store 截图和新品发布海报。",
     useCaseEn: "Good for ecommerce hero images, ad creatives, app store shots, and product launches.",
     sourceName: "OpenAI image prompting patterns",
@@ -221,12 +186,10 @@ const basePromptShowcases: PromptShowcase[] = [
     promptBreakdown: [
       { label: "品牌信息", labelEn: "Brand Intent", value: "AI 效率产品，强调连接、记忆与理性", valueEn: "AI productivity brand focused on connection and memory" },
       { label: "图形语言", labelEn: "Graphic Language", value: "几何、抽象、vector 精准线条", valueEn: "Geometric, abstract, vector-precise lines" },
-      { label: "配色", labelEn: "Color Palette", value: "电光蓝 + 石墨灰", valueEn: "Electric blue and graphite" },
-    ],
+      { label: "配色", labelEn: "Color Palette", value: "电光蓝 + 石墨灰", valueEn: "Electric blue and graphite" }],
     parameters: [
       { label: "适用模型", labelEn: "Best Models", value: "Ideogram / GPT Image / Midjourney" },
-      { label: "输出建议", labelEn: "Output Tips", value: "要求白底、可缩放、黑白版本可识别", valueEn: "Ask for white background, scalability, and black-and-white clarity" },
-    ],
+      { label: "输出建议", labelEn: "Output Tips", value: "要求白底、可缩放、黑白版本可识别", valueEn: "Ask for white background, scalability, and black-and-white clarity" }],
     useCase: "适合 SaaS 品牌初版 logo 探索、App 图标方向图和品牌视觉板。",
     useCaseEn: "Useful for early SaaS logo concepts, app icon directions, and brand boards.",
     model: "Ideogram",
@@ -245,12 +208,10 @@ const basePromptShowcases: PromptShowcase[] = [
     promptBreakdown: [
       { label: "用途", labelEn: "Use Case", value: "创业者专访、杂志封面、品牌人物稿", valueEn: "Founder interviews, magazine covers, brand portraits" },
       { label: "构图", labelEn: "Composition", value: "留白可放标题，人物居中偏侧，安全排版区", valueEn: "Typography-safe composition with usable whitespace" },
-      { label: "质感", labelEn: "Texture", value: "胶片颗粒、真实皮肤、现代订制感", valueEn: "Film grain, realistic skin, tailored editorial polish" },
-    ],
+      { label: "质感", labelEn: "Texture", value: "胶片颗粒、真实皮肤、现代订制感", valueEn: "Film grain, realistic skin, tailored editorial polish" }],
     parameters: [
       { label: "模型", labelEn: "Model", value: "GPT Image" },
-      { label: "场景建议", labelEn: "Scene Tips", value: "背景尽量简洁，突出人物与光线", valueEn: "Keep the background clean and let the light define the subject" },
-    ],
+      { label: "场景建议", labelEn: "Scene Tips", value: "背景尽量简洁，突出人物与光线", valueEn: "Keep the background clean and let the light define the subject" }],
     useCase: "适合个人品牌、创业者故事页和采访专题封面。",
     useCaseEn: "Ideal for personal branding, founder stories, and interview landing pages.",
     model: "GPT Image",
@@ -270,18 +231,16 @@ const basePromptShowcases: PromptShowcase[] = [
     promptBreakdown: [
       { label: "主体", labelEn: "Subject", value: "玻璃护肤瓶 + 石材台面", valueEn: "Glass skincare bottle on stone surface" },
       { label: "氛围", labelEn: "Mood", value: "晨光、清洁、疗愈、高级感", valueEn: "Morning light, clean, calming, premium" },
-      { label: "细节", labelEn: "Detail", value: "水珠、反光、微距质感", valueEn: "Water droplets, reflections, macro texture" },
-    ],
+      { label: "细节", labelEn: "Detail", value: "水珠、反光、微距质感", valueEn: "Water droplets, reflections, macro texture" }],
     parameters: [
       { label: "模型", labelEn: "Model", value: "Flux / Flux Pro" },
-      { label: "适用比例", labelEn: "Aspect Ratio", value: "4:5 或 1:1" },
-    ],
+      { label: "适用比例", labelEn: "Aspect Ratio", value: "4:5 或 1:1" }],
     useCase: "适合护肤、美妆、香氛和生活方式品牌商品图。",
     useCaseEn: "Great for skincare, beauty, fragrance, and lifestyle product imagery.",
     model: "Flux",
     platform: ["Black Forest Labs", "Replicate"],
     difficulty: "intermediate",
-    similarPromptIds: ["dalle-product", "stable-diffusion-guide", "midjourney-landscape"],
+    similarPromptIds: ["dalle-product", "midjourney-landscape"],
     seoDescription: "Flux 产品场景提示词示例，适合高端商品图和生活方式视觉。",
     seoDescriptionEn: "Flux product scene prompt for premium product visuals and lifestyle creatives.",
   },
@@ -294,12 +253,10 @@ const basePromptShowcases: PromptShowcase[] = [
     promptBreakdown: [
       { label: "字标", labelEn: "Wordmark", value: "强调 kerning、字体精度和识别度", valueEn: "Focus on kerning, precision, and readability" },
       { label: "品牌语气", labelEn: "Brand Tone", value: "开发者工具、现代、冷静、清晰", valueEn: "Modern, calm, clear developer-tooling tone" },
-      { label: "变体", labelEn: "Variants", value: "字标 + monogram + favicon 方向", valueEn: "Wordmark, monogram, and favicon directions" },
-    ],
+      { label: "变体", labelEn: "Variants", value: "字标 + monogram + favicon 方向", valueEn: "Wordmark, monogram, and favicon directions" }],
     parameters: [
       { label: "适合模型", labelEn: "Best Fit", value: "Ideogram 2.0" },
-      { label: "输出要求", labelEn: "Output Ask", value: "请生成 3 个字标方向和 1 个图标方向", valueEn: "Ask for 3 wordmark concepts and 1 icon concept" },
-    ],
+      { label: "输出要求", labelEn: "Output Ask", value: "请生成 3 个字标方向和 1 个图标方向", valueEn: "Ask for 3 wordmark concepts and 1 icon concept" }],
     useCase: "适合开发者产品、AI 工具和 B2B SaaS 品牌命名字标探索。",
     useCaseEn: "Useful for devtools, AI products, and B2B SaaS naming/logo exploration.",
     model: "Ideogram",
@@ -320,13 +277,11 @@ const basePromptShowcases: PromptShowcase[] = [
     promptBreakdown: [
       { label: "场景", labelEn: "Scene", value: "山中日式村落 + 晨雾 + 樱花飘落", valueEn: "Mountain village, morning fog, drifting blossoms" },
       { label: "镜头", labelEn: "Camera", value: "航拍下降后转为向前推进", valueEn: "Aerial descent transitioning into a forward glide" },
-      { label: "氛围", labelEn: "Mood", value: "宁静、电影感、呼吸感", valueEn: "Peaceful, cinematic, breathable pacing" },
-    ],
+      { label: "氛围", labelEn: "Mood", value: "宁静、电影感、呼吸感", valueEn: "Peaceful, cinematic, breathable pacing" }],
     timeline: [
       { stage: "开场", stageEn: "Opening", detail: "云雾中俯冲，先露出山体和村庄轮廓", detailEn: "Descend through mist to reveal the valley and village silhouette" },
       { stage: "中段", stageEn: "Middle", detail: "镜头推进到街道，樱花与建筑形成纵深", detailEn: "Push into the streets with blossoms creating depth" },
-      { stage: "结尾", stageEn: "Ending", detail: "保持慢节奏收尾，停留在安静生活感", detailEn: "Land on a quiet, lived-in atmosphere with a gentle ending" },
-    ],
+      { stage: "结尾", stageEn: "Ending", detail: "保持慢节奏收尾，停留在安静生活感", detailEn: "Land on a quiet, lived-in atmosphere with a gentle ending" }],
     useCase: "适合旅游宣传片、氛围感短片和故事片头镜头。",
     useCaseEn: "Great for travel ads, mood films, and cinematic opening shots.",
     sourceName: "OpenAI Sora prompting guidance",
@@ -352,13 +307,11 @@ const basePromptShowcases: PromptShowcase[] = [
     promptBreakdown: [
       { label: "主角动作", labelEn: "Character Motion", value: "人物基本静止，只保留头发和服装受风摆动", valueEn: "Keep the subject mostly still and let wind drive subtle motion" },
       { label: "镜头语言", labelEn: "Camera Motion", value: "缓慢环绕，增强空间和情绪", valueEn: "Use a slow orbit to add spatial emotion" },
-      { label: "转场", labelEn: "Transition", value: "由实景溶解为粒子，制造梦境感", valueEn: "Dissolve the scene into particles for a dreamlike shift" },
-    ],
+      { label: "转场", labelEn: "Transition", value: "由实景溶解为粒子，制造梦境感", valueEn: "Dissolve the scene into particles for a dreamlike shift" }],
     timeline: [
       { stage: "起始画面", stageEn: "Opening Frame", detail: "先交代夕阳麦田与人物静态站姿", detailEn: "Establish the sunset field and subject pose first" },
       { stage: "运动过程", stageEn: "Motion Phase", detail: "环绕镜头配合风动，让画面有呼吸感", detailEn: "Let orbit and wind create gentle movement" },
-      { stage: "视觉高潮", stageEn: "Peak", detail: "人物与环境转化为光粒，完成情绪升华", detailEn: "Transform the subject and scene into glowing particles" },
-    ],
+      { stage: "视觉高潮", stageEn: "Peak", detail: "人物与环境转化为光粒，完成情绪升华", detailEn: "Transform the subject and scene into glowing particles" }],
     useCase: "适合品牌短片、MV 氛围镜头和视觉实验片段。",
     useCaseEn: "Works well for branded shorts, music video moods, and visual experiments.",
     sourceName: "Runway inspiration patterns",
@@ -381,13 +334,11 @@ const basePromptShowcases: PromptShowcase[] = [
     promptBreakdown: [
       { label: "钩子", labelEn: "Hook", value: "前 3 秒用痛点或反差抓注意力", valueEn: "Use pain or contrast in the first 3 seconds" },
       { label: "结构", labelEn: "Structure", value: "问题 -> 转折 -> 解决方案 -> CTA", valueEn: "Problem -> twist -> solution -> CTA" },
-      { label: "镜头", labelEn: "Shot List", value: "文案、画面、动作提示要一起给出", valueEn: "Pair captions, visuals, and actions in the same script" },
-    ],
+      { label: "镜头", labelEn: "Shot List", value: "文案、画面、动作提示要一起给出", valueEn: "Pair captions, visuals, and actions in the same script" }],
     timeline: [
       { stage: "0-3 秒", stageEn: "0-3s", detail: "夸张展示低效工作状态", detailEn: "Show the pain point with exaggerated inefficiency" },
       { stage: "3-15 秒", stageEn: "3-15s", detail: "引出产品并给出 1 个最爽的使用瞬间", detailEn: "Reveal the product and show the most satisfying moment" },
-      { stage: "15-30 秒", stageEn: "15-30s", detail: "完成展示后收束到互动 CTA", detailEn: "Close with a save/comment CTA after the core demo" },
-    ],
+      { stage: "15-30 秒", stageEn: "15-30s", detail: "完成展示后收束到互动 CTA", detailEn: "Close with a save/comment CTA after the core demo" }],
     useCase: "适合抖音、小红书、Reels、Shorts 的脚本起草。",
     useCaseEn: "Useful for TikTok, Reels, Shorts, and Xiaohongshu scripting.",
     model: "GPT-4 / Claude",
@@ -408,13 +359,11 @@ const basePromptShowcases: PromptShowcase[] = [
     promptBreakdown: [
       { label: "主体", labelEn: "Subject", value: "高端电车 + 夜晚城市霓虹", valueEn: "Premium EV in a neon city at night" },
       { label: "镜头运动", labelEn: "Motion", value: "低机位跟拍 + 细节特写切换", valueEn: "Low-angle tracking with detail cut-ins" },
-      { label: "广告感", labelEn: "Ad Language", value: "反光、速度感、节奏克制", valueEn: "Reflections, speed, and controlled pacing" },
-    ],
+      { label: "广告感", labelEn: "Ad Language", value: "反光、速度感、节奏克制", valueEn: "Reflections, speed, and controlled pacing" }],
     timeline: [
       { stage: "开场", stageEn: "Opening", detail: "先用低机位跟车建立速度和质感", detailEn: "Open with a low-angle tracking shot for speed and materiality" },
       { stage: "中段", stageEn: "Middle", detail: "插入灯组与车身反光特写", detailEn: "Cut into headlights and body reflections" },
-      { stage: "收尾", stageEn: "Ending", detail: "车驶离画面，保留尾灯与城市气氛", detailEn: "Let the car leave frame, ending on taillights and city mood" },
-    ],
+      { stage: "收尾", stageEn: "Ending", detail: "车驶离画面，保留尾灯与城市气氛", detailEn: "Let the car leave frame, ending on taillights and city mood" }],
     useCase: "适合汽车广告、数码产品宣传和质感型品牌短片。",
     useCaseEn: "Great for auto ads, tech product campaigns, and premium brand films.",
     model: "Kling",
@@ -436,8 +385,7 @@ const basePromptShowcases: PromptShowcase[] = [
     promptBreakdown: [
       { label: "场景颗粒度", labelEn: "Scene Granularity", value: "不要只写办公室，要拆成键盘、咖啡、屏幕、手部动作", valueEn: "Break 'office' into keyboard, coffee, screen, and hand actions" },
       { label: "镜头节奏", labelEn: "Pacing", value: "多个慢速 push-in 和 close-up 组合", valueEn: "Use several slow push-ins and close-up inserts" },
-      { label: "情绪", labelEn: "Mood", value: "安静但有野心，适合 SaaS 或创业者叙事", valueEn: "Quiet but ambitious, good for SaaS founder storytelling" },
-    ],
+      { label: "情绪", labelEn: "Mood", value: "安静但有野心，适合 SaaS 或创业者叙事", valueEn: "Quiet but ambitious, good for SaaS founder storytelling" }],
     useCase: "适合产品宣传片、创业者访谈、SaaS 官网品牌视频。",
     useCaseEn: "Perfect for product films, founder interviews, and SaaS brand videos.",
     model: "Sora / Runway / Kling",
@@ -458,13 +406,11 @@ const basePromptShowcases: PromptShowcase[] = [
     promptBreakdown: [
       { label: "信息密度", labelEn: "Information Density", value: "8 秒内只讲一个爽点，不要塞太多功能", valueEn: "In 8 seconds, sell one satisfying moment rather than many features" },
       { label: "转场", labelEn: "Transition", value: "先 glitch 再 clean，适合工具类新品预告", valueEn: "Use a glitch-to-clean transition for tool launches" },
-      { label: "收尾", labelEn: "Ending", value: "品牌名 + 日期 + CTA", valueEn: "End with product name, date, and CTA" },
-    ],
+      { label: "收尾", labelEn: "Ending", value: "品牌名 + 日期 + CTA", valueEn: "End with product name, date, and CTA" }],
     timeline: [
       { stage: "前 2 秒", stageEn: "First 2s", detail: "用暗场 + UI 点亮制造期待", detailEn: "Open dark and light up the UI to build anticipation" },
       { stage: "中段", stageEn: "Middle", detail: "展示最强功能的高能瞬间", detailEn: "Show the strongest feature in a punchy moment" },
-      { stage: "结尾", stageEn: "Ending", detail: "落到产品名和发布时间", detailEn: "Land on the product name and release date" },
-    ],
+      { stage: "结尾", stageEn: "Ending", detail: "落到产品名和发布时间", detailEn: "Land on the product name and release date" }],
     useCase: "适合 Product Hunt、X、独立开发者新品预告和官网首屏动效参考。",
     useCaseEn: "Useful for Product Hunt, X, indie launch teasers, and website hero motion references.",
     model: "Runway / Kling / Sora",
@@ -474,8 +420,7 @@ const basePromptShowcases: PromptShowcase[] = [
     similarPromptIds: ["video-script", "kling-cinematic-ad", "cinematic-broll-generator"],
     seoDescription: "产品预告视频提示词，适合新品发布、AI 工具营销视频和首屏动效灵感。",
     seoDescriptionEn: "Product teaser video prompt for launches, AI tool marketing clips, and hero motion inspiration.",
-  },
-];
+  }];
 
 const difficultyCycle: PromptShowcase['difficulty'][] = ['beginner', 'intermediate', 'advanced'];
 
@@ -498,14 +443,12 @@ const annotatorShowcases: PromptShowcase[] = annotatorPromptSeeds
         url: seed.image!,
         alt: seed.title,
         altEn: seed.titleEn,
-      },
-    ],
+      }],
     promptFull: seed.prompt,
     promptFullEn: seed.prompt,
     promptBreakdown: [
       { label: '分类', labelEn: 'Category', value: seed.categoryName, valueEn: seed.categoryNameEn },
-      { label: '作者', labelEn: 'Author', value: seed.author, valueEn: seed.author },
-    ],
+      { label: '作者', labelEn: 'Author', value: seed.author, valueEn: seed.author }],
     useCase: `用于 ${seed.categoryName} 方向的图像生成参考`,
     useCaseEn: `Reference prompt for ${seed.categoryNameEn} generation`,
     model: 'GPT Image 2',
@@ -522,8 +465,7 @@ const annotatorShowcases: PromptShowcase[] = annotatorPromptSeeds
 
 export const promptShowcases: PromptShowcase[] = [
   ...basePromptShowcases,
-  ...annotatorShowcases,
-];
+  ...annotatorShowcases];
 
 export function getPromptShowcaseById(id: string) {
   return promptShowcases.find((showcase) => showcase.id === id);

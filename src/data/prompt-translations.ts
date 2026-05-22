@@ -109,24 +109,6 @@ Prompt template:
 Example:
 Breathtaking mountain landscape with snow-capped peaks, dramatic golden hour light breaking through clouds, atmospheric mist in the valley, cinematic wide-angle composition, shot on Sony A7R IV, 16-35mm lens, HDR processing, 8K ultra detailed, --ar 16:9 --v 6 --style raw`,
 
-  "stable-diffusion-guide": `You are a Stable Diffusion prompt expert. Please generate prompts based on the following requirements:
-
-Image type: [Portrait/Landscape/Product/Concept art/UI design]
-Style: [Realistic/Anime/Oil painting/Watercolor/3D render]
-Quality requirements: [Resolution/Detail level/Artistic feel]
-
-Stable Diffusion prompt structure:
-1. Subject description
-2. Style tags
-3. Artist reference
-4. Technical parameters
-5. Negative prompts
-
-Example:
-Positive: (masterpiece, best quality, highres:1.2), 1girl, beautiful face, detailed eyes, long flowing hair, wearing elegant dress, standing in flower garden, soft sunlight, intricate details, dreamy atmosphere, art by Greg Rutkowski and Alphonse Mucha
-
-Negative: (low quality, worst quality:1.4), blurry, distorted, ugly, bad anatomy, bad hands, text, watermark, signature`,
-
   "dalle-product": `You are a DALL-E product photography expert. Please generate product image prompts:
 
 Product type: [Electronics/Cosmetics/Food/Jewelry/Accessories]
