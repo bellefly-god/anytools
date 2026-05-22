@@ -1,3 +1,5 @@
+import { annotatorPromptSeeds } from '@/data/annotators';
+
 // AI 提示词分类
 export const promptCategories = [
   {
@@ -92,6 +94,35 @@ export interface Prompt {
   createdAt: string;
   updatedAt?: string;
 }
+
+
+
+const annotatorAsPrompts: Prompt[] = annotatorPromptSeeds.map((seed) => ({
+  id: seed.id,
+  title: seed.title,
+  titleEn: seed.titleEn,
+  description: seed.description,
+  descriptionEn: seed.descriptionEn,
+  content: seed.prompt,
+  contentEn: seed.prompt,
+  category: 'image',
+  tags: seed.tags.filter((tag) => tag !== 'annotators' && tag !== 'x-thread'),
+  model: 'GPT Image 2',
+  author: seed.author,
+  examples: seed.image
+    ? [
+        {
+          image: seed.image,
+          prompt: seed.prompt,
+          result: `${seed.categoryName} 分类示例图`,
+        },
+      ]
+    : undefined,
+  featured: false,
+  hot: true,
+  createdAt: '2026-05-21',
+  updatedAt: '2026-05-21',
+}));
 
 export const prompts: Prompt[] = [
   // ===== 文本写作 =====
@@ -1992,6 +2023,7 @@ Please output:
     createdAt: '2026-05-18',
     updatedAt: '2026-05-18',
   },
+  ...annotatorAsPrompts,
 ];
 
 // 辅助函数

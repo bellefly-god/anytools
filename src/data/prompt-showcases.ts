@@ -1,3 +1,5 @@
+import { annotatorPromptSeeds } from '@/data/annotators';
+
 export type PromptMediaType = "image" | "video" | "text" | "audio" | "code";
 
 export interface PromptMedia {
@@ -82,7 +84,7 @@ const sampleVideoB = "https://interactive-examples.mdn.mozilla.net/media/cc0-vid
 const sampleVideoC = "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4";
 const sampleVideoD = "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4";
 
-export const promptShowcases: PromptShowcase[] = [
+const basePromptShowcases: PromptShowcase[] = [
   {
     id: "midjourney-portrait",
     mediaType: "image",
@@ -473,6 +475,54 @@ export const promptShowcases: PromptShowcase[] = [
     seoDescription: "产品预告视频提示词，适合新品发布、AI 工具营销视频和首屏动效灵感。",
     seoDescriptionEn: "Product teaser video prompt for launches, AI tool marketing clips, and hero motion inspiration.",
   },
+];
+
+const difficultyCycle: PromptShowcase['difficulty'][] = ['beginner', 'intermediate', 'advanced'];
+
+const annotatorShowcases: PromptShowcase[] = annotatorPromptSeeds
+  .filter((seed) => Boolean(seed.image))
+  .map((seed, index) => ({
+    id: seed.id,
+    mediaType: 'image',
+    cover: {
+      type: 'image',
+      url: seed.image!,
+      alt: seed.title,
+      altEn: seed.titleEn,
+      caption: '',
+      captionEn: '',
+    },
+    gallery: [
+      {
+        type: 'image',
+        url: seed.image!,
+        alt: seed.title,
+        altEn: seed.titleEn,
+      },
+    ],
+    promptFull: seed.prompt,
+    promptFullEn: seed.prompt,
+    promptBreakdown: [
+      { label: '分类', labelEn: 'Category', value: seed.categoryName, valueEn: seed.categoryNameEn },
+      { label: '作者', labelEn: 'Author', value: seed.author, valueEn: seed.author },
+    ],
+    useCase: `用于 ${seed.categoryName} 方向的图像生成参考`,
+    useCaseEn: `Reference prompt for ${seed.categoryNameEn} generation`,
+    model: 'GPT Image 2',
+    platform: ['X', 'GPT Image 2'],
+    difficulty: difficultyCycle[index % difficultyCycle.length],
+    featuredOnHome: index < 6,
+    similarPromptIds: annotatorPromptSeeds
+      .filter((item) => item.categoryId === seed.categoryId && item.id !== seed.id)
+      .slice(0, 3)
+      .map((item) => item.id),
+    seoDescription: `${seed.categoryName} 提示词案例，包含原始提示词与参考图。`,
+    seoDescriptionEn: `${seed.categoryNameEn} prompt example with source prompt and reference image.`,
+  }));
+
+export const promptShowcases: PromptShowcase[] = [
+  ...basePromptShowcases,
+  ...annotatorShowcases,
 ];
 
 export function getPromptShowcaseById(id: string) {
